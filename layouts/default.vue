@@ -1,20 +1,83 @@
 <template>
-  <div>
-    <Nuxt />
+  <div :class="namePage()" class="page">
+    <o-header/>
+    <nuxt/>
+    <o-footer/>
   </div>
 </template>
 
-<style>
+<script>
+import { mapMutations } from 'vuex'
+
+export default
+{ 
+    methods:
+    {
+        ...mapMutations([
+          'controlDevice',
+          'controlNavigator',
+          'controlAspect'
+        ]),
+        _initControls() 
+        {
+          this.controlDevice();
+          this.controlNavigator();
+          this.controlAspect();
+        },
+        _initEvents() 
+        {
+            window.addEventListener('resize', this._onResize);
+            window.addEventListener('scroll', this._onScroll);
+        },
+        _initUpdate()
+        {
+            this._onUpdate();
+        },
+        _removeEvents()
+        {
+            window.removeEventListener('resize', this._onResize);
+            window.removeEventListener('scroll', this._onScroll);
+        },
+        _removeUpdate()
+        {
+            window.cancelAnimationFrame(this._onUpdate);
+        },
+        _onResize() 
+        {
+            this.$nuxt.$emit('resize');
+            this.controlAspect();
+        },
+        _onScroll()
+        {
+            this.$nuxt.$emit('scroll');
+        },
+        _onUpdate()
+        {
+            window.requestAnimationFrame(this._onUpdate);
+            this.$nuxt.$emit('update');
+        },
+        namePage() {
+          let page = this.$route.name == 'index' ? 'home' : this.$route.name;
+          return `p-${page}`;
+        }
+    },
+    mounted()
+    {
+      this._initControls();
+      this._initEvents();
+      this._initUpdate();
+    },
+    destroyed()
+    {
+      this._removeEvents();
+      this._removeUpdate();
+    }
+}
+</script>
+
+<style lang="scss">
 html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -24,39 +87,15 @@ html {
   box-sizing: border-box;
 }
 
+html, body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
 *,
-*::before,
-*::after {
+*:before,
+*:after {
   box-sizing: border-box;
   margin: 0;
-}
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
 }
 </style>
