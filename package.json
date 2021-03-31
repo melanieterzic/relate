@@ -3,15 +3,18 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "dev": "NODE_ENV=dev nuxt",
+    "preproduction": "NODE_ENV=preprod nuxt generate",
+    "production": "NODE_ENV=prod nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/style-resources": "^1.0.0",
+    "axios": "^0.21.0",
     "core-js": "^3.9.1",
+    "node-sass": "^5.0.0",
     "nuxt": "^2.15.3",
-    "sass": "^1.32.8"
+    "sass": "^1.29.0",
+    "sass-loader": "^10.1.1"
   },
   "devDependencies": {
     "prettier": "2.2.1"
