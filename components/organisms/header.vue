@@ -7,6 +7,11 @@
                         <span>Relate</span>
                     </nuxt-link>
                 </li>
+                <li>
+                    <nuxt-link to="/rd-figma">
+                        <span>Relate</span>
+                    </nuxt-link>
+                </li>
             </ul>
         </div>
     </header>
