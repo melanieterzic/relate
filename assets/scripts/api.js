@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export default class Api {
     constructor(opts) {
+        // console.log(axios)
 		this.apiURL = opts.url;
 		this.apiKey = opts.key;
 
