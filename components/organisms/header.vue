@@ -9,7 +9,12 @@
                 </li>
                 <li>
                     <nuxt-link to="/rd-figma">
-                        <span>Relate</span>
+                        <span>RD-Figma</span>
+                    </nuxt-link>
+                </li>
+                <li>
+                    <nuxt-link to="/rd-virtualScroll">
+                        <span>RD-VirtualScroll</span>
                     </nuxt-link>
                 </li>
             </ul>

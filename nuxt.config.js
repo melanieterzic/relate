@@ -42,7 +42,10 @@ export default {
   },
   // PLUGINS
   plugins: [
-    { src: '~/plugins/api.js' }
+    { src: '~/plugins/api.js' },
+    { src: '~/plugins/gsap.js' },
+    { src: '~/plugins/virtualScrollBis.js'},
+    { src: '~/plugins/virtualScroll.js', mode: 'client' }
   ],
   // LOADING
   loading: '~/components/templates/loading.vue',

@@ -148,7 +148,7 @@ export default {
             }
         },
         setFontSize() {
-            this.$data.fontSize = this.getPercentResizeValue(this.$props.datas.fontSize);
+            this.$data.fontSize = this.getPercentResizeValue(this.$props.datas.fontSize) - 1;
         },
         setLetterSpacing() {
             const value = this.$props.datas.letterSpacing;

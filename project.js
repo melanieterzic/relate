@@ -10,7 +10,7 @@ const project = {
     },
     'env': {
         'dev': {
-			'siteURL': 'http://192.168.1.43',
+			'siteURL': 'http://192.168.1.8',
             'baseURL': '',
             'apiURL': '',
             'portURL': '8000'
