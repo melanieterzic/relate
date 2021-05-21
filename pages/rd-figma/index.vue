@@ -17,7 +17,6 @@ export default {
     }
   },  
   mounted() {
-    console.log(this.getStory(0))
     // let bytes = content.children[0].children[1].children[0].children[0].bytes;
     // bytes = Uint8Array.from(Object.values(bytes));
     // document.getElementById("ItemPreview").src = URL.createObjectURL(
