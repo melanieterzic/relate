@@ -17,6 +17,11 @@
                         <span>RD-VirtualScroll</span>
                     </nuxt-link>
                 </li>
+                <li>
+                    <nuxt-link to="/rd-integrationprototype">
+                        <span>RD-IntegrationPrototype</span>
+                    </nuxt-link>
+                </li>
             </ul>
         </div>
     </header>

@@ -74,10 +74,10 @@
         v-else-if="datas.tag === 'img' || datas.tag === 'svg'" :src="url"
         :style="`
             position: absolute;
-            top: ${bounding.y.percent}vw;
-            left: ${bounding.x.percent}vw;
-            width: ${bounding.width.percent}vw;
-            height: ${bounding.height.percent}vw;
+            top: ${datas.position.y * 100 / defaultWidth}vw;
+            left: ${datas.position.x * 100 / defaultWidth}vw;
+            width: ${datas.width * 100 / defaultWidth}vw;
+            height: ${datas.height * 100 / defaultWidth}vw;
         `"
     />
 </template>
