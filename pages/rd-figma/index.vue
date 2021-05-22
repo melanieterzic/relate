@@ -15,7 +15,7 @@ export default {
       });
       return stories[index];
     }
-  },  
+  },
   mounted() {
     // let bytes = content.children[0].children[1].children[0].children[0].bytes;
     // bytes = Uint8Array.from(Object.values(bytes));

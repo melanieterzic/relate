@@ -5,7 +5,7 @@
             position: relative;
             width: ${bounding.width.percent}vw;
             height: ${bounding.height.percent}vw;
-            background-color: rgb(${datas.backgroundColor ? datas.backgroundColor.r : 255}, ${datas.backgroundColor ? datas.backgroundColor.g : 255}, ${datas.backgroundColor ? datas.backgroundColor.b : 255});
+            ${datas.backgroundColor && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
         `"
     >
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
@@ -14,8 +14,8 @@
         v-else-if="datas.tag === 'section'"
         :style="`
             width: ${bounding.width.percent}vw;
-            height: ${bounding.height.percent}vw;
-            background-color: rgb(${datas.backgroundColor ? datas.backgroundColor.r : 255}, ${datas.backgroundColor ? datas.backgroundColor.g : 255}, ${datas.backgroundColor ? datas.backgroundColor.b : 255});
+            height: ${bounding.height.percent}vw;            
+            ${datas.backgroundColor && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
         `"
     >
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
@@ -29,7 +29,7 @@
             left: ${bounding.x.percent}vw;
             width: ${bounding.width.percent}vw;
             height: ${bounding.height.percent}vw;
-            background-color: rgb(${datas.backgroundColor ? datas.backgroundColor.r : 255}, ${datas.backgroundColor ? datas.backgroundColor.g : 255}, ${datas.backgroundColor ? datas.backgroundColor.b : 255});
+            ${datas.backgroundColor && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
         `"
     >
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
@@ -208,6 +208,9 @@ export default {
         }
     },  
     mounted() {
+        if (this.$props.datas.tag === 'div') {
+            console.log(this.$props.datas)
+        }
         this.setBounding();
         if (this.$props.datas.tag === 'img' || this.$props.datas.tag === 'svg') {
             this.setUrlImg();

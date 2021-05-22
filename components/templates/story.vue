@@ -6,6 +6,9 @@
 export default {
     props: {
         story: { required: true }
+    },
+    mounted() {
+        console.log(this.$createElement)
     }
 }
 </script>
