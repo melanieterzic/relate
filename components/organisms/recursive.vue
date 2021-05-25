@@ -34,6 +34,42 @@
     >
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
     </div>
+    <div 
+        v-else-if="datas.tag === 'overlay'" 
+        :class="datas.name" class="container"
+        v-on:click="okok"
+        :style="`
+            position: absolute;
+            top: ${bounding.y.percent}vw;
+            left: ${bounding.x.percent}vw;
+            width: ${bounding.width.percent}vw;
+            height: ${bounding.height.percent}vw;
+            ${datas.backgroundColor && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
+        `"
+    >
+        <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
+    </div>
+    <div 
+        v-else-if="datas.tag === 'modal'" 
+        :class="datas.name" class="container"
+        :style="`
+            position: absolute;
+            top: 0vw;
+            left: 0vw;
+            width: ${bounding.width.percent}vw;
+            height: ${bounding.height.percent}vw;
+            ${datas.backgroundColor && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
+        `"
+    >
+        <p>{{datas.children}}</p>
+        <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
+    </div>
+    <nuxt-link 
+        v-else-if="datas.tag === 'link'" 
+        :to="datas.to"
+    >
+        <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
+    </nuxt-link>
     <h2 
         v-else-if="datas.tag === 'h2'"
         :style="`
@@ -101,6 +137,7 @@ export default {
     },
     data() {
         return {
+            isActive: false,
             defaultWidth: 300,
             defaultHeight: 2160,
             url: undefined,
@@ -132,6 +169,9 @@ export default {
         }
     },
     methods: {
+        okok() {
+            this.$data.isActive = true;
+        },
         setUrlImg() {
             let bytes = this.$props.datas.bytes; 
             const format = this.$props.datas.format;
@@ -208,7 +248,7 @@ export default {
         }
     },  
     mounted() {
-        if (this.$props.datas.tag === 'div') {
+        if (this.$props.datas.tag === 'link') {
             console.log(this.$props.datas)
         }
         this.setBounding();
