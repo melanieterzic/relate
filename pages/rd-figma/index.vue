@@ -15,7 +15,11 @@ export default {
       });
       return stories[index];
     }
+<<<<<<< HEAD
   },  
+=======
+  },
+>>>>>>> origin/rd-integrationPrototype
   mounted() {
     // let bytes = content.children[0].children[1].children[0].children[0].bytes;
     // bytes = Uint8Array.from(Object.values(bytes));
@@ -113,4 +117,8 @@ export default {
 </script>
 
 <style lang="scss">
+<<<<<<< HEAD
+=======
+@import url('https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap');
+>>>>>>> origin/rd-integrationPrototype
 </style>

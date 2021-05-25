@@ -42,7 +42,10 @@ export default {
   },
   // PLUGINS
   plugins: [
-    { src: '~/plugins/api.js' }
+    { src: '~/plugins/api.js' },
+    { src: '~/plugins/gsap.js' },
+    { src: '~/plugins/virtualScrollBis.js'},
+    { src: '~/plugins/virtualScroll.js', mode: 'client' }
   ],
   // LOADING
   loading: '~/components/templates/loading.vue',
@@ -103,4 +106,16 @@ export default {
     routes: [],
     fallback: '404.html'
   },
+  // BUILD
+  build: {
+    extend(config, ctx) {
+      config.module.rules.push({
+        test: /\.(ogg|mp3|wav|mpe?g)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]'
+        }
+      })
+    }
+  }
 }

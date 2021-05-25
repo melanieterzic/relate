@@ -1,8 +1,8 @@
 <template>
   <div :class="namePage()" class="page">
-    <o-header />
-    <nuxt />
-    <o-footer />
+    <!-- <o-header/> -->
+    <nuxt/>
+    <!-- <o-footer/> -->
   </div>
 </template>
 
