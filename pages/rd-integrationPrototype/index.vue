@@ -163,18 +163,14 @@ export default {
       sounds.forEach(sound => {
         const el = sound;
         const indexSound = sound.dataset.soundIndex;
-        let soundSrc = "";
-        // if (indexSound === "1") {
-        //   soundSrc = require(`~/assets/sounds/${indexSound}.mp3`).default;
-        // } else {
-          soundSrc = require(`~/assets/sounds/${indexSound}.wav`).default;
-        // }
-        // const soundSrc = require(`~/assets/sounds/${indexSound}.mp3`).default;
+        const soundSrc = require(`~/assets/sounds/${indexSound}.wav`).default;
         const soundAudio = new Audio(soundSrc);
         this.$data.soundsAudio.push(soundAudio);
       });
+      this.$data.timelines = [];
       sounds.forEach(sound => {
-      this.$gsap.to(sound, {
+      this.$data.to.push(
+        this.$gsap.to(sound, {
           scrollTrigger: {
             trigger: sound,
             start: "20px 80%",
@@ -195,20 +191,43 @@ export default {
             },
           },
           duration: 3,
-        });
+        }));
+      });
+      this.$data.timelines.forEach(timeline => {
+        timeline.scrollTrigger.enable();
+      })
+    },
+    load() {
+      const sounds = this.$el.querySelectorAll('.sound');
+      this.assetsLoad = sounds.length;
+      this.$data.soundsAudio = [];
+      sounds.forEach(sound => {
+        const el = sound;
+        const indexSound = sound.dataset.soundIndex;
+        let soundSrc = "";
+        soundSrc = require(`~/assets/sounds/${indexSound}.wav`).default;
+        const soundAudio = new Audio(soundSrc);   
+        soundAudio.addEventListener('canplaythrough', () => {  
+          this.assetsLoad -= 1;
+          if (this.assetsLoad === 0) {
+            console.log('kokok')
+            window.addEventListener('click', this.toto)
+            this.$el.style.display = 'block';
+          }
+        }, false);
+        this.$data.soundsAudio.push(soundAudio);
       });
     },
     toto() {
+      console.log('ok')
       this.initializeTrigger();
       this.$store.commit("initializeSound");
-      window.removeEventListener("touchstart", this.toto)
+      window.removeEventListener("click", this.toto)
     }
   },  
   mounted() {
-    // this.initializeTrigger();
-    // this.$store.commit("initializeSound");
-    window.addEventListener('touchstart', this.toto)
-    // this.toto();
+    this.$el.style.display = 'none';
+    this.load();
   },
   watch: {
     '$store.state.isSoundEnabled' : function() {
@@ -226,7 +245,9 @@ export default {
     },
   },
   beforeDestroy() {
-    // this.$gsap.killTweensOf(".sound");
+    this.$data.timelines.forEach(timeline => {
+      timeline.scrollTrigger.disable();
+    });
     this.$data.soundsAudio.forEach(soundAudio => {
     soundAudio.pause();
     soundAudio.currentTime = 0;
