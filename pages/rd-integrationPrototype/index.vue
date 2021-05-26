@@ -164,11 +164,11 @@ export default {
         const el = sound;
         const indexSound = sound.dataset.soundIndex;
         let soundSrc = "";
-        if (indexSound === "1") {
-          soundSrc = require(`~/assets/sounds/${indexSound}.mp3`).default;
-        } else {
+        // if (indexSound === "1") {
+        //   soundSrc = require(`~/assets/sounds/${indexSound}.mp3`).default;
+        // } else {
           soundSrc = require(`~/assets/sounds/${indexSound}.wav`).default;
-        }
+        // }
         // const soundSrc = require(`~/assets/sounds/${indexSound}.mp3`).default;
         const soundAudio = new Audio(soundSrc);
         this.$data.soundsAudio.push(soundAudio);
@@ -201,13 +201,14 @@ export default {
     toto() {
       this.initializeTrigger();
       this.$store.commit("initializeSound");
-      window.removeEventListener("touchstart", this.toto)
+      // window.removeEventListener("touchstart", this.toto)
     }
   },  
   mounted() {
     // this.initializeTrigger();
     // this.$store.commit("initializeSound");
-    window.addEventListener('touchstart', this.toto)
+    // window.addEventListener('touchstart', this.toto)
+    this.toto();
   },
   watch: {
     '$store.state.isSoundEnabled' : function() {
@@ -225,7 +226,7 @@ export default {
     },
   },
   beforeDestroy() {
-    // this.$gsap.ScrollTrigger.kill();
+    this.$gsap.killTweensOf(".sound");
     this.$data.soundsAudio.forEach(soundAudio => {
     soundAudio.pause();
     soundAudio.currentTime = 0;
