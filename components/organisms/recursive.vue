@@ -16,6 +16,7 @@
             width: ${bounding.width.percent}vw;
             height: ${bounding.height.percent}vw;            
             ${datas.backgroundColor && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
+
         `"
     >
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
