@@ -1,7 +1,7 @@
 <template>
   <main>
   <nuxt-link to="/rd-integrationprototype">
-  <span>PLAY</span>
+  <span class="play">PLAY</span>
   </nuxt-link>
   <t-home :api="api" />
   </main>
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style lang="scss">
-  span {
+  .play {
     position: absolute;
     top: 50%;
     left: 50%;
