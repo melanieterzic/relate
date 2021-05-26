@@ -50,7 +50,8 @@ export const mutations = {
         localStorage.setItem('isSoundEnabled', state.isSoundEnabled);
     },
     initializeSound(state) {
-        const isSoundEnabled = JSON.parse(localStorage.getItem('isSoundEnabled'));
+        // const isSoundEnabled = JSON.parse(localStorage.getItem('isSoundEnabled'));
+        const isSoundEnabled = true;
         if(!isSoundEnabled) {
           state.isSoundEnabled = false;
           localStorage.setItem("isSoundEnabled", false);
