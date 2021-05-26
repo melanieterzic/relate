@@ -201,14 +201,14 @@ export default {
     toto() {
       this.initializeTrigger();
       this.$store.commit("initializeSound");
-      // window.removeEventListener("touchstart", this.toto)
+      window.removeEventListener("touchstart", this.toto)
     }
   },  
   mounted() {
     // this.initializeTrigger();
     // this.$store.commit("initializeSound");
-    // window.addEventListener('touchstart', this.toto)
-    this.toto();
+    window.addEventListener('touchstart', this.toto)
+    // this.toto();
   },
   watch: {
     '$store.state.isSoundEnabled' : function() {
@@ -226,7 +226,7 @@ export default {
     },
   },
   beforeDestroy() {
-    this.$gsap.killTweensOf(".sound");
+    // this.$gsap.killTweensOf(".sound");
     this.$data.soundsAudio.forEach(soundAudio => {
     soundAudio.pause();
     soundAudio.currentTime = 0;
