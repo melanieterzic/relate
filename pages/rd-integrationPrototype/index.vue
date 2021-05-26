@@ -163,7 +163,13 @@ export default {
       sounds.forEach(sound => {
         const el = sound;
         const indexSound = sound.dataset.soundIndex;
-        const soundSrc = require(`~/assets/sounds/${indexSound}.wav`).default;
+        let soundSrc = "";
+        if (indexSound === "1") {
+          soundSrc = require(`~/assets/sounds/${indexSound}.mp3`).default;
+        } else {
+          soundSrc = require(`~/assets/sounds/${indexSound}.wav`).default;
+        }
+        // const soundSrc = require(`~/assets/sounds/${indexSound}.mp3`).default;
         const soundAudio = new Audio(soundSrc);
         this.$data.soundsAudio.push(soundAudio);
       });
@@ -175,14 +181,14 @@ export default {
             end: "bottom 100px",
             toggleActions: "restart pause reverse pause",
             onEnter: self => {
-            this.$data.soundsAudio.forEach(soundAudio => {
-              soundAudio.pause();
-              soundAudio.currentTime = 0;
-              //console.log(soundAudio);
-            });
-            if(this.isSoundEnabled) {
-            this.$data.soundsAudio[self.trigger.dataset.soundIndex-1].play();
-            }
+              this.$data.soundsAudio.forEach(soundAudio => {
+                soundAudio.pause();
+                soundAudio.currentTime = 0;
+                //console.log(soundAudio);
+              });
+              if(this.isSoundEnabled) {
+              this.$data.soundsAudio[self.trigger.dataset.soundIndex-1].play();
+              }
 
             //console.log(soundsAudio[self.trigger.dataset.soundIndex-1]);
             //console.log(self.trigger.dataset.soundIndex);
@@ -191,18 +197,26 @@ export default {
           duration: 3,
         });
       });
+    },
+    toto() {
+      this.initializeTrigger();
+      this.$store.commit("initializeSound");
+      window.removeEventListener("touchstart", this.toto)
     }
   },  
   mounted() {
-    this.initializeTrigger();
-    this.$store.commit("initializeSound");
+    // this.initializeTrigger();
+    // this.$store.commit("initializeSound");
+    window.addEventListener('touchstart', this.toto)
   },
   watch: {
     '$store.state.isSoundEnabled' : function() {
+      if (this.$data.soundsAudio) {
       this.$data.soundsAudio.forEach(soundAudio => {
       soundAudio.pause();
       soundAudio.currentTime = 0;
       });
+      }
     }
   },
   computed: {

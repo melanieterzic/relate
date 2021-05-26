@@ -1,7 +1,7 @@
 <template>
   <main>
   <nuxt-link to="/rd-integrationprototype">
-  <span class="play">PLAY</span>
+    <span class="play">PLAY</span>
   </nuxt-link>
   <t-home :api="api" />
   </main>
@@ -12,6 +12,11 @@ export default {
   async asyncData({ app, $api }) {
     return await $api.get(app.context.route.name);
   },
+  mounted() {
+    this.$el.querySelector('.play').addEventListener('touchstart', ()=>{
+      console.log('ok');
+    })
+  }
 };
 </script>
 
