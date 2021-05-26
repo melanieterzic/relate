@@ -1,28 +1,5 @@
 <template>
-<<<<<<< HEAD
-  <header :class="$options._componentTag" class="component organism">
-    <div class="container c-header">
-      <ul>
-        <li>
-          <nuxt-link to="/">
-            <span>Relate</span>
-          </nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/rd-figma">
-            <span>Relate</span>
-          </nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/SoundTest">
-            <span>Audio</span>
-          </nuxt-link>
-        </li>
-      </ul>
-    </div>
-  </header>
-=======
-    <header :class="$options._componentTag" class="component organism">
+<header :class="$options._componentTag" class="component organism">
         <div class="container c-header">
             <ul>
                 <li>
@@ -48,7 +25,6 @@
             </ul>
         </div>
     </header>
->>>>>>> origin/rd-integrationPrototype
 </template>
 
 <script>

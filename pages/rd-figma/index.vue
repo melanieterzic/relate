@@ -1,25 +1,22 @@
 <template>
-  <t-story :story="getStory(0)"/>
+<p></p>
+  <!-- <t-story :story="getStory(0)"/> -->
 </template>
 
 <script>
-import content from '~/assets/datas/content.json';
+//import content from '~/assets/datas/content.json';
 export default {
-  methods: {
-    getStory(index) {
-      const stories = [];
-      content.children.forEach(child => {
-        if (child.name === "story") {
-          stories.push(child);
-        }
-      });
-      return stories[index];
-    }
-<<<<<<< HEAD
-  },  
-=======
-  },
->>>>>>> origin/rd-integrationPrototype
+  // methods: {
+  //   getStory(index) {
+  //     const stories = [];
+  //     content.children.forEach(child => {
+  //       if (child.name === "story") {
+  //         stories.push(child);
+  //       }
+  //     });
+  //     return stories[index];
+  //   }
+  // },
   mounted() {
     // let bytes = content.children[0].children[1].children[0].children[0].bytes;
     // bytes = Uint8Array.from(Object.values(bytes));
@@ -117,8 +114,5 @@ export default {
 </script>
 
 <style lang="scss">
-<<<<<<< HEAD
-=======
 @import url('https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap');
->>>>>>> origin/rd-integrationPrototype
 </style>

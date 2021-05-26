@@ -26,16 +26,5 @@ export default {
 </script>
 
 <style lang="scss">
-.btn-setting {
-  position: absolute;
-  z-index: 99;
-  width: 20px;
-  height: 20px;
-  right: 0;
-  margin-top: -40px;
-  margin-right: 10px;
-  text-decoration: none;
-  border: none;
-  background: none;
-}
+
 </style>

@@ -36,7 +36,8 @@ export const state = () => ({
         header: {},
         footer: {}
     },
-    loading: true
+    loading: true,
+    isSoundEnabled: true,
 })
 
 export const mutations = {
@@ -44,6 +45,23 @@ export const mutations = {
     setLoading(state, param) {
         state.loading = param;
     },
+    toggleSound(state) {
+        state.isSoundEnabled = !state.isSoundEnabled;
+        localStorage.setItem('isSoundEnabled', state.isSoundEnabled);
+    },
+    initializeSound(state) {
+        const isSoundEnabled = JSON.parse(localStorage.getItem('isSoundEnabled'));
+        if(!isSoundEnabled) {
+          state.isSoundEnabled = false;
+          localStorage.setItem("isSoundEnabled", false);
+        } else if(isSoundEnabled) {
+          state.isSoundEnabled = true;
+          localStorage.setItem("isSoundEnabled", true);
+        } else {
+          state.isSoundEnabled = true;
+          localStorage.setItem("isSoundEnabled", true);
+        }
+      },
     // CONTROL
     controlDevice(state) {
         const ua = navigator.userAgent.toLowerCase();

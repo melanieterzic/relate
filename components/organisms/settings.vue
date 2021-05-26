@@ -8,38 +8,41 @@
     <h1>How do you want to live the story ?</h1>
     <div class="settings-switches">
       <p>Voices</p>
-      <Bouton />
-      <p>Sound</p>
-      <Bouton />
+      <a-switchButton  :m="toto" :isActive="this.$store.state.isSoundEnabled"/>
+      <p>Music</p>
+      <a-switchButton :isActive="false"/>
       <p>Subtitles</p>
-      <Bouton />
-      <p>Motion</p>
-      <Bouton />
+      <a-switchButton :isActive="false"/>
     </div>
   </main>
 </template>
 
 <script>
-import Bouton from "~/components/atoms/switchButton.vue";
 export default {
-  components: {
-    Bouton,
-  },
-};
+  methods: {
+    toto(){
+      console.log("test");
+      this.$store.commit("toggleSound");
+    }
+  }
+}
 </script>
 
 <style lang="scss">
 .settings {
   position: absolute;
   font-family: "Source Sans Pro", sans-serif;
-  width: 100%;
-  height: 100%;
+  width: 100vw!important;
+  height: 100vh!important;
+  margin-top:-30px;
+  margin-left:-30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: space-around;
-  color: #fff0e8;
-  background: #292a2e;
+  color: #292A2E;
+  background:white;
+  z-index:99;
 
   h1 {
     font-size: 20px;

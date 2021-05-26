@@ -20,7 +20,7 @@ export default {
   },
   beforeMount() {
     this.$store.commit("initializeSound");
-    this.temoignage = new Audio(require("~/assets/sounds/poule.wav"));
+    this.temoignage = new Audio(require("~/assets/sounds/1.wav"));
   },
   mounted() {
     this.temoignage.play();
@@ -31,7 +31,7 @@ export default {
         end: "bottom 100px",
         toggleActions: "restart pause reverse pause",
         onEnter: () => {
-          this.chien = new Audio(require("~/assets/sounds/chien.wav"));
+          this.chien = new Audio(require("~/assets/sounds/1.wav"));
           this.chien.play();
         },
       },
