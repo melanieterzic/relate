@@ -21,7 +21,6 @@
 export default {
   methods: {
     toto(){
-      console.log("test");
       this.$store.commit("toggleSound");
     }
   }

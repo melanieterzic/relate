@@ -29,7 +29,13 @@ export const state = () => ({
         },
         scroll: {},
         mouse: {},
-        cookies: {}
+        cookies: {
+            accepted: undefined,
+            subtitles: false,
+            voices: false,
+            musics: false,
+            language: 'fr'
+        }
     },
     pages: {},
     components: {
@@ -41,6 +47,42 @@ export const state = () => ({
 })
 
 export const mutations = {
+    // COOKIES
+    setCookie(state, { name, value }) {
+        if (state.window.cookies.accepted !== false) {
+            state.window.cookies[name] = value;
+            // ---
+            let expires = "";
+            let days = 365;
+            if (days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days*24*60*60*1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = `${name}=${value.toString() || ""}${expires}; path=/`;
+        }
+    },
+    getCookie(state, { name }) {
+        const nameEQ = `${name}=`;
+        const ca = document.cookie.split(';');
+        for(let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1,c.length);
+            }
+            if (c.indexOf(nameEQ) == 0) {
+                state.window.cookies[name] = c.substring(nameEQ.length,c.length);
+                // state.window.cookies[name] = undefined;
+                // return c.substring(nameEQ.length,c.length);
+            }
+        }
+        return null;
+    },
+    eraseCookie(state, { name }) {  
+        state.window.cookies[name] = undefined;
+        // ---
+        document.cookie = `${name}=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
+    },
     // SETTER
     setLoading(state, param) {
         state.loading = param;

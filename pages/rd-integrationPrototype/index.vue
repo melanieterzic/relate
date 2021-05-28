@@ -169,7 +169,7 @@ export default {
       });
       this.$data.timelines = [];
       sounds.forEach(sound => {
-      this.$data.to.push(
+      this.$data.timelines.push(
         this.$gsap.to(sound, {
           scrollTrigger: {
             trigger: sound,
@@ -219,7 +219,6 @@ export default {
       });
     },
     toto() {
-      console.log('ok')
       this.initializeTrigger();
       this.$store.commit("initializeSound");
       window.removeEventListener("click", this.toto)
