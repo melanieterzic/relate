@@ -3,7 +3,7 @@
     <!-- <o-header/> -->
     <nuxt/>
     <!-- <o-footer/> -->
-    <o-cookies/>
+    <!-- <o-cookies/> -->
   </div>
 </template>
 
