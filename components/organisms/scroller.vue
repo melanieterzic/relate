@@ -28,12 +28,12 @@ export default {
       if (this.$children[0].$options._componentTag === "o-sound") {
         this.$data.sound.element = this.$children[0];
   // ---
-    this.$el.addEventListener('click', ()=>{ 
-      console.log('user interact'); 
+    // this.$el.addEventListener('click', ()=>{ 
+    //   console.log('user interact'); 
   // ---
-        this.$data.sound.element.setPlaying(true);
+        // this.$data.sound.element.setPlaying(true);
   // ---
-    })
+    // })
   // ---
         this.$gsap.to(this.$el, {
           scrollTrigger: {
