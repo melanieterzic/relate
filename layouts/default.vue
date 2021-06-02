@@ -49,8 +49,8 @@ export default {
     },
     firstInteractionUser() {
       console.log('user interact'); 
-      this.$el.removeEventListener('click', this.firstInteractionUser);
-      this.$el.removeEventListener('touchstart', this.firstInteractionUser);
+      window.removeEventListener('click', this.firstInteractionUser);
+      window.removeEventListener('touchstart', this.firstInteractionUser);
     }
   },
   mounted() {
@@ -58,8 +58,8 @@ export default {
     this._initEvents();
     this._initUpdate();
     
-    this.$el.addEventListener('click', this.firstInteractionUser);
-    this.$el.addEventListener('touchstart', this.firstInteractionUser);
+    window.addEventListener('click', this.firstInteractionUser);
+    window.addEventListener('touchstart', this.firstInteractionUser);
   },
   destroyed() {
     this._removeEvents();
