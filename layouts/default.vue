@@ -46,20 +46,12 @@ export default {
     namePage() {
       let page = this.$route.name == "index" ? "home" : this.$route.name;
       return `p-${page}`;
-    },
-    firstInteractionUser() {
-      console.log('user interact'); 
-      window.removeEventListener('click', this.firstInteractionUser);
-      window.removeEventListener('touchstart', this.firstInteractionUser);
     }
   },
   mounted() {
     this._initControls();
     this._initEvents();
     this._initUpdate();
-    
-    window.addEventListener('click', this.firstInteractionUser);
-    window.addEventListener('touchstart', this.firstInteractionUser);
   },
   destroyed() {
     this._removeEvents();

@@ -26,14 +26,23 @@ export default {
     },
     setPlaying(value) {
       this.$data.sound.playing = value;
-    }
+    },
+    onFirstInteractionUser() {
+      console.log('ok')
+      this.$store.state.interaction = true;
+      this.$data.sound.audio = new Audio(this.$data.sound.src); 
+      window.removeEventListener('click', this.onFirstInteractionUser);
+      window.removeEventListener('touchstart', this.onFirstInteractionUser);
+    },
   },
   watch: {
     '$data.sound.playing' : function() {
-      if (this.$data.sound.playing) {
-        this.play();
-      } else {
-        this.stop();
+      if (this.$store.state.interaction) {
+        if (this.$data.sound.playing) {
+          this.play();
+        } else {
+          this.stop();
+        }
       }
     }
   },
@@ -42,13 +51,15 @@ export default {
       sound: {
         audio: null,
         src: null,
-        playing: false
+        playing: false,
+        interaction: false
       }
     }
   },
-  mounted() {
+  mounted() {      
     this.$data.sound.src = require(`~/assets/sounds/${this.$props.options.sound.name}.wav`).default;
-    this.$data.sound.audio = new Audio(this.$data.sound.src);   
+    window.addEventListener('click', this.onFirstInteractionUser);
+    window.addEventListener('touchstart', this.onFirstInteractionUser);
   }
 }
 </script>
