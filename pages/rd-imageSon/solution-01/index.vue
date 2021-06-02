@@ -1,21 +1,29 @@
 <template>
   <main class="imageSon">
-    <o-scroller class="scroller1">
+    <o-scroller class="scroller1" :options="{
+        scroll: {
+          end: 'bottom 15%'
+        }
+      }">
       <o-sound :options="{
         sound: {
           name: '1'
         }
       }">
-        <img src="~/assets/images/1.png" alt="Image">
+        <div class="container"></div>
       </o-sound>
     </o-scroller>
-    <o-scroller class="scroller2">
+    <o-scroller class="scroller2" :options="{
+        scroll: {
+          end: 'bottom 15%'
+        }
+      }">
       <o-sound :options="{
         sound: {
           name: '2'
         }
       }">
-        <img src="~/assets/images/2.png" alt="Image">
+        <div class="container"></div>
       </o-sound>
     </o-scroller>
   </main>
@@ -33,16 +41,22 @@ export default {
   height: 300vh;
   .scroller1 {
     position: absolute;
-    top: 100%; left: 0;
+    top: 100vh; left: 0;
+    .container {
+      background: blue;
+    }
   }
   .scroller2 {
     position: absolute;
-    top: 200%; left: 0;
+    top: 190vh; left: 0;
+    .container {
+      background: orange;
+    }
   }
-  img {
+  .container {
     display: block;
-    width: 20vw;
-    height: auto;
+    width: 100vw;
+    height: 20vw;
   }
 }
 </style>

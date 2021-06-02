@@ -6,6 +6,13 @@
 
 <script>
 export default {
+  props: {
+    options: {
+      type: Object,
+      default: () => {},
+      require: false
+    },
+  },
   methods: {
   },
   data() {
@@ -17,7 +24,6 @@ export default {
   },
   mounted() {
     // Sound
-    console.log(this.$parent)
     if (this.$children.length === 1) {
       if (this.$children[0].$options._componentTag === "o-sound") {
         this.$data.sound.element = this.$children[0];
@@ -32,8 +38,10 @@ export default {
         this.$gsap.to(this.$el, {
           scrollTrigger: {
             trigger: this.$el,
-            start: 'top 85%',
-            end: 'bottom 85%',
+            //start: 'top 85%',
+            start: this.$props.options.scroll.start ? this.$props.options.scroll.start : 'top 85%',
+            // end: 'bottom 85%',
+            end: this.$props.options.scroll.end ? this.$props.options.scroll.end : 'bottom 15%',
             markers: true,
             onEnter: () => {
               this.$data.sound.element.setPlaying(true);
@@ -43,7 +51,10 @@ export default {
             },
             onLeaveBack: () => { 
               this.$data.sound.element.setPlaying(false);
-            }
+            },
+            onEnterBack: this.$props.options.scroll.onEnterBack && (() => {
+              this.$data.sound.element.setPlaying(true);
+            })
           }
         });
       }
