@@ -1,6 +1,6 @@
 <template>
   <main>
-  <nuxt-link to="/rd-integrationprototype">
+  <nuxt-link to="/SoundTest">
     <span class="play">PLAY</span>
   </nuxt-link>
   <t-home :api="api" />

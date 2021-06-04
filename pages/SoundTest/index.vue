@@ -1,29 +1,31 @@
 <template>
   <main>
-    <a-settingButton />
-    <button @click="stopVoice">Pause</button>
-    <button @click="playVoice">Play</button>
     <div class="storyJ">
       <div class="box a">a</div>
-      <div class="box b">b</div>
+      <div class="box b">b
+        <div v-for="subtitles in fr" :key="subtitles.son">
+          <p>{{ subtitles.one }}</p>
+        </div>
+      </div>
       <div class="box c">c</div>
     </div>
   </main>
 </template>
 
 <script>
+import subtitles from '~/assets/datas/Jane-sub.json';
+
 export default {
-  data() {
-    return {
-      audio: null,
-    };
-  },
-  beforeMount() {
+		data() {
+			return {
+				fr: subtitles.fr,
+        audio: null,
+        //subtitles: en.subtitles
+			};
+		},
+    mounted() {
     this.$store.commit("initializeSound");
     this.temoignage = new Audio(require("~/assets/sounds/1.wav"));
-  },
-  mounted() {
-    this.temoignage.play();
     this.$gsap.to(".b", {
       scrollTrigger: {
         trigger: ".b",
@@ -31,33 +33,19 @@ export default {
         end: "bottom 100px",
         toggleActions: "restart pause reverse pause",
         onEnter: () => {
-          this.chien = new Audio(require("~/assets/sounds/1.wav"));
-          this.chien.play();
+          this.temoignage.play();
         },
+        
       },
       x: 100,
-      rotation: 360,
-      duration: 3,
     });
   },
-
-  methods: {
-    stopVoice() {
-      this.$store.commit("toggleSound");
-      this.temoignage.pause();
-    },
-    playVoice() {
-      this.$store.commit("toggleSound");
-      this.temoignage.play();
-      this.temoignage.currentTime = 0;
-    },
-  },
-  computed: {
+    computed: {
     isSoundEnabled() {
       return this.$store.state.isSoundEnabled;
     },
-  },
-};
+}
+}
 </script>
 
 <style lang="scss">

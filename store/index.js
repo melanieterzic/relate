@@ -38,6 +38,7 @@ export const state = () => ({
     },
     loading: true,
     isSoundEnabled: true,
+    isParamsOpen: false,
 })
 
 export const mutations = {
@@ -48,6 +49,10 @@ export const mutations = {
     toggleSound(state) {
         state.isSoundEnabled = !state.isSoundEnabled;
         localStorage.setItem('isSoundEnabled', state.isSoundEnabled);
+    },
+    toggleParams(state) {
+        state.isParamsOpen = !state.isParamsOpen;
+        localStorage.setItem('isParamsOpen', state.isParamsOpen);
     },
     initializeSound(state) {
         // const isSoundEnabled = JSON.parse(localStorage.getItem('isSoundEnabled'));

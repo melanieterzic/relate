@@ -164,12 +164,13 @@ export default {
         const el = sound;
         const indexSound = sound.dataset.soundIndex;
         const soundSrc = require(`~/assets/sounds/${indexSound}.wav`).default;
+        //const trackSrc = require(`~/assets/datas/soustitre.vtt`).default;
         const soundAudio = new Audio(soundSrc);
         this.$data.soundsAudio.push(soundAudio);
       });
       this.$data.timelines = [];
       sounds.forEach(sound => {
-      this.$data.to.push(
+      this.$data.timelines.push(
         this.$gsap.to(sound, {
           scrollTrigger: {
             trigger: sound,
@@ -408,7 +409,7 @@ export default {
   text-decoration: none;
   border: none;
   background: none;
-  z-index:999;
+  z-index:3;
 }
 }
 </style>

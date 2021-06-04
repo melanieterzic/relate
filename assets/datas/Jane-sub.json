@@ -1,0 +1,24 @@
+{
+    "fr": [
+{
+    "subtitles": [
+        {
+            "time": "00:00:00",
+            "text": "J’ai 26 ans, je suis étudiante en art, en création visuelle."
+        },
+        {
+            "time": "00:00:00",
+            "text": "Et je suis d'origine cambodgienne, je suis née en France"
+        }
+    ]
+}
+    ],
+
+    "en": [
+{
+    "son": "1.wav",
+    "one": "I am 26 years old, I am a student in art, in visual creation.",
+    "two": "And I am of Cambodian origin, I was born in France"
+}
+    ]
+}
