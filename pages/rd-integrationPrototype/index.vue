@@ -212,7 +212,7 @@ export default {
           this.assetsLoad -= 1;
           if (this.assetsLoad === 0) {
             console.log('kokok')
-            window.addEventListener('click', this.toto)
+            window.addEventListener('touchstart', this.toto)
             this.$el.style.display = 'block';
           }
         }, false);
@@ -223,7 +223,7 @@ export default {
       console.log('ok')
       this.initializeTrigger();
       this.$store.commit("initializeSound");
-      window.removeEventListener("click", this.toto)
+      window.removeEventListener("touchstart", this.toto)
     }
   },  
   mounted() {
