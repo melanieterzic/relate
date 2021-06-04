@@ -4,6 +4,7 @@
     :getted-options="{
       smooth: true,
       direction: 'vertical',
+      getSpeed: true,
       smartphone: {
         smooth: true,
         direction: 'vertical',
@@ -14,7 +15,41 @@
       },
     }"
   >
-    <div class="example vertical">
+  <div class="example vertical">
+
+    <o-scroller data-scroll-section class="scroller1" :options="{
+        scroll: {
+          end: 'bottom 15%'
+        }
+      }">
+      <o-sound :options="{
+        sound: {
+          name: '1'
+        }
+      }">
+        <div class="container"></div>
+      </o-sound>
+    </o-scroller>
+    <o-scroller data-scroll-section class="scroller2" :options="{
+        scroll: {
+          end: 'bottom 15%'
+        }
+      }">
+      <o-sound :options="{
+        sound: {
+          name: '2'
+        }
+      }">
+        <div class="container"></div>
+      </o-sound>
+    </o-scroller>
+      <footer data-scroll-section>
+        <nuxt-link to="/horizontal-scroll/" class="toto">
+          Go to Horizontal Scroll
+        </nuxt-link>
+      </footer>
+    </div>
+    <!-- <div class="example vertical">
       <header data-scroll-section>
         <h1>
           Vertical<br />
@@ -65,11 +100,11 @@
         </div>
       </div>
       <footer data-scroll-section>
-        <nuxt-link to="/horizontal-scroll/">
+        <nuxt-link to="/horizontal-scroll/" class="toto">
           Go to Horizontal Scroll
         </nuxt-link>
       </footer>
-    </div>
+    </div> -->
   </o-locomotiveScroll>
 </template>
 
@@ -124,6 +159,29 @@ export default {
   height: 100vh;
   overflow: hidden;
   display: flex;
+}
+
+.example.vertical{
+  height: 300vh;
+  .scroller1 {
+    position: absolute;
+    top: 100vh; left: 0;
+    .container {
+      background: blue;
+    }
+  }
+  .scroller2 {
+    position: absolute;
+    top: 125vh; left: 0;
+    .container {
+      background: orange;
+    }
+  }
+  .container {
+    display: block;
+    width: 100vw;
+    height: 20vw;
+  }
 }
 
 header{

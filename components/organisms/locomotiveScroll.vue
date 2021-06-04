@@ -35,7 +35,7 @@ export default {
   data: () => ({
     locomotive: undefined,
     defaultOptions: {
-      smooth: true,
+      smooth: true
     },
   }),
   computed: {
@@ -51,6 +51,9 @@ export default {
     this.$nuxt.$on('update-locomotive', () => {
       this?.locomotive?.update()
     })
+    this.locomotive.scrollTo(document.querySelector('.toto'), {
+      duration: 10000
+    });
   },
   methods: {
     onScroll(e) {
