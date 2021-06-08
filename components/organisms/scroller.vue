@@ -9,54 +9,84 @@ export default {
   props: {
     options: {
       type: Object,
-      default: () => {},
+      default: () => {
+        return {
+          effect: "parallax",
+          direction: -1,
+          gap: 100
+        }
+      },
       require: false
     },
   },
-  methods: {
-  },
-  data() {
-    return {
-      sound: {
-        element: null
-      }
-    }
-  },
   mounted() {
-    // Sound
-    if (this.$children.length === 1) {
-      if (this.$children[0].$options._componentTag === "o-sound") {
-        this.$data.sound.element = this.$children[0];
-        this.$gsap.to(this.$el, {
-          scrollTrigger: {
-            trigger: this.$el,
-            //start: 'top 85%',
-            start: this.$props.options.scroll.start ? this.$props.options.scroll.start : 'top 85%',
-            // end: 'bottom 85%',
-            end: this.$props.options.scroll.end ? this.$props.options.scroll.end : 'bottom 15%',
-            markers: true,
-            onEnter: () => {
-              this.$data.sound.element.setPlaying(true);
-            },
-            onLeave: () => { 
-              this.$data.sound.element.setPlaying(false);
-            },
-            onLeaveBack: () => { 
-              this.$data.sound.element.setPlaying(false);
-            },
-            onEnterBack: this.$props.options.scroll.onEnterBack && (() => {
-              this.$data.sound.element.setPlaying(true);
-            })
+    this.$data.gap = this.$el.offsetHeight > this.$props.options.gap ? this.$props.options.gap : this.$el.offsetHeight;
+    this.$data.gap *= this.$props.options.direction;
+    this.$data.from = {};
+    this.$data.to = {};
+    this.$data.scrollTrigger = {
+      markers: true,
+      trigger: this.$el,
+      scrub: true,
+      start: 'top 85%',
+      end: `${ (this.$el.offsetHeight - this.$props.options.gap) <= 0 ? 0 : this.$el.offsetHeight + this.$data.gap }px 15%`
+    };
+    // ---
+    this.$children.forEach(child => {
+      switch(child.$options._componentTag) {
+        case "o-sound":
+          this.$data.scrollTrigger = {
+            ...this.$data.scrollTrigger, 
+            ...{
+              onEnter: () => {
+               child.setPlaying(true);
+              },
+              onLeave: () => { 
+               child.setPlaying(false);
+              },
+              onLeaveBack: () => { 
+               child.setPlaying(false);
+              },
+              onEnterBack: () => {
+               child.setPlaying(true);
+              }
+            }
           }
-        });
+          break;
+        case "o-animation":
+          this.$data.scrollTrigger = {
+            ...this.$data.scrollTrigger, 
+            ...{}
+          }
+          break;
       }
+    });
+    // ---
+    switch(this.$props.options.effect) {
+      case "parallax":
+        this.$data.from = {
+          ...this.$data.from, 
+          ...{ y: 0 }
+        }
+        this.$data.to = {
+          ...this.$data.to, 
+          ...{ y: this.$data.gap }
+        }
+        this.$data.scrollTrigger = {
+          ...this.$data.scrollTrigger, 
+          ...{}
+        }
+        break;
     }
+    // ---
+    this.$data.to.scrollTrigger = this.$data.scrollTrigger;
+    this.$gsap.fromTo(this.$el, this.$data.from, this.$data.to);
   }
 }
 </script>
 
 <style lang="scss">
 .o-scroller {
-  display: table-cell;
+  // display: table-cell;
 }
 </style>

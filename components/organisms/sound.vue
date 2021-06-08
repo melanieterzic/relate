@@ -28,7 +28,6 @@ export default {
       this.$data.sound.playing = value;
     },
     onFirstInteractionUser() {
-      console.log('ok')
       this.$store.state.interaction = true;
       this.$data.sound.audio = new Audio(this.$data.sound.src); 
       window.removeEventListener('click', this.onFirstInteractionUser);
