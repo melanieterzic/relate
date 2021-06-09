@@ -35,6 +35,9 @@
 <script>
 export default {
   mounted() {
+    window.addEventListener('click', ()=>{
+      this.$store.commit('setLoading', !this.$store.state.loading);
+    })
     // this.$gsap.to(window, {duration: 20, scrollTo:"#end"});
   }
 }

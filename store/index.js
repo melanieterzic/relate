@@ -42,11 +42,21 @@ export const state = () => ({
         header: {},
         footer: {}
     },
-    loading: true,
+    loader: {
+        ressourcesNumber: 0,
+        ressourcesURL: []
+    },
     isSoundEnabled: true,
 })
 
 export const mutations = {
+    // LOADER
+    setRessourcesNumber(state, { value }) {
+        state.loader.ressourcesNumber = value;
+    },
+    addRessourcesURL(state, { value }) {
+        state.loader.ressourcesURL.push(value);
+    },
     // COOKIES
     setCookie(state, { name, value }) {
         if (state.window.cookies.accepted !== false) {
@@ -84,9 +94,6 @@ export const mutations = {
         document.cookie = `${name}=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
     },
     // SETTER
-    setLoading(state, param) {
-        state.loading = param;
-    },
     toggleSound(state) {
         state.isSoundEnabled = !state.isSoundEnabled;
         localStorage.setItem('isSoundEnabled', state.isSoundEnabled);
