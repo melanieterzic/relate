@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
@@ -31,12 +32,21 @@ export default {
       url: null
     }
   },
-  methods: {},
-  mounted() {
-    this.$store.commit('setRessourcesNumber', { value: this.$data.images.length })
-    this.$data.images.forEach(image => {
-      this.$store.commit('addRessourcesURL', { value: image })
-    });
+  async mounted() {
+    const im = this.getImage(this.$data.images[0])
+      // .then(image => {
+      //   console.log(image);
+      // });
+    console.log(im)
+    // this.$store.commit('setRessourcesNumber', { value: this.$data.images.length })
+    // this.$data.images.forEach(image => {
+    //   this.$store.commit('addRessourcesURL', { value: image })
+    // });
+  },
+  methods: {
+    ...mapGetters([
+      'getImage'
+    ]),
   },
   watch: {}
 }

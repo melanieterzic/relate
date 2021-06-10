@@ -49,6 +49,12 @@ export const state = () => ({
     isSoundEnabled: true,
 })
 
+export const getters = {
+    getImage(state, url) {
+        return url;
+    },
+  }
+
 export const mutations = {
     // LOADER
     setRessourcesNumber(state, { value }) {
