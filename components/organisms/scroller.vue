@@ -11,9 +11,9 @@ export default {
       type: Object,
       default: () => {
         return {
-          effect: "parallax",
-          direction: -1,
-          gap: 100
+          // effect: "parallax",
+          // direction: -1,
+          // gap: 100
         }
       },
       require: false
@@ -56,7 +56,12 @@ export default {
         case "o-animation":
           this.$data.scrollTrigger = {
             ...this.$data.scrollTrigger, 
-            ...{}
+            ...{
+              pin: true,
+              onUpdate: (self) => {
+                child.scroll(self.progress * 100);
+              }
+            }
           }
           break;
       }
