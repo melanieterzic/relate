@@ -49,6 +49,8 @@ export default {
     }
   },
   mounted() {
+    const to = this.$toto[0];
+    console.log(to())
     this._initControls();
     this._initEvents();
     this._initUpdate();
