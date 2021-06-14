@@ -40,11 +40,16 @@
       <div class="container-02">
         <p class="s-03"><span class="s-04">En 1979, </span><span class="s-04">fin de la dictature de Pol Pot</span> après l’invastion vietnamienne.<span class="s-break"></span><span class="s-break"></span><span class="s-04">Mais les Khmers rouges</span><span class="s-04"> resteront au pouvoir</span><span class="s-04">encore 20 ans</span>avant la chute définitive du régime en 1997.</p>
       </div>
-      <div class="container-01">
+      <div class="tribunal">
+        <p class="label s-06">Procès de douch</p>  
+        <img src="~/assets/images/icon-pelmelo.svg" alt="Icon pelmel">
+        <img src="~/assets/images/img-tribunal.jpg" alt="Image men inside a tribunal">
         <p class="s-03">Il y a eu un procès au Vietnam tout de suite après les faits, mais la plupart des responsables n'ont pas été jugés.<span class="s-break"></span><span class="s-04">Pol Pot lui-même a échappé à la justice et ne fut jugé qu'en 1997, un an avant sa mort.</span><span class="s-break"></span>En 2005, un procès parrainé par l'ONU est annoncé, au coeur duquel se trouve Douch, le directeur de la prison S-21 où 15000 personnes ont été torturées et exécutées, il est condamné à perpétuité en 2012.</p>
       </div>
-      <div class="container-03">
-        <p class="s-03">En 2018, les deux derniers grands dirigeants Khmers ont été déclarés coupables de génocide. C'est la première fois, 40 ans après les faits, que ce terme est utilisé et reconnu par la communauté internationale.</p>
+      <div class="trial">
+        <p class="label s-06">Procès de douch suivi partout dans le pays</p>  
+        <img src="~/assets/images/img-trial.jpg" alt="Image man and woman assist to the tiral">
+        <p class="s-03"><span class="s-03">En 2018,</span><span class="s-04"> les deux derniers grands dirigeants Khmers ont été déclarés coupables de génocide.</span><span class="s-break"></span> C'est la première fois, 40 ans après les faits, que ce terme est utilisé et reconnu par la communauté internationale.</p>
       </div>
     </div>
     <div class="footer">
@@ -66,7 +71,14 @@ export default {
   .header, .footer {
     display: flex;
     justify-content: flex-end;
-    margin: 8vw;
+    padding: 8vw;
+  }
+  .footer {
+    margin-top: -22vw;
+    background-color: #292A2E;
+    img {
+      mix-blend-mode: difference;
+    }
   }
   .content {
     .s-break {
@@ -212,6 +224,57 @@ export default {
       color: #FFF;
       text-align: center;
       .s-03, .s-04, .s-07 {
+        display: block;
+      }
+    }
+    .tribunal {
+      position: relative;
+      padding: 38.66vw 0;
+      .label {
+        position: absolute;
+        transform: translate3d(62.2vw, -18vw, 0) rotate(5.6deg);
+      }
+      img {
+        position: relative;
+        &:nth-child(2) {
+          position: absolute;
+          top: 30%; left: 50%;
+          width: 74.53vw;
+          height: auto;
+          transform: translate3d(-50%, -50%, 0);
+        }
+        &:nth-child(3) {
+          width: 80.53vw;
+          height: auto;
+          transform: rotate(5.6deg) translate3d(23.96vw, 0, 0);
+        }
+      }
+      p {
+        padding: 17.06vw 12vw;
+      }
+      .s-04 {
+        display: block;
+      }
+    }
+    .trial {
+      position: relative;
+      padding: 38.66vw 12vw;
+      background-color: #292A2E;
+      color: #FFF;
+      .label {
+        position: absolute;
+        top: 0;
+        color: #000;
+        transform: rotate(-5.6deg) translate3d(-5.5vw, -28vw, 0);
+      }
+      img {
+        position: absolute;
+        top: 0;
+        width: 72.53vw;
+        height: auto;
+        transform: rotate(-5.6deg) translate3d(-20.2vw, -50%, 0);
+      }
+      .s-04 {
         display: block;
       }
     }

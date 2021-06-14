@@ -1,5 +1,5 @@
 <template>
-    <header :class="$options._componentTag" class="component organism">
+<header :class="$options._componentTag" class="component organism">
         <div class="container c-header">
             <ul>
                 <li>
@@ -28,10 +28,7 @@
 </template>
 
 <script>
-export default {
-}
+export default {};
 </script>
 
-<style lang="scss">
-.o-header {}
-</style>
+<style lang="scss"></style>

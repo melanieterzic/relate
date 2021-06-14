@@ -3,6 +3,7 @@
     <!-- <o-header/> -->
     <nuxt/>
     <!-- <o-footer/> -->
+    <!-- <o-cookies/> -->
   </div>
 </template>
 
@@ -45,9 +46,11 @@ export default {
     namePage() {
       let page = this.$route.name == "index" ? "home" : this.$route.name;
       return `p-${page}`;
-    },
+    }
   },
   mounted() {
+    // const to = this.$toto[0];
+    // console.log(to())
     this._initControls();
     this._initEvents();
     this._initUpdate();

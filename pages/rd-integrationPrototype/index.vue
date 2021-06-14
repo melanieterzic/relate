@@ -3,8 +3,11 @@
     <section class="introduction">
       <div class="header">
         <p>You can adapt the story to your needs and moods here →</p>
-        <img src="~/assets/images/icon-burger.svg" alt="Icon burger">
+        <button class="btn-setting" @click="modal = !modal">
+            <img :src="[modal ? close : burger]"/>
+        </button>
       </div>
+      <o-settings v-if="modal"></o-settings>
       <div class="cover">
         <img src="~/assets/images/img-title.png" alt="Title balancing two culture">
         <div class="resume">
@@ -42,8 +45,12 @@
 export default {
   data() {
     return {
+      modal: false,
+      burger: require('~/assets/images/icon-burger.svg'),
+      close: require('~/assets/images/close.svg'),
+      IndexAudio: 0,
       default: {
-        width: 300
+        width: 300,
       },
       images: [
         {
@@ -98,6 +105,14 @@ export default {
     }
   },
   methods: {
+    // changeImage(){
+    //   if (this.modal = !this.modal) {
+    //     return require('~/assets/images/icon-burger.svg');
+    //   }
+    //   else{
+    //     return require('~/assets/images/close.svg');
+    //   }
+    // },
     getImageSrc(index) {
       return require(`~/assets/images/${index}.png`);
     },
@@ -144,29 +159,98 @@ export default {
     },
     initializeTrigger() {
       const sounds = this.$el.querySelectorAll('.sound');
+      this.$data.soundsAudio = [];
       sounds.forEach(sound => {
         const el = sound;
         const indexSound = sound.dataset.soundIndex;
         const soundSrc = require(`~/assets/sounds/${indexSound}.wav`).default;
         const soundAudio = new Audio(soundSrc);
-        this.$gsap.to(el, {
+        this.$data.soundsAudio.push(soundAudio);
+      });
+      this.$data.timelines = [];
+      sounds.forEach(sound => {
+      this.$data.timelines.push(
+        this.$gsap.to(sound, {
           scrollTrigger: {
-            trigger: el,
+            trigger: sound,
             start: "20px 80%",
             end: "bottom 100px",
             toggleActions: "restart pause reverse pause",
-            onEnter: () => {
-              soundAudio.play();
+            onEnter: self => {
+              this.$data.soundsAudio.forEach(soundAudio => {
+                soundAudio.pause();
+                soundAudio.currentTime = 0;
+                //console.log(soundAudio);
+              });
+              if(this.isSoundEnabled) {
+              this.$data.soundsAudio[self.trigger.dataset.soundIndex-1].play();
+              }
+
+            //console.log(soundsAudio[self.trigger.dataset.soundIndex-1]);
+            //console.log(self.trigger.dataset.soundIndex);
             },
           },
-          rotation: 360,
           duration: 3,
-        });
+        }));
       });
+      this.$data.timelines.forEach(timeline => {
+        timeline.scrollTrigger.enable();
+      })
+    },
+    load() {
+      const sounds = this.$el.querySelectorAll('.sound');
+      this.assetsLoad = sounds.length;
+      this.$data.soundsAudio = [];
+      sounds.forEach(sound => {
+        const el = sound;
+        const indexSound = sound.dataset.soundIndex;
+        let soundSrc = "";
+        soundSrc = require(`~/assets/sounds/${indexSound}.wav`).default;
+        const soundAudio = new Audio(soundSrc);   
+        soundAudio.addEventListener('canplaythrough', () => {  
+          this.assetsLoad -= 1;
+          if (this.assetsLoad === 0) {
+            console.log('kokok')
+            window.addEventListener('touchstart', this.toto)
+            this.$el.style.display = 'block';
+          }
+        }, false);
+        this.$data.soundsAudio.push(soundAudio);
+      });
+    },
+    toto() {
+      this.initializeTrigger();
+      this.$store.commit("initializeSound");
+      window.removeEventListener("touchstart", this.toto)
     }
   },  
   mounted() {
-    this.initializeTrigger();
+    this.$el.style.display = 'none';
+    this.load();
+  },
+  watch: {
+    '$store.state.isSoundEnabled' : function() {
+      if (this.$data.soundsAudio) {
+      this.$data.soundsAudio.forEach(soundAudio => {
+      soundAudio.pause();
+      soundAudio.currentTime = 0;
+      });
+      }
+    }
+  },
+  computed: {
+    isSoundEnabled() {
+      return this.$store.state.isSoundEnabled;
+    },
+  },
+  beforeDestroy() {
+    this.$data.timelines.forEach(timeline => {
+      timeline.scrollTrigger.disable();
+    });
+    this.$data.soundsAudio.forEach(soundAudio => {
+    soundAudio.pause();
+    soundAudio.currentTime = 0;
+    });
   }
 }
 </script>
@@ -319,5 +403,11 @@ export default {
       transform: translate3d(-50%, -50%, 0) rotate(90deg);
     }
   }
+  .btn-setting {
+  text-decoration: none;
+  border: none;
+  background: none;
+  z-index:999;
+}
 }
 </style>
