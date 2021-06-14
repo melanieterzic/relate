@@ -47,15 +47,43 @@ export const state = () => ({
         ressourcesURL: []
     },
     isSoundEnabled: true,
+    recursive: {
+        index: {
+            sound: {
+                testimony: 0,
+                ambient: 0,
+                noise: 0
+            }
+        }
+    }
 })
 
 export const getters = {
     getImage(state, url) {
         return url;
     },
-  }
+}
 
 export const mutations = {
+    // RECURSIVE
+    getIndexSoundTestimony(state) {
+        return state.recursive.index.sound.testimony;
+    },
+    getIndexSoundAmbient(state) {
+        return state.recursive.index.sound.ambient;
+    },
+    getIndexSoundNoise(state) {
+        return state.recursive.index.sound.noise;
+    },
+    setIndexSoundTestimony(state, value) {
+        state.recursive.index.sound.testimony = value;
+    },
+    setIndexSoundAmbient(state, value) {
+        state.recursive.index.sound.ambient = value;
+    },
+    setIndexSoundNoise(state, value) {
+        state.recursive.index.sound.noise = value;
+    },
     // LOADER
     setRessourcesNumber(state, { value }) {
         state.loader.ressourcesNumber = value;

@@ -1,5 +1,6 @@
 <template>
-<main 
+    <!-- Story -->
+    <main 
         v-if="datas.tag === 'main'"
         :style="`
             position: relative;
@@ -10,6 +11,7 @@
     >
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
     </main>
+    <!-- Chapter -->
     <section 
         v-else-if="datas.tag === 'section'"
         :style="`
@@ -21,6 +23,7 @@
     >
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
     </section>
+    <!-- ??? -->
     <div 
         v-else-if="datas.tag === 'div'" 
         :class="datas.name" class="container"
@@ -35,6 +38,7 @@
     >
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
     </div>
+    <!-- ACTION OVERLAY -->
     <div 
         v-else-if="datas.tag === 'overlay'" 
         :class="datas.name" class="container"
@@ -50,6 +54,7 @@
     >
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
     </div>
+    <!-- ACTION MODAL -->
     <div 
         v-else-if="datas.tag === 'modal'" 
         :class="datas.name" class="container"
@@ -62,15 +67,16 @@
             ${datas.backgroundColor && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
         `"
     >
-        <p>{{datas.children}}</p>
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
     </div>
+    <!-- ACTION LINK -->
     <nuxt-link 
         v-else-if="datas.tag === 'link'" 
         :to="datas.to"
     >
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
     </nuxt-link>
+    <!-- HEADLINE -->
     <h2 
         v-else-if="datas.tag === 'h2'"
         :style="`
@@ -89,6 +95,7 @@
             opacity: ${datas.opacity};
         `"
     >{{ datas.characters }}</h2>
+    <!-- PARAGRAPH -->
     <p 
         v-else-if="datas.tag === 'p'"
         :style="`
@@ -107,6 +114,7 @@
             opacity: ${datas.opacity};
         `"
     >{{ datas.characters }}</p>
+    <!-- IMAGE -->
     <img 
         v-else-if="datas.tag === 'img' || datas.tag === 'svg'" :src="url"
         :style="`
@@ -117,6 +125,23 @@
             height: ${bounding.height.percent}vw;
         `"
     />
+    <!-- SOUND -->
+    <o-scroller
+        v-else-if="datas.tag === 'sound'" 
+        :class="datas.name" class="container"
+        :style="`
+            position: absolute;
+            top: ${bounding.y.percent}vw;
+            left: ${bounding.x.percent}vw;
+            width: ${bounding.width.percent}vw;
+            height: ${bounding.height.percent}vw;
+            ${datas.backgroundColor && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
+        `">
+        <o-sound 
+            :options="{ sound: { name: getIndexSound(datas.name) } }"
+        >
+        </o-sound>
+    </o-scroller>
 </template>
 
 <script>
@@ -170,6 +195,25 @@ export default {
         }
     },
     methods: {
+        getIndexSound(type) {
+            let index = undefined;
+            switch(type) {
+                case "sound-testimony":
+                    index = this.$store.commit("getIndexSoundTestimony");
+                    this.$store.commit("setIndexSoundTestimony", index + 1);
+                    console.log(this.$store.commit("getIndexSoundTestimony"))
+                break;
+                case "sound-ambient":
+                    index = this.$store.commit("getIndexSoundAmbient");
+                    this.$store.commit("setIndexSoundAmbient", index + 1);
+                break;
+                case "sound-noise":
+                    index = this.$store.commit("getIndexSoundNoise");
+                    this.$store.commit("setIndexSoundNoise", index + 1);
+                break;
+            }
+            // return index;
+        },
         okok() {
             this.$data.isActive = true;
         },
