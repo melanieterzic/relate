@@ -7,6 +7,7 @@
             width: ${bounding.width.percent}vw;
             height: ${bounding.height.percent}vw;
             ${datas.backgroundColor && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
+            background-image: url('${require('~/assets/images/background-noise.png')}');
         `"
     >
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
@@ -116,7 +117,7 @@
     >{{ datas.characters }}</p>
     <!-- IMAGE -->
     <img 
-        v-else-if="datas.tag === 'img' || datas.tag === 'svg'" :src="url"
+        v-else-if="datas.tag === 'img' || datas.tag === 'svg'" :src="getUrlImg(datas.fileName)"
         :style="`
             position: absolute;
             top: ${bounding.y.percent}vw;
@@ -125,6 +126,49 @@
             height: ${bounding.height.percent}vw;
         `"
     />
+    <!-- ANIMATION -->
+    <o-animation
+    v-else-if="datas.tag === 'animation' && datas.type === 'fix'" 
+    :class="datas.name" class="container"
+    :style="`
+        position: absolute;
+        top: ${bounding.y.percent}vw;
+        left: ${bounding.x.percent}vw;
+        width: ${bounding.width.percent}vw;
+        height: ${bounding.height.percent}vw;
+        ${datas.backgroundColor && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
+    `"
+    :options="{
+        name: datas.fileName,
+        number: datas.children.length - 1,
+        speed: 1000 / (datas.children.length - 1)
+    }">        
+        <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
+    </o-animation>
+    <o-scroller
+    v-else-if="datas.tag === 'animation' && datas.type === 'scroll'" 
+    :class="datas.name" class="container"
+    :style="`
+        position: absolute;
+        top: ${bounding.y.percent}vw;
+        left: ${bounding.x.percent}vw;
+        width: ${bounding.width.percent}vw;
+        height: ${bounding.height.percent}vw;
+        ${datas.backgroundColor && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
+    `">
+        <o-animation
+        :style="`
+            width: ${bounding.width.percent}vw;
+            height: ${bounding.height.percent}vw;
+        `"
+        :options="{
+            name: datas.fileName,
+            number: datas.children.length - 1,
+            scroll: true
+        }">        
+            <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
+        </o-animation>
+    </o-scroller>
     <!-- SOUND -->
     <o-scroller
         v-else-if="datas.tag === 'sound'" 
@@ -141,6 +185,25 @@
             :options="{ sound: { name: getIndexSound(datas.name) } }"
         >
         </o-sound>
+    </o-scroller>
+    <!-- PARALLAX -->
+    <o-scroller
+    v-else-if="datas.tag === 'scroller'" 
+    :class="datas.name" class="container"
+    :style="`
+        position: absolute;
+        top: ${bounding.y.percent}vw;
+        left: ${bounding.x.percent}vw;
+        width: ${bounding.width.percent}vw;
+        height: ${bounding.height.percent}vw;
+        ${datas.backgroundColor && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
+    `"
+    :options="{
+        effect: 'parallax',
+        direction: datas.gap ? (datas.gap.y > 0) ? 1 : -1 : -1,
+        gap: datas.gap ? Math.abs(datas.gap.y) : 100
+    }">
+        <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
     </o-scroller>
 </template>
 
@@ -164,7 +227,7 @@ export default {
     data() {
         return {
             isActive: false,
-            defaultWidth: 300,
+            defaultWidth: 375,
             defaultHeight: 2160,
             url: undefined,
             fontSize: undefined,
@@ -216,6 +279,9 @@ export default {
         },
         okok() {
             this.$data.isActive = true;
+        },
+        getUrlImg(fileName) {
+            return require(`~/assets/datas/images/${fileName}`);
         },
         setUrlImg() {
             let bytes = this.$props.datas.bytes; 
@@ -297,9 +363,9 @@ export default {
             console.log(this.$props.datas)
         }
         this.setBounding();
-        if (this.$props.datas.tag === 'img' || this.$props.datas.tag === 'svg') {
-            this.setUrlImg();
-        }
+        // if (this.$props.datas.tag === 'img' || this.$props.datas.tag === 'svg') {
+        //     this.setUrlImg();
+        // }
         if (this.$props.datas.tag === 'h2' || this.$props.datas.tag === 'p') {
             this.setFontSize();
             this.setLetterSpacing();

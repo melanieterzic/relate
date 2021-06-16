@@ -54,12 +54,16 @@ export default {
           }
           break;
         case "o-animation":
-          this.$data.scrollTrigger = {
-            ...this.$data.scrollTrigger, 
-            ...{
-              pin: true,
-              onUpdate: (self) => {
-                child.scroll(self.progress * 100);
+          if (typeof child.$options.propsData.options.scroll !== "undefined") {
+            this.$data.scrollTrigger = {
+              ...this.$data.scrollTrigger, 
+              ...{
+                pin: true,
+                start: 'top 15%',
+                end: `${ (this.$el.offsetHeight - this.$props.options.gap) <= 0 ? 0 : this.$el.offsetHeight + this.$data.gap }px -35%`,
+                onUpdate: (self) => {
+                  child.scroll(self.progress * 100);
+                }
               }
             }
           }

@@ -50,19 +50,18 @@ export default {
   mounted() {
     for (let i = 0; i < this.$props.options.number; i++) {
       const image = new Image();
-      image.src = require(`~/assets/images/animation/${ this.$props.options.name }/${ i + 1 }.png`)
+      image.src = require(`~/assets/datas/images/${ this.$props.options.name }-${ i + 1 }.png`)
       this.$data.images.push(image);
-      // console.log(image)
     }
-    this.$data.canvas = document.querySelector("canvas");
-    this.$data.images[0].onload = () => {
-      this.$data.canvas.width = this.$data.images[0].width;
-      this.$data.canvas.height = this.$data.images[0].height;
-    }
-    this.$data.context = this.$data.canvas.getContext("2d");
-    this.$data.context.drawImage(this.$data.images[0], 0, 0, this.$data.canvas.width, this.$data.canvas.height);
-    if (!this.$props.options.scroll) {
-      this.loop();
+    this.$data.canvas = this.$el;
+    this.$data.images[this.$data.count].onload = () => {
+      this.$data.canvas.width = this.$data.images[this.$data.count].width;
+      this.$data.canvas.height = this.$data.images[this.$data.count].height;
+      this.$data.context = this.$data.canvas.getContext("2d");
+      this.$data.context.drawImage(this.$data.images[this.$data.count], 0, 0, this.$data.canvas.width, this.$data.canvas.height);
+      if (!this.$props.options.scroll) {
+        this.loop();
+      }
     }
   }
 }
