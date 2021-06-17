@@ -183,6 +183,7 @@
             ${datas.backgroundColor && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
         `">
         <o-sound 
+            :data-sound-index="datas.name === 'sound-testimony' && soundIndex"
             :options="{ sound: { name: soundName } }"
         >
         </o-sound>
@@ -231,6 +232,7 @@ export default {
             defaultWidth: 375,
             defaultHeight: 2160,
             url: undefined,
+            soundIndex: undefined,
             soundName: undefined,
             fontSize: undefined,
             letterSpacing: undefined,
@@ -262,21 +264,26 @@ export default {
     methods: {
         setSoundName(type) {
             let name = undefined;
+            let index = undefined;
             const split = type.split('-');
             switch(type) {
                 case "sound-testimony":
-                    name = `${split[1]}-${this.$store.state.recursive.index.sound.testimony}`;
+                    index = this.$store.state.recursive.index.sound.testimony;
+                    name = `${split[1]}-${index}`;
                     this.$store.commit("addIndexSoundTestimony");
                 break;
                 case "sound-ambient":
-                    name = `${split[1]}-${this.$store.state.recursive.index.sound.ambient}`;
+                    index = this.$store.state.recursive.index.sound.ambient;
+                    name = `${split[1]}-${index}`;
                     this.$store.commit("addIndexSoundAmbient");
                 break;
                 case "sound-noise":
-                    name = `${split[1]}-${this.$store.state.recursive.index.sound.noise}`;
+                    index = this.$store.state.recursive.index.sound.noise;
+                    name = `${split[1]}-${index}`;
                     this.$store.commit("addIndexSoundNoise");
                 break;
             }
+            this.$data.soundIndex = index;
             this.$data.soundName = name;
         },
         okok() {

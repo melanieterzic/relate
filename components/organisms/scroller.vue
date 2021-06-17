@@ -38,8 +38,8 @@ export default {
           this.$data.scrollTrigger = {
             ...this.$data.scrollTrigger, 
             ...{
-              start: 'top 85%',
-              end: `bottom 15%`,
+              // start: 'top 85%',
+              end: `bottom 85%`,
               onEnter: () => {
                child.setPlaying(true);
               },
