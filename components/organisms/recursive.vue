@@ -35,6 +35,7 @@
             width: ${bounding.width.percent}vw;
             height: ${bounding.height.percent}vw;
             ${datas.backgroundColor && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
+            ${datas.rotation && `transform: rotate3D(0, 0, 1, ${datas.rotation}deg);`}
         `"
     >
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
@@ -182,7 +183,7 @@
             ${datas.backgroundColor && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
         `">
         <o-sound 
-            :options="{ sound: { name: getIndexSound(datas.name) } }"
+            :options="{ sound: { name: soundName } }"
         >
         </o-sound>
     </o-scroller>
@@ -230,6 +231,7 @@ export default {
             defaultWidth: 375,
             defaultHeight: 2160,
             url: undefined,
+            soundName: undefined,
             fontSize: undefined,
             letterSpacing: undefined,
             lineHeight: undefined,
@@ -258,24 +260,24 @@ export default {
         }
     },
     methods: {
-        getIndexSound(type) {
-            let index = undefined;
+        setSoundName(type) {
+            let name = undefined;
+            const split = type.split('-');
             switch(type) {
                 case "sound-testimony":
-                    index = this.$store.commit("getIndexSoundTestimony");
-                    this.$store.commit("setIndexSoundTestimony", index + 1);
-                    console.log(this.$store.commit("getIndexSoundTestimony"))
+                    name = `${split[1]}-${this.$store.state.recursive.index.sound.testimony}`;
+                    this.$store.commit("addIndexSoundTestimony");
                 break;
                 case "sound-ambient":
-                    index = this.$store.commit("getIndexSoundAmbient");
-                    this.$store.commit("setIndexSoundAmbient", index + 1);
+                    name = `${split[1]}-${this.$store.state.recursive.index.sound.ambient}`;
+                    this.$store.commit("addIndexSoundAmbient");
                 break;
                 case "sound-noise":
-                    index = this.$store.commit("getIndexSoundNoise");
-                    this.$store.commit("setIndexSoundNoise", index + 1);
+                    name = `${split[1]}-${this.$store.state.recursive.index.sound.noise}`;
+                    this.$store.commit("addIndexSoundNoise");
                 break;
             }
-            // return index;
+            this.$data.soundName = name;
         },
         okok() {
             this.$data.isActive = true;
@@ -366,6 +368,9 @@ export default {
         // if (this.$props.datas.tag === 'img' || this.$props.datas.tag === 'svg') {
         //     this.setUrlImg();
         // }
+        if (this.$props.datas.tag === 'sound') {
+            this.setSoundName(this.$props.datas.name);
+        }
         if (this.$props.datas.tag === 'h2' || this.$props.datas.tag === 'p') {
             this.setFontSize();
             this.setLetterSpacing();

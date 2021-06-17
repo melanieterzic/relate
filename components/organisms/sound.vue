@@ -56,7 +56,7 @@ export default {
     }
   },
   mounted() {      
-    this.$data.sound.src = require(`~/assets/sounds/${this.$props.options.sound.name}.wav`).default;
+    this.$data.sound.src = require(`~/assets/sounds/${this.$props.options.sound.name}.mp3`).default;
     window.addEventListener('click', this.onFirstInteractionUser);
     window.addEventListener('touchstart', this.onFirstInteractionUser);
   }

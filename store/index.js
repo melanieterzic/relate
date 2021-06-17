@@ -66,23 +66,14 @@ export const getters = {
 
 export const mutations = {
     // RECURSIVE
-    getIndexSoundTestimony(state) {
-        return state.recursive.index.sound.testimony;
+    addIndexSoundTestimony(state) {
+        state.recursive.index.sound.testimony += 1;
     },
-    getIndexSoundAmbient(state) {
-        return state.recursive.index.sound.ambient;
+    addIndexSoundAmbient(state) {
+        state.recursive.index.sound.ambient += 1;
     },
-    getIndexSoundNoise(state) {
-        return state.recursive.index.sound.noise;
-    },
-    setIndexSoundTestimony(state, value) {
-        state.recursive.index.sound.testimony = value;
-    },
-    setIndexSoundAmbient(state, value) {
-        state.recursive.index.sound.ambient = value;
-    },
-    setIndexSoundNoise(state, value) {
-        state.recursive.index.sound.noise = value;
+    addIndexSoundNoise(state) {
+        state.recursive.index.sound.noise += 1;
     },
     // LOADER
     setRessourcesNumber(state, { value }) {
