@@ -4,19 +4,28 @@
       <div class="header">
         <p>You can adapt the story to your needs and moods here →</p>
         <button class="btn-setting" @click="modal = !modal">
-            <img :src="[modal ? close : burger]"/>
+          <img :src="[modal ? close : burger]" />
         </button>
       </div>
       <o-settings v-if="modal"></o-settings>
       <div class="cover">
-        <img src="~/assets/images/img-title.png" alt="Title balancing two culture">
+        <img
+          src="~/assets/images/img-title.png"
+          alt="Title balancing two culture"
+        />
         <div class="resume">
-          <p><span>Told by Jane,</span> a french artist who grew up in a cambodgian household</p>
+          <p>
+            <span>Told by Jane,</span> a french artist who grew up in a
+            cambodgian household
+          </p>
         </div>
       </div>
       <div class="interaction">
         <p>Scroll to read jane’s story</p>
-        <img src="~/assets/images/icon-arrowBottom.svg" alt="Icon arrow bottom">
+        <img
+          src="~/assets/images/icon-arrowBottom.svg"
+          alt="Icon arrow bottom"
+        />
       </div>
     </section>
     <section class="beginning">
@@ -24,30 +33,32 @@
     </section>
     <section class="chapter">
       <div
-        v-for="index in 8" :key="index"
-        class="container" :class="getContainerClass(index)"
+        v-for="index in 8"
+        :key="index"
+        class="container"
+        :class="getContainerClass(index)"
         :style="getContainerStyle(index)"
         :data-sound-index="getSoundIndex(index)"
       >
-        <img 
-          :src="getImageSrc(index)" :alt="getImageAlt(index)"
-        >
+        <img :src="getImageSrc(index)" :alt="getImageAlt(index)" />
       </div>
-      <nuxt-link 
-        to="/rd-context"
-        class="link"
-      ><span></span></nuxt-link>
+      <nuxt-link to="/mt-context" class="link"><span></span></nuxt-link>
     </section>
+    <p class="subtitles"></p>
   </main>
 </template>
 
 <script>
+import subtitles from "~/assets/datas/Jane-sub.json";
 export default {
   data() {
     return {
+      fr: subtitles.fr,
+      currentSoundTime: 0,
+      currentIndexSound: 0,
       modal: false,
-      burger: require('~/assets/images/icon-burger.svg'),
-      close: require('~/assets/images/close.svg'),
+      burger: require("~/assets/images/icon-burger.svg"),
+      close: require("~/assets/images/close.svg"),
       IndexAudio: 0,
       default: {
         width: 300,
@@ -57,62 +68,79 @@ export default {
           top: 1105.69,
           left: 109.67,
           width: 162.63,
-          height: 193.55
+          height: 193.55,
         },
         {
           top: 1583.44,
           left: 105.12,
           width: 67.09,
-          height: 101.29
+          height: 101.29,
         },
         {
           top: 1881.18,
           left: 138.66,
           width: 110.63,
-          height: 110.18
+          height: 110.18,
         },
         {
           top: 2230.18,
           left: 0,
           width: 300,
-          height: 1126.43
+          height: 1126.43,
         },
         {
           top: 2832,
           left: 0,
           width: 300,
-          height: 585.28
+          height: 585.28,
         },
         {
           top: 3735.95,
           left: 25.07,
           width: 249.86,
-          height: 223.22
+          height: 223.22,
         },
         {
           top: 4402.93,
           left: 0,
           width: 300,
-          height: 833.68
+          height: 833.68,
         },
         {
           top: 4629,
           left: 192.74,
           width: 75.55,
-          height: 103.17
-        }
-      ]
-    }
+          height: 103.17,
+        },
+      ],
+    };
+  },
+  mounted() {
+    this.$el.style.display = "none";
+    this.$nuxt.$on("update", this.update);
+    this.load();
   },
   methods: {
-    // changeImage(){
-    //   if (this.modal = !this.modal) {
-    //     return require('~/assets/images/icon-burger.svg');
-    //   }
-    //   else{
-    //     return require('~/assets/images/close.svg');
-    //   }
-    // },
+    update() {
+      if (this.$data.currentSound) {
+        this.$data.currentSoundTime = this.$data.currentSound.currentTime;
+        const sousTitre = subtitles.fr[this.$data.currentIndexSound];
+        for (let i = 0; i < sousTitre.length; i++) {
+          let phrase = sousTitre[i];
+          if (
+            phrase.start <= this.$data.currentSoundTime &&
+            phrase.end > this.$data.currentSoundTime
+          ) {
+            //console.log(this.$data.currentSoundTime);
+            this.$el.querySelector(".subtitles").innerHTML = phrase.text;
+          } else {
+            //console.log("else");
+            //this.$el.querySelector(".subtitles").innerHTML = "";
+          }
+        }
+      }
+      //console.log(sousTitre);
+    },
     getImageSrc(index) {
       return require(`~/assets/images/${index}.png`);
     },
@@ -129,7 +157,7 @@ export default {
           return `sound sound-${index}`;
         }
       } else {
-        return '';
+        return "";
       }
     },
     getSoundIndex(index) {
@@ -142,7 +170,7 @@ export default {
           return index;
         }
       } else {
-        return '';
+        return "";
       }
     },
     getContainerStyle(index) {
@@ -155,90 +183,99 @@ export default {
       `;
     },
     convertPxToVw(value) {
-      return value * 100 / this.$data.default.width;
+      return (value * 100) / this.$data.default.width;
     },
     initializeTrigger() {
-      const sounds = this.$el.querySelectorAll('.sound');
+      const sounds = this.$el.querySelectorAll(".sound");
       this.$data.soundsAudio = [];
-      sounds.forEach(sound => {
+      sounds.forEach((sound) => {
         const el = sound;
         const indexSound = sound.dataset.soundIndex;
-        const soundSrc = require(`~/assets/sounds/${indexSound}.wav`).default;
+        const soundSrc = require(`~/assets/sounds/${indexSound}.mp3`).default;
         //const trackSrc = require(`~/assets/datas/soustitre.vtt`).default;
         const soundAudio = new Audio(soundSrc);
+        const current = soundAudio.currentTime;
         this.$data.soundsAudio.push(soundAudio);
       });
       this.$data.timelines = [];
-      sounds.forEach(sound => {
-      this.$data.timelines.push(
-        this.$gsap.to(sound, {
-          scrollTrigger: {
-            trigger: sound,
-            start: "20px 80%",
-            end: "bottom 100px",
-            toggleActions: "restart pause reverse pause",
-            onEnter: self => {
-              this.$data.soundsAudio.forEach(soundAudio => {
-                soundAudio.pause();
-                soundAudio.currentTime = 0;
-                //console.log(soundAudio);
-              });
-              if(this.isSoundEnabled) {
-              this.$data.soundsAudio[self.trigger.dataset.soundIndex-1].play();
-              }
+      sounds.forEach((sound) => {
+        this.$data.timelines.push(
+          this.$gsap.to(sound, {
+            scrollTrigger: {
+              trigger: sound,
+              start: "20px 80%",
+              end: "bottom 100px",
+              toggleActions: "restart pause reverse pause",
+              onEnter: (self) => {
+                this.$data.soundsAudio.forEach((soundAudio) => {
+                  soundAudio.pause();
+                  soundAudio.currentTime = 0;
+                  //console.log(soundAudio);
+                });
+                if (this.isSoundEnabled) {
+                  this.$data.soundsAudio[
+                    self.trigger.dataset.soundIndex - 1
+                  ].play();
+                  this.$data.currentSound = this.$data.soundsAudio[
+                    self.trigger.dataset.soundIndex - 1
+                  ];
+                  this.$data.currentIndexSound =
+                    self.trigger.dataset.soundIndex - 1;
+                }
 
-            //console.log(soundsAudio[self.trigger.dataset.soundIndex-1]);
-            //console.log(self.trigger.dataset.soundIndex);
+                //console.log(soundsAudio[self.trigger.dataset.soundIndex-1]);
+                //console.log(self.trigger.dataset.soundIndex);
+              },
             },
-          },
-          duration: 3,
-        }));
+            duration: 3,
+          })
+        );
       });
-      this.$data.timelines.forEach(timeline => {
+      this.$data.timelines.forEach((timeline) => {
         timeline.scrollTrigger.enable();
-      })
+      });
     },
     load() {
-      const sounds = this.$el.querySelectorAll('.sound');
+      const sounds = this.$el.querySelectorAll(".sound");
       this.assetsLoad = sounds.length;
       this.$data.soundsAudio = [];
-      sounds.forEach(sound => {
+      sounds.forEach((sound) => {
         const el = sound;
         const indexSound = sound.dataset.soundIndex;
         let soundSrc = "";
-        soundSrc = require(`~/assets/sounds/${indexSound}.wav`).default;
-        const soundAudio = new Audio(soundSrc);   
-        soundAudio.addEventListener('canplaythrough', () => {  
-          this.assetsLoad -= 1;
-          if (this.assetsLoad === 0) {
-            console.log('kokok')
-            window.addEventListener('touchstart', this.toto)
-            this.$el.style.display = 'block';
-          }
-        }, false);
+        soundSrc = require(`~/assets/sounds/${indexSound}.mp3`).default;
+        const soundAudio = new Audio(soundSrc);
+        soundAudio.addEventListener(
+          "canplaythrough",
+          () => {
+            this.assetsLoad -= 1;
+            if (this.assetsLoad === 0) {
+              console.log("kokok");
+              window.addEventListener("touchstart", this.toto);
+              this.$el.style.display = "block";
+            }
+          },
+          false
+        );
         this.$data.soundsAudio.push(soundAudio);
       });
     },
     toto() {
-      console.log('ok')
+      console.log("ok");
       this.initializeTrigger();
       this.$store.commit("initializeSound");
-      window.removeEventListener("touchstart", this.toto)
-    }
-  },  
-  mounted() {
-    this.$el.style.display = 'none';
-    this.load();
+      window.removeEventListener("touchstart", this.toto);
+    },
   },
   watch: {
-    '$store.state.isSoundEnabled' : function() {
+    "$store.state.isSoundEnabled": function () {
       if (this.$data.soundsAudio) {
-      this.$data.soundsAudio.forEach(soundAudio => {
-      soundAudio.pause();
-      soundAudio.currentTime = 0;
-      });
+        this.$data.soundsAudio.forEach((soundAudio) => {
+          soundAudio.pause();
+          soundAudio.currentTime = 0;
+        });
       }
-    }
+    },
   },
   computed: {
     isSoundEnabled() {
@@ -246,19 +283,22 @@ export default {
     },
   },
   beforeDestroy() {
-    this.$data.timelines.forEach(timeline => {
+    this.$data.timelines.forEach((timeline) => {
       timeline.scrollTrigger.disable();
     });
-    this.$data.soundsAudio.forEach(soundAudio => {
-    soundAudio.pause();
-    soundAudio.currentTime = 0;
+    this.$data.soundsAudio.forEach((soundAudio) => {
+      soundAudio.pause();
+      soundAudio.currentTime = 0;
     });
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bayon&family=Source+Sans+Pro:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Volkhov:wght@700&display=swap");
 .story {
   position: relative;
   width: 100vw;
@@ -275,7 +315,7 @@ export default {
       display: flex;
       p {
         margin-right: 4vw;
-        font-family: 'Source Sans Pro';
+        font-family: "Source Sans Pro";
         font-style: normal;
         font-weight: normal;
         font-size: 4vw;
@@ -321,7 +361,7 @@ export default {
       p {
         width: 34.66vw;
         margin-bottom: 8vw;
-        font-family: 'Source Sans Pro';
+        font-family: "Source Sans Pro";
         font-style: normal;
         font-weight: normal;
         font-size: 4vw;
@@ -342,7 +382,7 @@ export default {
     margin: 290px 0;
     p {
       width: 77vw;
-      font-family: 'Source Sans Pro';
+      font-family: "Source Sans Pro";
       font-style: normal;
       font-weight: normal;
       font-size: 4vw;
@@ -358,7 +398,7 @@ export default {
         }
       }
     }
-  } 
+  }
   .chapter {
     // display: none;
     width: 100vw;
@@ -378,7 +418,7 @@ export default {
     display: block;
     width: 18vw;
     height: 18vw;
-    background-color: #FFF;
+    background-color: #fff;
     border-radius: 100%;
     span {
       position: relative;
@@ -387,15 +427,16 @@ export default {
       display: block;
       width: 20vw;
       height: 20vw;
-      border: 2px solid #FFF;
+      border: 2px solid #fff;
       border-radius: 100%;
       transform: translate3d(-50%, -50%, 0);
     }
-    &:before, &:after {
+    &:before,
+    &:after {
       position: absolute;
       top: 50%;
       left: 50%;
-      content: ' ';
+      content: " ";
       height: 9vw;
       width: 1vw;
       background-color: #474747;
@@ -405,11 +446,28 @@ export default {
       transform: translate3d(-50%, -50%, 0) rotate(90deg);
     }
   }
+  .subtitles {
+    //background: #262626;
+    background-image: url("~/assets/images/bksubtitles.png");
+    height: 218px;
+    width: 100%;
+    color: #faf2ed;
+    font-family: "Source Sans Pro";
+    text-align: center;
+    line-height: 20px;
+    font-size: 16px;
+    padding: 10px 70px;
+    font-weight: 400;
+    position: fixed;
+    top: 0;
+    //box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.6);
+  }
+
   .btn-setting {
-  text-decoration: none;
-  border: none;
-  background: none;
-  z-index:3;
-}
+    text-decoration: none;
+    border: none;
+    background: none;
+    z-index: 3;
+  }
 }
 </style>

@@ -2,80 +2,202 @@
   <main class="context">
     <div class="header">
       <nuxt-link to="/rd-integrationPrototype">
-        <img src="~/assets/images/icon-arrowLeft.svg" alt="Icon arrow left">
+        <img src="~/assets/images/icon-arrowLeft.svg" alt="Icon arrow left" />
       </nuxt-link>
     </div>
     <div class="content">
       <div class="introduction">
-        <p class="s-03"><span class="s-01">Le Cambodge</span> <span class="s-02">est situé en Asie du Sud-Est.</span><span class="s-break"></span>Il partage des frontières avec trois pays avec lesquels ses relations sont historiquement complexes : <span class="s-02">la Thaïlande, le Laos, et le Vietnam.</span></p>
+        <p class="s-03">
+          <span class="s-01">Le Cambodge</span>
+          <span class="s-02">est situé en Asie du Sud-Est.</span
+          ><span class="s-break"></span>Il partage des frontières avec trois
+          pays avec lesquels ses relations sont historiquement complexes :
+          <span class="s-02">la Thaïlande, le Laos, et le Vietnam.</span>
+        </p>
       </div>
       <div class="map">
         <p class="label s-06">Carte du cambodge</p>
-        <img src="~/assets/images/img-map.png" alt="Image map Cambodge">
-        <p class="desc s-03"><span class="s-03">De 1887 à 1954,</span> ces pays font parti de l'Indochine française, <span class="s-04">un ancien empire coloniale français</span> <span class="s-05">dont le Cambodge était la possession la plus riche et la plus peuplée.</span><span class="s-break"></span>La période qui s'en suit s'inscrit dans un contexte de décolonisation et de Guerre Froide.</p>
+        <img src="~/assets/images/img-map.png" alt="Image map Cambodge" />
+        <p class="desc s-03">
+          <span class="s-03">De 1887 à 1954,</span> ces pays font parti de
+          l'Indochine française,
+          <span class="s-04">un ancien empire coloniale français</span>
+          <span class="s-05"
+            >dont le Cambodge était la possession la plus riche et la plus
+            peuplée.</span
+          ><span class="s-break"></span>La période qui s'en suit s'inscrit dans
+          un contexte de décolonisation et de Guerre Froide.
+        </p>
       </div>
       <div class="definition">
-        <p><span class="s-01">"Khmer"</span><span class="s-02">l'ethnie majoritaire du Cambodge,</span><span class="s-break"></span><span class="s-break"></span><span class="s-03">en 1955 apparaît le terme de </span><span class="s-01">"Khmers Rouges"</span><span class="s-02">le parti politique.</span></p>
+        <p>
+          <span class="s-01">"Khmer"</span
+          ><span class="s-02">l'ethnie majoritaire du Cambodge,</span
+          ><span class="s-break"></span><span class="s-break"></span
+          ><span class="s-03">en 1955 apparaît le terme de </span
+          ><span class="s-01">"Khmers Rouges"</span
+          ><span class="s-02">le parti politique.</span>
+        </p>
       </div>
       <div class="container-01">
-        <p class="s-03">De 1966 à 1969,<span class="s-04">les troupes communistes ne cessent de se renforcer</span>pour différentes raisons : la crise économique, l'implication du Cambodge dans la Guerre du Vietnam... <span class="s-break"></span><span class="s-break"></span><span class="s-break"></span>Avant de sombrer dans <span class="s-04">la Guerre Civile</span><span class="s-04"> de 1970 à 1975.</span></p>
+        <p class="s-03">
+          De 1966 à 1969,<span class="s-04"
+            >les troupes communistes ne cessent de se renforcer</span
+          >pour différentes raisons : la crise économique, l'implication du
+          Cambodge dans la Guerre du Vietnam... <span class="s-break"></span
+          ><span class="s-break"></span><span class="s-break"></span>Avant de
+          sombrer dans <span class="s-04">la Guerre Civile</span
+          ><span class="s-04"> de 1970 à 1975.</span>
+        </p>
       </div>
       <div class="queue">
-        <p class="label s-06">Les habitants de Phnom Penh sur les routes</p>        
-        <img src="~/assets/images/img-queue.jpg" alt="Image man and woman walking">
-        <p class="desc s-03"><span class="s-03">Le 17 Avril 1975,</span>les Khmers Rouge entrent dans Phnom Penh, la capitale. Avec cette prise de pouvoir, le pays est renommé Kampuchéa démocratique en 1976.<span class="s-break"></span><span class="s-break"></span>Il s’agit en réalité de l’un des <span class="s-04">régimes les plus violents de la seconde partie du 20ème siècle, avec à sa tête Pol Pot.</span></p>
+        <p class="label s-06">Les habitants de Phnom Penh sur les routes</p>
+        <img
+          src="~/assets/images/img-queue.jpg"
+          alt="Image man and woman walking"
+        />
+        <p class="desc s-03">
+          <span class="s-03">Le 17 Avril 1975,</span>les Khmers Rouge entrent
+          dans Phnom Penh, la capitale. Avec cette prise de pouvoir, le pays est
+          renommé Kampuchéa démocratique en 1976.<span class="s-break"></span
+          ><span class="s-break"></span>Il s’agit en réalité de l’un des
+          <span class="s-04"
+            >régimes les plus violents de la seconde partie du 20ème siècle,
+            avec à sa tête Pol Pot.</span
+          >
+        </p>
       </div>
       <div class="smile">
-        <p class="label s-06">Pol pot</p>        
-        <img src="~/assets/images/img-smile.jpg" alt="Image men smiling">
-        <p class="desc s-03"><span class="s-04">Le nouveau régime mis en place est brutal, il réunit les aspects les plus extrémistes du communisme :</span><span class="s-break"></span><span class="s-break"></span><span class="s-break"></span><span class="s-03">La collectivisation des campagnes,</span><span class="s-break"></span><span class="s-03">L’abolition de la propriété privée, </span><span class="s-break"></span><span class="s-03">paysans sont regroupés</span><span class="s-03">dans des coopératives agricoles</span><span class="s-03">sont en réalité des camps de travail.</span><span class="s-break"></span><span class="s-03">Il n'y a plus de libertés,</span><span class="s-break"></span><span class="s-03"> Une police politique est créée,</span><span class="s-break"></span><span class="s-03"> Plus aucune traces de modernité subsistent,</span><span class="s-break"></span><span class="s-03"> Les lignes de communication sont coupées,</span><span class="s-break"></span><span class="s-03"> Les familles sont séparées de leurs enfants,</span><span class="s-break"></span><span class="s-03"> Le mariage soumis à autorisation et parfois forcé,</span><span class="s-break"></span><span class="s-03"> Les intellectuels sont considérés comme irrécupérables, pourchassés et exécutés sans relâche,</span><span class="s-break"></span><span class="s-03"> Les minorités sont décimées,</span><span class="s-break"></span><span class="s-03"> Les religions interdites...</span></p>
+        <p class="label s-06">Pol pot</p>
+        <img src="~/assets/images/img-smile.jpg" alt="Image men smiling" />
+        <p class="desc s-03">
+          <span class="s-04"
+            >Le nouveau régime mis en place est brutal, il réunit les aspects
+            les plus extrémistes du communisme :</span
+          ><span class="s-break"></span><span class="s-break"></span
+          ><span class="s-break"></span
+          ><span class="s-03">La collectivisation des campagnes,</span
+          ><span class="s-break"></span
+          ><span class="s-03">L’abolition de la propriété privée, </span
+          ><span class="s-break"></span
+          ><span class="s-03">paysans sont regroupés</span
+          ><span class="s-03">dans des coopératives agricoles</span
+          ><span class="s-03">sont en réalité des camps de travail.</span
+          ><span class="s-break"></span
+          ><span class="s-03">Il n'y a plus de libertés,</span
+          ><span class="s-break"></span
+          ><span class="s-03"> Une police politique est créée,</span
+          ><span class="s-break"></span
+          ><span class="s-03"> Plus aucune traces de modernité subsistent,</span
+          ><span class="s-break"></span
+          ><span class="s-03"> Les lignes de communication sont coupées,</span
+          ><span class="s-break"></span
+          ><span class="s-03">
+            Les familles sont séparées de leurs enfants,</span
+          ><span class="s-break"></span
+          ><span class="s-03">
+            Le mariage soumis à autorisation et parfois forcé,</span
+          ><span class="s-break"></span
+          ><span class="s-03">
+            Les intellectuels sont considérés comme irrécupérables, pourchassés
+            et exécutés sans relâche,</span
+          ><span class="s-break"></span
+          ><span class="s-03"> Les minorités sont décimées,</span
+          ><span class="s-break"></span
+          ><span class="s-03"> Les religions interdites...</span>
+        </p>
       </div>
-      <div class="pelmel">     
-        <img src="~/assets/images/icon-pelmel.svg" alt="Icon pelmel">
-        <p class="desc s-04">C'est un sytème de déshumanisation absolu,<span class="s-break"></span><span class="s-break"></span>un régime qui repose sur la terreur.</p>
+      <div class="pelmel">
+        <img src="~/assets/images/icon-pelmel.svg" alt="Icon pelmel" />
+        <p class="desc s-04">
+          C'est un sytème de déshumanisation absolu,<span class="s-break"></span
+          ><span class="s-break"></span>un régime qui repose sur la terreur.
+        </p>
       </div>
-      <div class="numbers">     
-        <p class="s-03"><span class="s-07">2 millions</span><span class="s-04">de morts en 4 ans,</span>soit un cinquième de la population.<span class="s-break"></span><span class="s-break"></span><span class="s-04">Un génocide,</span><span class="s-04">que certains qualifient</span><span class="s-04">même d’auto-génocide.</span></p>
+      <div class="numbers">
+        <p class="s-03">
+          <span class="s-07">2 millions</span
+          ><span class="s-04">de morts en 4 ans,</span>soit un cinquième de la
+          population.<span class="s-break"></span><span class="s-break"></span
+          ><span class="s-04">Un génocide,</span
+          ><span class="s-04">que certains qualifient</span
+          ><span class="s-04">même d’auto-génocide.</span>
+        </p>
       </div>
       <div class="container-02">
-        <p class="s-03"><span class="s-04">En 1979, </span><span class="s-04">fin de la dictature de Pol Pot</span> après l’invastion vietnamienne.<span class="s-break"></span><span class="s-break"></span><span class="s-04">Mais les Khmers rouges</span><span class="s-04"> resteront au pouvoir</span><span class="s-04">encore 20 ans</span>avant la chute définitive du régime en 1997.</p>
+        <p class="s-03">
+          <span class="s-04">En 1979, </span
+          ><span class="s-04">fin de la dictature de Pol Pot</span> après
+          l’invastion vietnamienne.<span class="s-break"></span
+          ><span class="s-break"></span
+          ><span class="s-04">Mais les Khmers rouges</span
+          ><span class="s-04"> resteront au pouvoir</span
+          ><span class="s-04">encore 20 ans</span>avant la chute définitive du
+          régime en 1997.
+        </p>
       </div>
       <div class="tribunal">
-        <p class="label s-06">Procès de douch</p>  
-        <img src="~/assets/images/icon-pelmelo.svg" alt="Icon pelmel">
-        <img src="~/assets/images/img-tribunal.jpg" alt="Image men inside a tribunal">
-        <p class="s-03">Il y a eu un procès au Vietnam tout de suite après les faits, mais la plupart des responsables n'ont pas été jugés.<span class="s-break"></span><span class="s-04">Pol Pot lui-même a échappé à la justice et ne fut jugé qu'en 1997, un an avant sa mort.</span><span class="s-break"></span>En 2005, un procès parrainé par l'ONU est annoncé, au coeur duquel se trouve Douch, le directeur de la prison S-21 où 15000 personnes ont été torturées et exécutées, il est condamné à perpétuité en 2012.</p>
+        <p class="label s-06">Procès de douch</p>
+        <img src="~/assets/images/icon-pelmelo.svg" alt="Icon pelmel" />
+        <img
+          src="~/assets/images/img-tribunal.jpg"
+          alt="Image men inside a tribunal"
+        />
+        <p class="s-03">
+          Il y a eu un procès au Vietnam tout de suite après les faits, mais la
+          plupart des responsables n'ont pas été jugés.<span
+            class="s-break"
+          ></span
+          ><span class="s-04"
+            >Pol Pot lui-même a échappé à la justice et ne fut jugé qu'en 1997,
+            un an avant sa mort.</span
+          ><span class="s-break"></span>En 2005, un procès parrainé par l'ONU
+          est annoncé, au coeur duquel se trouve Douch, le directeur de la
+          prison S-21 où 15000 personnes ont été torturées et exécutées, il est
+          condamné à perpétuité en 2012.
+        </p>
       </div>
       <div class="trial">
-        <p class="label s-06">Procès de douch suivi partout dans le pays</p>  
-        <img src="~/assets/images/img-trial.jpg" alt="Image man and woman assist to the tiral">
-        <p class="s-03"><span class="s-03">En 2018,</span><span class="s-04"> les deux derniers grands dirigeants Khmers ont été déclarés coupables de génocide.</span><span class="s-break"></span> C'est la première fois, 40 ans après les faits, que ce terme est utilisé et reconnu par la communauté internationale.</p>
+        <p class="label s-06">Procès de douch suivi partout dans le pays</p>
+        <img
+          src="~/assets/images/img-trial.jpg"
+          alt="Image man and woman assist to the tiral"
+        />
+        <p class="s-03">
+          <span class="s-03">En 2018,</span
+          ><span class="s-04">
+            les deux derniers grands dirigeants Khmers ont été déclarés
+            coupables de génocide.</span
+          ><span class="s-break"></span> C'est la première fois, 40 ans après
+          les faits, que ce terme est utilisé et reconnu par la communauté
+          internationale.
+        </p>
       </div>
     </div>
     <div class="footer">
       <nuxt-link to="/rd-integrationPrototype">
-        <img src="~/assets/images/icon-arrowLeft.svg" alt="Icon arrow left">
+        <img src="~/assets/images/icon-arrowLeft.svg" alt="Icon arrow left" />
       </nuxt-link>
     </div>
   </main>
 </template>
 
 <script>
-export default {
-}
+export default {};
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
 .context {
-  .header, .footer {
+  .header,
+  .footer {
     display: flex;
     justify-content: flex-end;
     padding: 8vw;
   }
   .footer {
     margin-top: -22vw;
-    background-color: #292A2E;
+    background-color: #292a2e;
     img {
       mix-blend-mode: difference;
     }
@@ -87,42 +209,42 @@ export default {
     }
     .s-01 {
       display: block;
-      font-family: 'Source Sans Pro';
+      font-family: "Source Sans Pro";
       font-style: normal;
       font-weight: bold;
       font-size: 7.46vw;
       line-height: 130%;
     }
     .s-02 {
-      font-family: 'Source Sans Pro';
+      font-family: "Source Sans Pro";
       font-style: normal;
       font-weight: 600;
       font-size: 3.73vw;
       line-height: 130%;
     }
     .s-03 {
-      font-family: 'Source Sans Pro';
+      font-family: "Source Sans Pro";
       font-style: normal;
       font-weight: normal;
       font-size: 3.73vw;
       line-height: 130%;
     }
     .s-04 {
-      font-family: 'Source Sans Pro';
+      font-family: "Source Sans Pro";
       font-style: normal;
       font-weight: bold;
       font-size: 4.8vw;
       line-height: 130%;
     }
     .s-05 {
-      font-family: 'Source Sans Pro';
+      font-family: "Source Sans Pro";
       font-style: normal;
       font-weight: normal;
       font-size: 4.8vw;
       line-height: 130%;
     }
     .s-06 {
-      font-family: 'Source Sans Pro';
+      font-family: "Source Sans Pro";
       font-style: normal;
       font-weight: normal;
       font-size: 2.6vw;
@@ -131,7 +253,7 @@ export default {
       text-transform: uppercase;
     }
     .s-07 {
-      font-family: 'Source Sans Pro';
+      font-family: "Source Sans Pro";
       font-style: normal;
       font-weight: bold;
       font-size: 12.8vw;
@@ -152,14 +274,16 @@ export default {
       .desc {
         margin: -12vw 12vw 12vw;
       }
-      .s-03, .s-04, .s-05 {
+      .s-03,
+      .s-04,
+      .s-05 {
         display: block;
       }
     }
     .definition {
       padding: 38.66vw 12vw;
-      background-color: #292A2E;
-      color: #FFF;
+      background-color: #292a2e;
+      color: #fff;
       text-align: center;
     }
     .container-01 {
@@ -183,7 +307,9 @@ export default {
       .desc {
         margin: 21.86vw 12vw 12vw;
       }
-      .s-03, .s-04, .s-05 {
+      .s-03,
+      .s-04,
+      .s-05 {
         display: block;
       }
     }
@@ -201,7 +327,9 @@ export default {
       .desc {
         margin: 21.86vw 12vw 12vw;
       }
-      .s-03, .s-04, .s-05 {
+      .s-03,
+      .s-04,
+      .s-05 {
         display: block;
       }
     }
@@ -213,17 +341,20 @@ export default {
       }
       .desc {
         position: absolute;
-        top: 50%; left: 60%;
+        top: 50%;
+        left: 60%;
         width: 55%;
         transform: translate3d(-50%, -50%, 0);
       }
     }
     .numbers {
       padding: 38.66vw 12vw;
-      background-color: #292A2E;
-      color: #FFF;
+      background-color: #292a2e;
+      color: #fff;
       text-align: center;
-      .s-03, .s-04, .s-07 {
+      .s-03,
+      .s-04,
+      .s-07 {
         display: block;
       }
     }
@@ -238,7 +369,8 @@ export default {
         position: relative;
         &:nth-child(2) {
           position: absolute;
-          top: 30%; left: 50%;
+          top: 30%;
+          left: 50%;
           width: 74.53vw;
           height: auto;
           transform: translate3d(-50%, -50%, 0);
@@ -259,8 +391,8 @@ export default {
     .trial {
       position: relative;
       padding: 38.66vw 12vw;
-      background-color: #292A2E;
-      color: #FFF;
+      background-color: #292a2e;
+      color: #fff;
       .label {
         position: absolute;
         top: 0;

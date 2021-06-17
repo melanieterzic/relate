@@ -3,7 +3,7 @@
     <div class="panel-body">
       <p class="p-checkbox">off</p>
       <label class="switch">
-        <input type="checkbox" @click="toggleCheckbox" :checked="isActive"/>
+        <input type="checkbox" @click="toggleCheckbox" :checked="isActive" />
         <div class="slider round"></div>
       </label>
       <p class="p-checkbox">on</p>
@@ -20,17 +20,17 @@ export default {
   },
   mounted() {
     console.log(this.$props.m);
-  }, 
+  },
 
-  props : {
-    m: {required: false },
-    isActive: {required: true}
+  props: {
+    m: { required: false },
+    isActive: { required: true },
   },
   methods: {
     toggleCheckbox() {
       this.checkbox = !this.checkbox;
       this.$emit("setCheckboxVal", this.checkbox);
-      if(this.$props.m){
+      if (this.$props.m) {
         this.$props.m();
       }
     },
@@ -64,7 +64,7 @@ export default {
   right: 0;
   bottom: 0;
   background-color: none;
-  border: 2px solid #292A2E;
+  border: 2px solid #faf2ed;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -76,17 +76,17 @@ export default {
   width: 13px;
   left: 4px;
   bottom: 3px;
-  background-color: #292A2E;
+  background-color: #faf2ed;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: #101010;
+  background-color: #0f0e21;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #101010;
+  box-shadow: 0 0 1px #0f0e21;
 }
 
 input:checked + .slider:before {
@@ -104,9 +104,9 @@ input:checked + .slider:before {
 }
 
 .p-checkbox {
-  font-size: 9px !important;
+  font-size: 12px !important;
   font-weight: 400 !important;
   text-transform: uppercase;
-  padding: 0px 5px;
+  padding: 0px 8px;
 }
 </style>
