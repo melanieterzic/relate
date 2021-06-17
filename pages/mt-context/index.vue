@@ -25,6 +25,13 @@
         <img class="img-carte" src="~/assets/images/carte.svg" alt="carte" />
       </div>
       <a-contextesvg></a-contextesvg>
+      <o-scroller class="sound1">
+        <o-sound
+          :data-sound-index="datas.name === 'sound-testimony' && soundIndex"
+          :options="{ sound: { name: '~/assets/sounds/1.mp3' } }"
+        >
+        </o-sound>
+      </o-scroller>
     </div>
   </main>
 </template>
