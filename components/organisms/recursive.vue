@@ -24,7 +24,7 @@
     >
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
     </section>
-    <!-- ??? -->
+    <!-- RECTANGLE -->
     <div 
         v-else-if="datas.tag === 'div'" 
         :class="datas.name" class="container"
@@ -36,6 +36,7 @@
             height: ${bounding.height.percent}vw;
             ${datas.backgroundColor && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
             ${datas.rotation && `transform: rotate3D(0, 0, 1, ${datas.rotation}deg);`}
+            ${datas.opacity && `opacity: ${datas.opacity};`}
         `"
     >
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
@@ -181,6 +182,7 @@
             width: ${bounding.width.percent}vw;
             height: ${bounding.height.percent}vw;
             ${datas.backgroundColor && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
+            ${datas.opacity && `opacity: ${datas.opacity};`}
         `">
         <o-sound 
             :data-sound-index="datas.name === 'sound-testimony' && soundIndex"

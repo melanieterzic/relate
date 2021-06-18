@@ -38,7 +38,7 @@ export default {
           this.$data.scrollTrigger = {
             ...this.$data.scrollTrigger, 
             ...{
-              // start: 'top 85%',
+              start: 'top 85%',
               end: `bottom 85%`,
               onEnter: () => {
                child.setPlaying(true);
@@ -62,7 +62,7 @@ export default {
               ...{
                 pin: true,
                 start: 'top 15%',
-                end: `${ (this.$el.offsetHeight - this.$props.options.gap) <= 0 ? 0 : this.$el.offsetHeight + this.$data.gap }px -35%`,
+                end: `bottom 15%`,
                 onUpdate: (self) => {
                   child.scroll(self.progress * 100);
                 }

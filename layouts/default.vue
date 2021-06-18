@@ -44,7 +44,7 @@ export default {
       this.$nuxt.$emit("update");
     },
     namePage() {
-      let page = this.$route.name == "index" ? "home" : this.$route.name;
+      let page = this.$route.name == "index" ? "home" : this.$route.name;   
       return `p-${page}`;
     }
   },

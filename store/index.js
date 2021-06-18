@@ -47,6 +47,7 @@ export const state = () => ({
         ressourcesURL: []
     },
     isSoundEnabled: true,
+<<<<<<< HEAD
     recursive: {
         index: {
             sound: {
@@ -56,6 +57,9 @@ export const state = () => ({
             }
         }
     }
+=======
+    isParamsOpen: false,
+>>>>>>> 8b32007f2a3be22b55b09d825ffbd8d39ded9cb0
 })
 
 export const getters = {
@@ -122,6 +126,10 @@ export const mutations = {
     toggleSound(state) {
         state.isSoundEnabled = !state.isSoundEnabled;
         localStorage.setItem('isSoundEnabled', state.isSoundEnabled);
+    },
+    toggleParams(state) {
+        state.isParamsOpen = !state.isParamsOpen;
+        localStorage.setItem('isParamsOpen', state.isParamsOpen);
     },
     initializeSound(state) {
         // const isSoundEnabled = JSON.parse(localStorage.getItem('isSoundEnabled'));
