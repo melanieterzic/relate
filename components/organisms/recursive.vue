@@ -35,7 +35,8 @@
             width: ${bounding.width.percent}vw;
             height: ${bounding.height.percent}vw;
             ${datas.backgroundColor && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
-            ${datas.rotation && `transform: rotate3D(0, 0, 1, ${datas.rotation}deg);`}
+            ${datas.rotation && `transform: rotate3D(0, 0, 1, ${-1 * datas.rotation.z}deg);`}
+            transform-origin: left;
             ${datas.opacity && `opacity: ${datas.opacity};`}
         `"
     >
@@ -96,6 +97,8 @@
             line-height: ${lineHeight}vw;
             text-align: ${datas.textAlign};
             opacity: ${datas.opacity};
+            ${datas.rotation && `transform: rotate3D(0, 0, 1, ${-1 * datas.rotation.z}deg);`}
+            transform-origin: left;
         `"
     >{{ datas.characters }}</h2>
     <!-- PARAGRAPH -->
@@ -112,9 +115,11 @@
             font-family: ${datas.fontFamily};
             font-weight: ${datas.fontWeight};
             letter-spacing: ${letterSpacing}vw;
-            line-height: ${lineHeight}vw;
+            line-height: ${lineHeight === 'initial' ? lineHeight : lineHeight + 'vw' };
             text-align: ${datas.textAlign};
             opacity: ${datas.opacity};
+            ${datas.rotation && `transform: rotate3D(0, 0, 1, ${-1 * datas.rotation.z}deg);`}
+            transform-origin: left;
         `"
     >{{ datas.characters }}</p>
     <!-- IMAGE -->
@@ -126,6 +131,8 @@
             left: ${bounding.x.percent}vw;
             width: ${bounding.width.percent}vw;
             height: ${bounding.height.percent}vw;
+            ${datas.rotation && `transform: rotate3D(0, 0, 1, ${-1 * datas.rotation.z}deg);`}
+            transform-origin: left;
         `"
     />
     <!-- ANIMATION -->
@@ -136,20 +143,20 @@
         position: absolute;
         top: ${bounding.y.percent}vw;
         left: ${bounding.x.percent}vw;
-        width: ${bounding.width.percent}vw;
-        height: ${bounding.height.percent}vw;
         ${datas.backgroundColor && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
     `"
     :options="{
         name: datas.fileName,
         number: datas.children.length - 1,
-        speed: 1000 / (datas.children.length - 1)
+        speed: 1000 / (datas.children.length - 1),
+        width: getPercentResizeValue(datas.children[0].width),
+        height: getPercentResizeValue(datas.children[0].height)
     }">        
-        <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
+        <!-- <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" /> -->
     </o-animation>
     <o-scroller
     v-else-if="datas.tag === 'animation' && datas.type === 'scroll'" 
-    :class="datas.name" class="container"
+    :class="datas.name" class=""
     :style="`
         position: absolute;
         top: ${bounding.y.percent}vw;
@@ -159,16 +166,14 @@
         ${datas.backgroundColor && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
     `">
         <o-animation
-        :style="`
-            width: ${bounding.width.percent}vw;
-            height: ${bounding.height.percent}vw;
-        `"
         :options="{
             name: datas.fileName,
             number: datas.children.length - 1,
-            scroll: true
+            scroll: true,
+            width: getPercentResizeValue(datas.children[0].width),
+            height: getPercentResizeValue(datas.children[0].height)
         }">        
-            <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
+            <!-- <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" /> -->
         </o-animation>
     </o-scroller>
     <!-- SOUND -->
@@ -218,7 +223,7 @@ export default {
         if (fontFamily) {
             return {
                 link: [
-                    { rel: 'stylesheet', href: `https://fonts.googleapis.com/css2?family=${fontFamily.replace(/ /g, '+')}` }
+                    { rel: 'stylesheet', href: `https://fonts.googleapis.com/css2?family=${fontFamily.replace(/ /g, '+')}:wght@200;300;400;600;700;900` }
                 ]
             }
         } else {
@@ -310,7 +315,7 @@ export default {
             }
         },
         setFontSize() {
-            this.$data.fontSize = this.getPercentResizeValue(this.$props.datas.fontSize) - 1;
+            this.$data.fontSize = this.getPercentResizeValue(this.$props.datas.fontSize - 1);
         },
         setLetterSpacing() {
             const value = this.$props.datas.letterSpacing;
@@ -324,11 +329,13 @@ export default {
         },
         setLineHeight() {
             const value = this.$props.datas.lineHeight;
-            if (value.includes('%')) {
+            if (value.includes('auto')) {
+                this.$data.lineHeight = 'initial';
+            } else if (value.includes('%')) {
                 let rebalancing = 35.9375 * parseInt(value.split('%')[0]) / 100;
                 this.$data.lineHeight = rebalancing;
             } else if (value.includes('px')) {
-                let rebalancing = parseInt(value.split('px')[0]) + 40;
+                let rebalancing = parseInt(value.split('px')[0]);
                 this.$data.lineHeight = this.getPercentResizeValue(rebalancing);
             }  
         },

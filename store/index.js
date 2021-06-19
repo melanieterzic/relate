@@ -47,7 +47,6 @@ export const state = () => ({
         ressourcesURL: []
     },
     isSoundEnabled: true,
-<<<<<<< HEAD
     recursive: {
         index: {
             sound: {
@@ -56,10 +55,8 @@ export const state = () => ({
                 noise: 0
             }
         }
-    }
-=======
+    },
     isParamsOpen: false,
->>>>>>> 8b32007f2a3be22b55b09d825ffbd8d39ded9cb0
 })
 
 export const getters = {
