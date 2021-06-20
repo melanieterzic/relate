@@ -1,7 +1,12 @@
 <template>
   <div class="frise" id="frise">
     <p class="text11" @click="ChangeText()">{{ mots[i] }}</p>
-    <svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 371 11682">
+    <svg
+      id="svg"
+      height="11682"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 371 11682"
+    >
       <path
         class="theLine"
         d="M 237.734 1
@@ -282,7 +287,7 @@ export default {
       .to(".text15", {}, 3.9)
       .to(".text16", {}, 4.2)
       .to(".ball04, .text17", {}, 4.5)
-      .to(".text18", {}, 5);
+      .to(".ball05,.text18", {}, 5);
 
     const action = this.$gsap
       .timeline({
@@ -290,11 +295,12 @@ export default {
         scrollTrigger: {
           trigger: "#svg",
           scrub: true,
-          start: "top center",
+          start: "top 85%",
           end: "bottom center",
         },
       })
       .from(".theLine", { drawSVG: 0 }, 0)
+      .to(".theLine", { y: "=1920", duration: 0.0001 }, 0)
       .add(tl, 0);
   },
   methods: {
@@ -386,7 +392,7 @@ export default {
     z-index: 9;
     position: absolute;
     margin-top: 0;
-    top: 6630px;
+    top: 5950px;
     text-align: center;
     font-size: 34px;
     // text-decoration: none;
