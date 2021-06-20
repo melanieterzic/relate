@@ -30,6 +30,9 @@
         alt="Icon marker sound"
       />
       <a-contextesvg></a-contextesvg>
+      <o-scroller class="sound1">
+        <o-sound :options="{ sound: { name: 'contexte/1' } }"> </o-sound>
+      </o-scroller>
       <o-scroller class="sound2">
         <o-sound :options="{ sound: { name: 'contexte/2' } }"> </o-sound>
       </o-scroller>
@@ -147,33 +150,41 @@ html {
   color: #faf2ed;
   font-family: "Source Sans Pro";
   height: 13000px;
+  .sound1 {
+    position: absolute;
+    top: 600px;
+    left: 10px;
+    height: 280px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
   .sound2 {
     position: absolute;
     top: 940px;
     left: 10px;
-    height: 520px;
+    height: 650px;
     width: 2px;
     background-color: #faf2ed;
   }
   .sound3 {
     position: absolute;
-    top: 1500px;
+    top: 1650px;
     left: 10px;
-    height: 180px;
+    height: 120px;
     width: 2px;
     background-color: #faf2ed;
   }
   .sound4 {
     position: absolute;
-    top: 1740px;
+    top: 1840px;
     left: 10px;
-    height: 380px;
+    height: 580px;
     width: 2px;
     background-color: #faf2ed;
   }
   .sound5 {
     position: absolute;
-    top: 2590px;
+    top: 2530px;
     left: 10px;
     height: 265px;
     width: 2px;
@@ -181,9 +192,9 @@ html {
   }
   .sound6 {
     position: absolute;
-    top: 2950px;
+    top: 2850px;
     left: 10px;
-    height: 200px;
+    height: 300px;
     width: 2px;
     background-color: #faf2ed;
   }
@@ -191,7 +202,7 @@ html {
     position: absolute;
     top: 3230px;
     left: 10px;
-    height: 200px;
+    height: 300px;
     width: 2px;
     background-color: #faf2ed;
   }
@@ -321,7 +332,7 @@ html {
     top: 85%;
     left: 0;
     transform: translate3d(0, -50%, 0);
-    z-index: 99;
+    z-index: 9;
   }
 
   .header {
@@ -339,7 +350,7 @@ html {
       position: fixed;
       top: 20px;
       right: 20px;
-      z-index: 10;
+      z-index: 13;
       text-decoration: none;
       border: none;
       background: none;

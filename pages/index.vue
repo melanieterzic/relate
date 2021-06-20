@@ -1,6 +1,6 @@
 <template>
   <main>
-    <nuxt-link to="/rd-integrationPrototype">
+    <nuxt-link to="/rd-figma">
       <span class="play">PLAY</span>
     </nuxt-link>
     <t-home :api="api" />

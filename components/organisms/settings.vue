@@ -48,7 +48,7 @@ export default {
   //justify-content: center;
   //align-content: space-around;
   color: #faf2ed;
-  z-index: 5;
+  z-index: 12;
   padding: 0;
   margin: 0;
   h1 {
