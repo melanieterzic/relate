@@ -138,7 +138,7 @@
         `"
   />
     <!-- ANIMATION -->
-    <!-- <o-animation
+    <o-animation
     v-else-if="datas.tag === 'animation' && datas.type === 'fix'" 
     :class="datas.name" class="container"
     :style="`
@@ -154,7 +154,7 @@
         width: getPercentResizeValue(datas.children[0].width),
         height: getPercentResizeValue(datas.children[0].height)
     }">        
-    </o-animation> -->
+    </o-animation>
     <o-scroller
     v-else-if="datas.tag === 'animation' && datas.type === 'scroll'" 
     :class="datas.name" class=""
