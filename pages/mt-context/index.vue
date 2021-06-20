@@ -24,13 +24,74 @@
       <div class="carte">
         <img class="img-carte" src="~/assets/images/carte.svg" alt="carte" />
       </div>
+      <img
+        class="sound-marker"
+        src="~/assets/images/icon-sound-white.svg"
+        alt="Icon marker sound"
+      />
       <a-contextesvg></a-contextesvg>
-      <o-scroller class="sound1">
-        <o-sound
-          :data-sound-index="datas.name === 'sound-testimony' && soundIndex"
-          :options="{ sound: { name: '~/assets/sounds/1.mp3' } }"
-        >
-        </o-sound>
+      <o-scroller class="sound2">
+        <o-sound :options="{ sound: { name: 'contexte/2' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound3">
+        <o-sound :options="{ sound: { name: 'contexte/3' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound4">
+        <o-sound :options="{ sound: { name: 'contexte/4' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound5">
+        <o-sound :options="{ sound: { name: 'contexte/5' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound6">
+        <o-sound :options="{ sound: { name: 'contexte/6' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound7">
+        <o-sound :options="{ sound: { name: 'contexte/7' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound8">
+        <o-sound :options="{ sound: { name: 'contexte/8' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound9">
+        <o-sound :options="{ sound: { name: 'contexte/9' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound10">
+        <o-sound :options="{ sound: { name: 'contexte/10' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound11">
+        <o-sound :options="{ sound: { name: 'contexte/11' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound12">
+        <o-sound :options="{ sound: { name: 'contexte/12' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound13">
+        <o-sound :options="{ sound: { name: 'contexte/13' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound14">
+        <o-sound :options="{ sound: { name: 'contexte/14' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound15">
+        <o-sound :options="{ sound: { name: 'contexte/15' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound16">
+        <o-sound :options="{ sound: { name: 'contexte/16' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound17">
+        <o-sound :options="{ sound: { name: 'contexte/17' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound18">
+        <o-sound :options="{ sound: { name: 'contexte/18' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound19">
+        <o-sound :options="{ sound: { name: 'contexte/19' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound20">
+        <o-sound :options="{ sound: { name: 'contexte/20' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound21">
+        <o-sound :options="{ sound: { name: 'contexte/21' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound22">
+        <o-sound :options="{ sound: { name: 'contexte/22' } }"> </o-sound>
       </o-scroller>
     </div>
   </main>
@@ -75,7 +136,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Volkhov:wght@700&display=swap");
 
 html {
-  overflow-y: scroll;
+  //overflow-y: scroll;
   overflow-x: hidden;
   max-width: 100%;
   margin: 0;
@@ -85,6 +146,184 @@ html {
   background-color: #0f0e21;
   color: #faf2ed;
   font-family: "Source Sans Pro";
+  height: 13000px;
+  .sound2 {
+    position: absolute;
+    top: 940px;
+    left: 10px;
+    height: 520px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound3 {
+    position: absolute;
+    top: 1500px;
+    left: 10px;
+    height: 180px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound4 {
+    position: absolute;
+    top: 1740px;
+    left: 10px;
+    height: 380px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound5 {
+    position: absolute;
+    top: 2590px;
+    left: 10px;
+    height: 265px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound6 {
+    position: absolute;
+    top: 2950px;
+    left: 10px;
+    height: 200px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound7 {
+    position: absolute;
+    top: 3230px;
+    left: 10px;
+    height: 200px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound8 {
+    position: absolute;
+    top: 3710px;
+    left: 10px;
+    height: 480px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound9 {
+    position: absolute;
+    top: 4580px;
+    left: 10px;
+    height: 680px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound10 {
+    position: absolute;
+    top: 5650px;
+    left: 10px;
+    height: 230px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound11 {
+    position: absolute;
+    top: 6750px;
+    left: 10px;
+    height: 200px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound12 {
+    position: absolute;
+    top: 7280px;
+    left: 10px;
+    height: 180px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound13 {
+    position: absolute;
+    top: 7830px;
+    left: 10px;
+    height: 890px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound14 {
+    position: absolute;
+    top: 8780px;
+    left: 10px;
+    height: 200px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound15 {
+    position: absolute;
+    top: 9480px;
+    left: 10px;
+    height: 350px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound16 {
+    position: absolute;
+    top: 10080px;
+    left: 10px;
+    height: 145px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound17 {
+    position: absolute;
+    top: 10280px;
+    left: 10px;
+    height: 150px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound18 {
+    position: absolute;
+    top: 10480px;
+    left: 10px;
+    height: 150px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound19 {
+    position: absolute;
+    top: 10780px;
+    left: 10px;
+    height: 550px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound20 {
+    position: absolute;
+    top: 11380px;
+    left: 10px;
+    height: 100px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound21 {
+    position: absolute;
+    top: 11780px;
+    left: 10px;
+    height: 160px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+
+  .sound22 {
+    position: absolute;
+    top: 12230px;
+    left: 10px;
+    height: 480px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound-marker {
+    position: fixed;
+    top: 85%;
+    left: 0;
+    transform: translate3d(0, -50%, 0);
+    z-index: 99;
+  }
+
   .header {
     .img-settings {
       position: fixed;

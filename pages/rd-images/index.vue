@@ -120,29 +120,27 @@ export default {
         image.onerror = () => reject(new Error('could not load image'))
       })
     },
-    toto() {
-      this.getImage(this.$data.images[this.$data.index].url)
-        .then(img => {
-          img.style.position = "absolute";
-          img.style.top = this.$data.images[this.$data.index].top + "px";
-          img.style.left = this.$data.images[this.$data.index].left + "px";
-          img.style.width = this.$data.images[this.$data.index].width + "px";
-          img.style.height = this.$data.images[this.$data.index].height + "px";
-          this.$el.appendChild(img);
-          this.$data.index++;
-          if (this.$data.index < this.$data.images.length) {
-            this.toto();
-          }
-        });
-    },
-    test() {
-      var newDiv = document.createElement("div");
-      var newContent = document.createTextNode('Hi there and greetings!');
-      this.$el.appendChild(newContent);
+    async toto(params) {
+      const img = await this.getImage(this.$data.images[params.index].url)
+      img.style.position = "absolute";
+      img.style.top = this.$data.images[params.index].top + "px";
+      img.style.left = this.$data.images[params.index].left + "px";
+      img.style.width = this.$data.images[params.index].width + "px";
+      img.style.height = this.$data.images[params.index].height + "px";
+      this.$el.appendChild(img);
     }
   },
   mounted() {
-    this.$toto.push(this.test)
+    this.$data.index = 0;
+    this.$data.images.forEach(image => {
+      this.$loader.push({
+        callback: this.toto,
+        params: {
+          index: this.$data.index
+        }
+      });
+      this.$data.index++;
+    });
     // Créer un tableau
     // Ordonner le tableau
     // Lancer load avec promesse recursive
@@ -150,8 +148,8 @@ export default {
 
     // this.$store.commit('setRessourcesNumber', { value: this.$data.images.length })
     // this.$data.images.forEach(image => {
-      this.$data.index = 0;
-      this.toto();
+      // this.$data.index = 0;
+      // this.toto();
     // });
   },
   watch: {}

@@ -57,6 +57,15 @@ export const state = () => ({
         }
     },
     isParamsOpen: false,
+    recursive: {
+        index: {
+            sound: {
+                testimony: 0,
+                ambient: 0,
+                noise: 0
+            }
+        }
+    }
 })
 
 export const getters = {

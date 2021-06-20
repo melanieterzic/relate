@@ -43,6 +43,7 @@ export default {
   // PLUGINS
   plugins: [
     { src: '~/plugins/api.js' },
+    { src: '~/plugins/loader.js' },
     { src: '~/plugins/gsap.js' }
   ],
   // LOADING

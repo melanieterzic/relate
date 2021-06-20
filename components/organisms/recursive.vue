@@ -18,8 +18,10 @@
         :style="`
             width: ${bounding.width.percent}vw;
             height: ${bounding.height.percent}vw;            
-            ${datas.backgroundColor && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
-
+            ${
+              datas.backgroundColor &&
+              `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`
+            }
         `"
     >
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
@@ -134,9 +136,9 @@
             ${datas.rotation && `transform: rotate3D(0, 0, 1, ${-1 * datas.rotation.z}deg);`}
             transform-origin: left;
         `"
-    />
+  />
     <!-- ANIMATION -->
-    <o-animation
+    <!-- <o-animation
     v-else-if="datas.tag === 'animation' && datas.type === 'fix'" 
     :class="datas.name" class="container"
     :style="`
@@ -152,8 +154,7 @@
         width: getPercentResizeValue(datas.children[0].width),
         height: getPercentResizeValue(datas.children[0].height)
     }">        
-        <!-- <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" /> -->
-    </o-animation>
+    </o-animation> -->
     <o-scroller
     v-else-if="datas.tag === 'animation' && datas.type === 'scroll'" 
     :class="datas.name" class=""
@@ -340,18 +341,17 @@ export default {
             }  
         },
         getPixelResizeValue(value) {
-            let low1 = 0;
-            let high1 = this.$data.defaultWidth;
-            let low2 = 0;
-            let high2 = window.innerWidth;
-
-            return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+          let low1 = 0;
+          let high1 = this.$data.defaultWidth;
+          let low2 = 0;
+          let high2 = window.innerWidth;
+          return low2 + ((high2 - low2) * (value - low1)) / (high1 - low1);
         },
         getRatioResizeValue(oldValue, newValue) {
-            return newValue / oldValue;
+          return newValue / oldValue;
         },
         getPercentResizeValue(value) {
-            return value * 100 / this.$data.defaultWidth;
+          return (value * 100) / this.$data.defaultWidth;
         },
         setBounding() {
             let width = this.$props.datas.width;
@@ -393,16 +393,16 @@ export default {
             this.setLineHeight();
         }
     }
-}
+};
 </script>
 
 <style lang="scss">
-    .container {
-        & > * {
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            height: 100% !important;
-        }
-    }
+.container {
+  & > * {
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
 </style>
