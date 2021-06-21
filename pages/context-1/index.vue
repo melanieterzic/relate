@@ -1,253 +1,406 @@
 <template>
   <main class="context">
-    
+    <div class="header">
+      <button v-bind:class="changeStyle()" @click="modal = !modal">
+        <img :src="[modal ? close : burger]" />
+      </button>
+      <o-settings v-if="modal"></o-settings>
+      <img class="img-cross" src="~/assets/images/cross.svg" alt="cross" />
+      <img
+        class="img-arrow"
+        src="~/assets/images/white_arrow.svg"
+        alt="cross"
+      />
+      <p class="contexte-info">
+        Check if the settings are right for you. <br />
+        You can change them anytime
+      </p>
+    </div>
+    <div class="body">
+      <div class="titles">
+        <h1>Cambodge</h1>
+        <h2>ប្រទេសកម្ពុជា</h2>
+      </div>
+      <div class="carte">
+        <img class="img-carte" src="~/assets/images/carte.svg" alt="carte" />
+      </div>
+      <img
+        class="sound-marker"
+        src="~/assets/images/icon-sound-white.svg"
+        alt="Icon marker sound"
+      />
+      <a-contextesvg></a-contextesvg>
+      <o-scroller class="sound1">
+        <o-sound :options="{ sound: { name: 'contexte/1' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound2">
+        <o-sound :options="{ sound: { name: 'contexte/2' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound3">
+        <o-sound :options="{ sound: { name: 'contexte/3' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound4">
+        <o-sound :options="{ sound: { name: 'contexte/4' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound5">
+        <o-sound :options="{ sound: { name: 'contexte/5' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound6">
+        <o-sound :options="{ sound: { name: 'contexte/6' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound7">
+        <o-sound :options="{ sound: { name: 'contexte/7' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound8">
+        <o-sound :options="{ sound: { name: 'contexte/8' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound9">
+        <o-sound :options="{ sound: { name: 'contexte/9' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound10">
+        <o-sound :options="{ sound: { name: 'contexte/10' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound11">
+        <o-sound :options="{ sound: { name: 'contexte/11' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound12">
+        <o-sound :options="{ sound: { name: 'contexte/12' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound13">
+        <o-sound :options="{ sound: { name: 'contexte/13' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound14">
+        <o-sound :options="{ sound: { name: 'contexte/14' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound15">
+        <o-sound :options="{ sound: { name: 'contexte/15' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound16">
+        <o-sound :options="{ sound: { name: 'contexte/16' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound17">
+        <o-sound :options="{ sound: { name: 'contexte/17' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound18">
+        <o-sound :options="{ sound: { name: 'contexte/18' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound19">
+        <o-sound :options="{ sound: { name: 'contexte/19' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound20">
+        <o-sound :options="{ sound: { name: 'contexte/20' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound21">
+        <o-sound :options="{ sound: { name: 'contexte/21' } }"> </o-sound>
+      </o-scroller>
+      <o-scroller class="sound22">
+        <o-sound :options="{ sound: { name: 'contexte/22' } }"> </o-sound>
+      </o-scroller>
+    </div>
   </main>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      modal: false,
+      burger: require("~/assets/images/settings.svg"),
+      close: require("~/assets/images/white_close.svg"),
+    };
+  },
+  mounted() {
+    this.$nuxt.$on("update", this.update);
+  },
+  methods: {
+    changeStyle() {
+      if (this.$data.modal) {
+        return "img-settings-close";
+      }
+      if (!this.$data.modal) {
+        return "img-settings";
+      }
+    },
+    update() {
+      if (this.$data.modal) {
+        document.querySelector("html").style.overflow = "hidden";
+      }
+      if (!this.$data.modal) {
+        document.querySelector("html").style.overflow = "auto";
+      }
+    },
+  },
+};
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bayon&family=Source+Sans+Pro:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Volkhov:wght@700&display=swap");
+
+html {
+  //overflow-y: scroll;
+  overflow-x: hidden;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
 .context {
-  .header,
-  .footer {
-    display: flex;
-    justify-content: flex-end;
-    padding: 8vw;
+  background-color: #0f0e21;
+  color: #faf2ed;
+  font-family: "Source Sans Pro";
+  height: 13000px;
+  .sound1 {
+    position: absolute;
+    top: 600px;
+    left: 10px;
+    height: 280px;
+    width: 2px;
+    background-color: #faf2ed;
   }
-  .footer {
-    margin-top: -22vw;
-    background-color: #292a2e;
-    img {
-      mix-blend-mode: difference;
+  .sound2 {
+    position: absolute;
+    top: 940px;
+    left: 10px;
+    height: 650px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound3 {
+    position: absolute;
+    top: 1650px;
+    left: 10px;
+    height: 120px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound4 {
+    position: absolute;
+    top: 1840px;
+    left: 10px;
+    height: 580px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound5 {
+    position: absolute;
+    top: 2530px;
+    left: 10px;
+    height: 265px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound6 {
+    position: absolute;
+    top: 2850px;
+    left: 10px;
+    height: 300px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound7 {
+    position: absolute;
+    top: 3230px;
+    left: 10px;
+    height: 300px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound8 {
+    position: absolute;
+    top: 3710px;
+    left: 10px;
+    height: 480px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound9 {
+    position: absolute;
+    top: 4580px;
+    left: 10px;
+    height: 680px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound10 {
+    position: absolute;
+    top: 5650px;
+    left: 10px;
+    height: 230px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound11 {
+    position: absolute;
+    top: 6750px;
+    left: 10px;
+    height: 200px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound12 {
+    position: absolute;
+    top: 7280px;
+    left: 10px;
+    height: 180px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound13 {
+    position: absolute;
+    top: 7830px;
+    left: 10px;
+    height: 890px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound14 {
+    position: absolute;
+    top: 8780px;
+    left: 10px;
+    height: 200px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound15 {
+    position: absolute;
+    top: 9480px;
+    left: 10px;
+    height: 350px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound16 {
+    position: absolute;
+    top: 10080px;
+    left: 10px;
+    height: 145px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound17 {
+    position: absolute;
+    top: 10280px;
+    left: 10px;
+    height: 150px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound18 {
+    position: absolute;
+    top: 10480px;
+    left: 10px;
+    height: 150px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound19 {
+    position: absolute;
+    top: 10780px;
+    left: 10px;
+    height: 550px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound20 {
+    position: absolute;
+    top: 11380px;
+    left: 10px;
+    height: 100px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound21 {
+    position: absolute;
+    top: 11780px;
+    left: 10px;
+    height: 160px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+
+  .sound22 {
+    position: absolute;
+    top: 12230px;
+    left: 10px;
+    height: 480px;
+    width: 2px;
+    background-color: #faf2ed;
+  }
+  .sound-marker {
+    position: fixed;
+    top: 85%;
+    left: 0;
+    transform: translate3d(0, -50%, 0);
+    z-index: 9;
+  }
+
+  .header {
+    .img-settings {
+      position: fixed;
+      right: -8px;
+      z-index: 10;
+      margin-top: 34px;
+      text-decoration: none;
+      border: none;
+      background: none;
+      //z-index: 3;
+    }
+    .img-settings-close {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 13;
+      text-decoration: none;
+      border: none;
+      background: none;
+    }
+    .img-cross {
+      position: absolute;
+      right: 0;
+      margin-right: 50px;
+      margin-top: 30px;
+    }
+    .img-arrow {
+      position: absolute;
+      right: 0;
+      margin-top: 30%;
+      margin-right: 10%;
+    }
+    .contexte-info {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17.6px;
+      height: 200px;
     }
   }
-  .content {
-    .s-break {
-      display: block;
-      height: 3.73vw;
-    }
-    .s-01 {
-      display: block;
-      font-family: "Source Sans Pro";
-      font-style: normal;
-      font-weight: bold;
-      font-size: 7.46vw;
-      line-height: 130%;
-    }
-    .s-02 {
-      font-family: "Source Sans Pro";
-      font-style: normal;
-      font-weight: 600;
-      font-size: 3.73vw;
-      line-height: 130%;
-    }
-    .s-03 {
-      font-family: "Source Sans Pro";
-      font-style: normal;
-      font-weight: normal;
-      font-size: 3.73vw;
-      line-height: 130%;
-    }
-    .s-04 {
-      font-family: "Source Sans Pro";
-      font-style: normal;
-      font-weight: bold;
-      font-size: 4.8vw;
-      line-height: 130%;
-    }
-    .s-05 {
-      font-family: "Source Sans Pro";
-      font-style: normal;
-      font-weight: normal;
-      font-size: 4.8vw;
-      line-height: 130%;
-    }
-    .s-06 {
-      font-family: "Source Sans Pro";
-      font-style: normal;
-      font-weight: normal;
-      font-size: 2.6vw;
-      line-height: 3.4vw;
-      text-align: right;
-      text-transform: uppercase;
-    }
-    .s-07 {
-      font-family: "Source Sans Pro";
-      font-style: normal;
-      font-weight: bold;
-      font-size: 12.8vw;
-      line-height: 130%;
-    }
-    .introduction {
-      margin: 10.66vw;
-    }
-    .map {
-      margin-bottom: 37.33vw;
-      .label {
-        margin: 0 1.33vw 2.4vw 0;
+
+  .body {
+    .titles {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 300px;
+      h1 {
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 45.25px;
       }
-      img {
-        width: 100%;
-        height: auto;
-      }
-      .desc {
-        margin: -12vw 12vw 12vw;
-      }
-      .s-03,
-      .s-04,
-      .s-05 {
-        display: block;
+      h2 {
+        font-family: "Bayon";
+        font-size: 24px;
+        font-weight: 400px;
       }
     }
-    .definition {
-      padding: 38.66vw 12vw;
-      background-color: #292a2e;
-      color: #fff;
-      text-align: center;
-    }
-    .container-01 {
-      padding: 38.66vw 12vw;
-      .label {
-        margin: 0 1.33vw 2.4vw 0;
-      }
-      .s-04 {
-        display: block;
-      }
-    }
-    .queue {
-      padding-bottom: 38.66vw;
-      .label {
-        margin: 0 1.33vw 2.4vw 0;
-      }
-      img {
-        width: 100%;
-        height: auto;
-      }
-      .desc {
-        margin: 21.86vw 12vw 12vw;
-      }
-      .s-03,
-      .s-04,
-      .s-05 {
-        display: block;
-      }
-    }
-    .smile {
-      padding-bottom: 38.66vw;
-      .label {
-        position: absolute;
-        transform: translate3d(60.2vw, 0, 0);
-      }
-      img {
-        width: 72.53vw;
-        height: auto;
-        transform: rotate(-5.6deg) translate3d(-13.96vw, 0, 0);
-      }
-      .desc {
-        margin: 21.86vw 12vw 12vw;
-      }
-      .s-03,
-      .s-04,
-      .s-05 {
-        display: block;
-      }
-    }
-    .pelmel {
-      position: relative;
-      img {
-        width: 44.53vw;
-        height: auto;
-      }
-      .desc {
-        position: absolute;
-        top: 50%;
-        left: 60%;
-        width: 55%;
-        transform: translate3d(-50%, -50%, 0);
-      }
-    }
-    .numbers {
-      padding: 38.66vw 12vw;
-      background-color: #292a2e;
-      color: #fff;
-      text-align: center;
-      .s-03,
-      .s-04,
-      .s-07 {
-        display: block;
-      }
-    }
-    .tribunal {
-      position: relative;
-      padding: 38.66vw 0;
-      .label {
-        position: absolute;
-        transform: translate3d(62.2vw, -18vw, 0) rotate(5.6deg);
-      }
-      img {
-        position: relative;
-        &:nth-child(2) {
-          position: absolute;
-          top: 30%;
-          left: 50%;
-          width: 74.53vw;
-          height: auto;
-          transform: translate3d(-50%, -50%, 0);
-        }
-        &:nth-child(3) {
-          width: 80.53vw;
-          height: auto;
-          transform: rotate(5.6deg) translate3d(23.96vw, 0, 0);
-        }
-      }
-      p {
-        padding: 17.06vw 12vw;
-      }
-      .s-04 {
-        display: block;
-      }
-    }
-    .trial {
-      position: relative;
-      padding: 38.66vw 12vw;
-      background-color: #292a2e;
-      color: #fff;
-      .label {
-        position: absolute;
-        top: 0;
-        color: #000;
-        transform: rotate(-5.6deg) translate3d(-5.5vw, -28vw, 0);
-      }
-      img {
-        position: absolute;
-        top: 0;
-        width: 72.53vw;
-        height: auto;
-        transform: rotate(-5.6deg) translate3d(-20.2vw, -50%, 0);
-      }
-      .s-04 {
-        display: block;
-      }
-    }
-    .container-02 {
-      padding: 17.06vw 12vw;
-      .label {
-        margin: 0 1.33vw 2.4vw 0;
-      }
-      .s-04 {
-        display: block;
-      }
-    }
-    .container-03 {
-      padding: 17.06vw 12vw 0;
-      .label {
-        margin: 0 1.33vw 2.4vw 0;
-      }
-      .s-04 {
-        display: block;
+    .carte {
+      display: flex;
+      justify-content: center;
+      .img-carte {
+        max-width: 80%;
       }
     }
   }

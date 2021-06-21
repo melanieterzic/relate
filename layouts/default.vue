@@ -49,12 +49,12 @@ export default {
     }
   },
   async mounted() {
-    for (let i = 0; i < this.$toto.length; i++) {
-      const to = this.$toto[i];
-      const callback = to.callback;
-      const params = to.params;
-      await callback(params);
-    }
+    // for (let i = 0; i < this.$toto.length; i++) {
+    //   const to = this.$toto[i];
+    //   const callback = to.callback;
+    //   const params = to.params;
+    //   await callback(params);
+    // }
     // this.$toto.forEach(async asset => {
     //   const to = asset;
     //   console.log(await to.callback(to.params))

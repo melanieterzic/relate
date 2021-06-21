@@ -125,18 +125,21 @@
         `"
     >{{ datas.characters }}</p>
     <!-- IMAGE -->
-    <img 
-        v-else-if="datas.tag === 'img' || datas.tag === 'svg'" :src="getUrlImg(datas.fileName)"
-        :style="`
-            position: absolute;
-            top: ${bounding.y.percent}vw;
-            left: ${bounding.x.percent}vw;
-            width: ${bounding.width.percent}vw;
-            height: ${bounding.height.percent}vw;
-            ${datas.rotation && `transform: rotate3D(0, 0, 1, ${-1 * datas.rotation.z}deg);`}
-            transform-origin: left;
-        `"
-  />
+    <o-image 
+    v-else-if="datas.tag === 'img' || datas.tag === 'svg'"
+    :options="{
+        name: datas.fileName
+    }"
+    :style="`
+        position: absolute;
+        top: ${bounding.y.percent}vw;
+        left: ${bounding.x.percent}vw;
+        width: ${bounding.width.percent}vw;
+        height: ${bounding.height.percent}vw;
+        ${datas.rotation && `transform: rotate3D(0, 0, 1, ${-1 * datas.rotation.z}deg);`}
+        transform-origin: left;
+    `"
+    />
     <!-- ANIMATION -->
     <o-animation
     v-else-if="datas.tag === 'animation' && datas.type === 'fix'" 
@@ -187,7 +190,7 @@
             left: ${bounding.x.percent}vw;
             width: ${bounding.width.percent}vw;
             height: ${bounding.height.percent}vw;
-            ${datas.backgroundColor && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
+            ${(datas.backgroundColor && datas.name === 'sound-testimony') && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
             ${datas.opacity && `opacity: ${datas.opacity};`}
         `">
         <o-sound 

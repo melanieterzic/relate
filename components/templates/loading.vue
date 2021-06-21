@@ -1,4 +1,37 @@
 <template lang="html">
+  <div v-if="$store.state.loader.isLoading" class="loading-page">
+    <p>Loading ...</p>
+  </div>
+</template>
+
+<script>
+</script>
+
+<style scoped lang="scss">
+.loading-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: #0F0E21;
+  color: #FFF;
+  z-index: 999999;
+  &.remove {
+    opacity: 0;
+    transition: opacity 1s linear;
+    p {
+      display: none;
+    }
+  }
+}
+</style>
+
+
+<!-- <template lang="html">
   <div v-if="loading" class="loading-page">
     <p>Loading ...</p>
   </div>
@@ -78,7 +111,7 @@ export default {
     }
   }
 }
-</style>
+</style> -->
 
 <!-- <template lang="html">
   <div v-if="loading" class="loading-page">

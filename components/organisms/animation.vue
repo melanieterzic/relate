@@ -51,24 +51,32 @@ export default {
 
   },
   mounted() {
-      for (let i = 0; i < this.$props.options.number; i++) {
-        const image = new Image();
-        image.src = require(`~/assets/datas/images/${ this.$props.options.name }-${ i + 1 }.png`)
-        this.$data.images.push(image);
-      }
       this.$el.style.width = this.$props.options.width + 'vw';
       this.$el.style.height = this.$props.options.height + 'vw';
       this.$data.canvas = this.$el;
       this.$data.context = this.$data.canvas.getContext("2d");
-      this.$data.images[this.$data.count].onload = () => {
-        this.$data.canvas.width = this.$el.offsetWidth;
-        this.$data.canvas.height = this.$el.offsetHeight;
-        this.$data.context.drawImage(this.$data.images[this.$data.count], 0, 0, this.$data.canvas.width, this.$data.canvas.height);
-        if (!this.$props.options.scroll) {
-          this.loop();
+      for (let i = 0; i < this.$props.options.number; i++) {
+        const image = new Image();
+        image.src = require(`~/assets/datas/images/${ this.$props.options.name }-${ i + 1 }.png`)
+        this.$store.commit('addRessource', 'ok');
+        if (i === 0) {
+          image.onload = () => {
+            this.$data.canvas.width = this.$el.offsetWidth;
+            this.$data.canvas.height = this.$el.offsetHeight;
+            this.$data.context.drawImage(image, 0, 0, this.$data.canvas.width, this.$data.canvas.height);
+            if (!this.$props.options.scroll) {
+              this.loop();
+            } else {
+              this.$parent.$data.responseChild = true;
+            }
+            this.$store.commit('removeRessource', this.$el);
+          }
         } else {
-          this.$parent.$data.responseChild = true;
+          image.onload = () => {
+            this.$store.commit('removeRessource', this.$el);
+          }
         }
+        this.$data.images.push(image);
       }
   }
 }

@@ -43,18 +43,10 @@ export const state = () => ({
         footer: {}
     },
     loader: {
-        ressourcesNumber: 0,
-        ressourcesURL: []
-    },
-    isSoundEnabled: true,
-    recursive: {
-        index: {
-            sound: {
-                testimony: 0,
-                ambient: 0,
-                noise: 0
-            }
-        }
+        isLoading: true,
+        ressources: []
+        // ressourcesNumber: 0,
+        // ressourcesURL: []
     },
     isParamsOpen: false,
     recursive: {
@@ -86,6 +78,21 @@ export const mutations = {
         state.recursive.index.sound.noise += 1;
     },
     // LOADER
+    setLoader(state, value) {
+        state.loader.isLoading = value;
+    },
+    addRessource(state, value) {
+        state.loader.ressources.push(value);
+        if (state.loader.ressources.length > 0) {
+            state.loader.isLoading = true;
+        }
+    },
+    removeRessource(state) {
+        state.loader.ressources.shift();
+        if (state.loader.ressources.length === 0) {
+            state.loader.isLoading = false;
+        }
+    },
     setRessourcesNumber(state, { value }) {
         state.loader.ressourcesNumber = value;
     },

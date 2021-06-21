@@ -29,7 +29,6 @@ export default {
     },
     onFirstInteractionUser() {
       this.$store.state.interaction = true;
-      this.$data.sound.audio = new Audio(this.$data.sound.src); 
       window.removeEventListener('click', this.onFirstInteractionUser);
       window.removeEventListener('touchstart', this.onFirstInteractionUser);
     },
@@ -55,8 +54,20 @@ export default {
       }
     }
   },
-  mounted() {      
-    this.$data.sound.src = require(`~/assets/sounds/${this.$props.options.sound.name}.mp3`).default;
+  mounted() {    
+    console.log(this.$route.name)
+    this.$data.sound.src = require(`~/assets/sounds/${this.$route.name === "index" ? "chapter-1" : this.$route.name}/${this.$props.options.sound.name}.mp3`).default;
+    this.$data.sound.audio = new Audio(this.$data.sound.src); 
+    this.$store.commit('addRessource', 'ok');
+    this.$data.sound.audio.addEventListener('canplaythrough', () => {
+      this.$store.commit('removeRessource', this.$el);
+    });
+    if (this.$props.options.sound.loop) {
+      this.$data.sound.audio.addEventListener('ended', function () {
+        this.$data.sound.audio.currentTime = 0;
+        this.$data.sound.audio.play();
+      }, false);
+    }
     window.addEventListener('click', this.onFirstInteractionUser);
     window.addEventListener('touchstart', this.onFirstInteractionUser);
   }

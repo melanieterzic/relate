@@ -6,5 +6,4 @@ export default (context, inject) => {
         key: context.env.apiKey
     });
     inject('api', api);
-    inject('toto', [])
 }

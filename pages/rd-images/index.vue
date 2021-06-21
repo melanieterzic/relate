@@ -1,6 +1,11 @@
 <template>
   <div>
-    <!-- <img v-for="image, index in images" :key="index"> -->
+    <o-image 
+      v-for="image, index in 154" :key="index"
+      :options="{
+      name: '0Jhldpn1H0-' + (index + 1),
+      format: 'png'
+    }"/>
   </div>
 </template>
 
@@ -131,16 +136,18 @@ export default {
     }
   },
   mounted() {
-    this.$data.index = 0;
-    this.$data.images.forEach(image => {
-      this.$loader.push({
-        callback: this.toto,
-        params: {
-          index: this.$data.index
-        }
-      });
-      this.$data.index++;
-    });
+    console.log(this.$loader.length)
+    console.log(this.$loader)
+    // this.$data.index = 0;
+    // this.$data.images.forEach(image => {
+    //   this.$loader.push({
+    //     callback: this.toto,
+    //     params: {
+    //       index: this.$data.index
+    //     }
+    //   });
+    //   this.$data.index++;
+    // });
     // Créer un tableau
     // Ordonner le tableau
     // Lancer load avec promesse recursive
