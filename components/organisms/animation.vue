@@ -61,8 +61,8 @@ export default {
         this.$store.commit('addRessource', 'ok');
         if (i === 0) {
           image.onload = () => {
-            this.$data.canvas.width = this.$el.offsetWidth;
-            this.$data.canvas.height = this.$el.offsetHeight;
+            this.$data.canvas.width = this.$el.offsetWidth * 2;
+            this.$data.canvas.height = this.$el.offsetHeight * 2;
             this.$data.context.drawImage(image, 0, 0, this.$data.canvas.width, this.$data.canvas.height);
             if (!this.$props.options.scroll) {
               this.loop();
