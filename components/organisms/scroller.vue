@@ -27,7 +27,7 @@ export default {
       this.$data.to = {};
       this.$data.scrollTrigger = {
         id: this._uid,
-        markers: true,
+        markers: false,
         trigger: this.$el,
         scrub: true,
         start: 'top 85%',

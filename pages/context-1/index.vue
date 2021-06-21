@@ -111,6 +111,9 @@ export default {
   },
   mounted() {
     this.$nuxt.$on("update", this.update);
+    if (this.$store.state.loader.ressources.length === 0) {  
+      this.$store.commit('setLoader', false);
+    }
   },
   methods: {
     changeStyle() {
