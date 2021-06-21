@@ -77,6 +77,15 @@ export const mutations = {
     addIndexSoundNoise(state) {
         state.recursive.index.sound.noise += 1;
     },
+    resetIndexSoundTestimony(state) {
+        state.recursive.index.sound.testimony = 0;
+    },
+    resetIndexSoundAmbient(state) {
+        state.recursive.index.sound.ambient = 0;
+    },
+    resetIndexSoundNoise(state) {
+        state.recursive.index.sound.noise = 0;
+    },
     // LOADER
     setLoader(state, value) {
         state.loader.isLoading = value;

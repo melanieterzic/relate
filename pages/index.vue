@@ -19,7 +19,10 @@ export default {
   mounted() {
   },
   beforeDestroy() {
-    this.$store.commit('setLoader', true)
+    this.$store.commit('setLoader', true);
+    this.$store.commit('resetIndexSoundTestimony');
+    this.$store.commit('resetIndexSoundAmbient');
+    this.$store.commit('resetIndexSoundNoise');
   }
 };
 </script>
