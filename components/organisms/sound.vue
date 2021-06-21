@@ -55,7 +55,7 @@ export default {
     }
   },
   mounted() {    
-    console.log(this.$route.name)
+    console.log(this.$route.name);
     this.$data.sound.src = require(`~/assets/sounds/${this.$route.name === "index" ? "chapter-1" : this.$route.name}/${this.$props.options.sound.name}.mp3`).default;
     this.$data.sound.audio = new Audio(this.$data.sound.src); 
     this.$store.commit('addRessource', 'ok');
