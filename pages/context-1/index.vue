@@ -31,70 +31,70 @@
       />
       <a-contextesvg></a-contextesvg>
       <o-scroller class="sound1">
-        <o-sound :options="{ sound: { name: 'contexte/1' } }"> </o-sound>
+        <o-sound :options="{ sound: { name: '1' } }"> </o-sound>
       </o-scroller>
       <o-scroller class="sound2">
-        <o-sound :options="{ sound: { name: 'contexte/2' } }"> </o-sound>
+        <o-sound :options="{ sound: { name: '2' } }"> </o-sound>
       </o-scroller>
       <o-scroller class="sound3">
-        <o-sound :options="{ sound: { name: 'contexte/3' } }"> </o-sound>
+        <o-sound :options="{ sound: { name: '3' } }"> </o-sound>
       </o-scroller>
       <o-scroller class="sound4">
-        <o-sound :options="{ sound: { name: 'contexte/4' } }"> </o-sound>
+        <o-sound :options="{ sound: { name: '4' } }"> </o-sound>
       </o-scroller>
       <o-scroller class="sound5">
-        <o-sound :options="{ sound: { name: 'contexte/5' } }"> </o-sound>
+        <o-sound :options="{ sound: { name: '5' } }"> </o-sound>
       </o-scroller>
       <o-scroller class="sound6">
-        <o-sound :options="{ sound: { name: 'contexte/6' } }"> </o-sound>
+        <o-sound :options="{ sound: { name: '6' } }"> </o-sound>
       </o-scroller>
       <o-scroller class="sound7">
-        <o-sound :options="{ sound: { name: 'contexte/7' } }"> </o-sound>
+        <o-sound :options="{ sound: { name: '7' } }"> </o-sound>
       </o-scroller>
       <o-scroller class="sound8">
-        <o-sound :options="{ sound: { name: 'contexte/8' } }"> </o-sound>
+        <o-sound :options="{ sound: { name: '8' } }"> </o-sound>
       </o-scroller>
       <o-scroller class="sound9">
-        <o-sound :options="{ sound: { name: 'contexte/9' } }"> </o-sound>
+        <o-sound :options="{ sound: { name: '9' } }"> </o-sound>
       </o-scroller>
       <o-scroller class="sound10">
-        <o-sound :options="{ sound: { name: 'contexte/10' } }"> </o-sound>
+        <o-sound :options="{ sound: { name: '10' } }"> </o-sound>
       </o-scroller>
       <o-scroller class="sound11">
-        <o-sound :options="{ sound: { name: 'contexte/11' } }"> </o-sound>
+        <o-sound :options="{ sound: { name: '11' } }"> </o-sound>
       </o-scroller>
       <o-scroller class="sound12">
-        <o-sound :options="{ sound: { name: 'contexte/12' } }"> </o-sound>
+        <o-sound :options="{ sound: { name: '12' } }"> </o-sound>
       </o-scroller>
       <o-scroller class="sound13">
-        <o-sound :options="{ sound: { name: 'contexte/13' } }"> </o-sound>
+        <o-sound :options="{ sound: { name: '13' } }"> </o-sound>
       </o-scroller>
       <o-scroller class="sound14">
-        <o-sound :options="{ sound: { name: 'contexte/14' } }"> </o-sound>
+        <o-sound :options="{ sound: { name: '14' } }"> </o-sound>
       </o-scroller>
       <o-scroller class="sound15">
-        <o-sound :options="{ sound: { name: 'contexte/15' } }"> </o-sound>
+        <o-sound :options="{ sound: { name: '15' } }"> </o-sound>
       </o-scroller>
       <o-scroller class="sound16">
-        <o-sound :options="{ sound: { name: 'contexte/16' } }"> </o-sound>
+        <o-sound :options="{ sound: { name: '16' } }"> </o-sound>
       </o-scroller>
       <o-scroller class="sound17">
-        <o-sound :options="{ sound: { name: 'contexte/17' } }"> </o-sound>
+        <o-sound :options="{ sound: { name: '17' } }"> </o-sound>
       </o-scroller>
       <o-scroller class="sound18">
-        <o-sound :options="{ sound: { name: 'contexte/18' } }"> </o-sound>
+        <o-sound :options="{ sound: { name: '18' } }"> </o-sound>
       </o-scroller>
       <o-scroller class="sound19">
-        <o-sound :options="{ sound: { name: 'contexte/19' } }"> </o-sound>
+        <o-sound :options="{ sound: { name: '19' } }"> </o-sound>
       </o-scroller>
       <o-scroller class="sound20">
-        <o-sound :options="{ sound: { name: 'contexte/20' } }"> </o-sound>
+        <o-sound :options="{ sound: { name: '20' } }"> </o-sound>
       </o-scroller>
       <o-scroller class="sound21">
-        <o-sound :options="{ sound: { name: 'contexte/21' } }"> </o-sound>
+        <o-sound :options="{ sound: { name: '21' } }"> </o-sound>
       </o-scroller>
       <o-scroller class="sound22">
-        <o-sound :options="{ sound: { name: 'contexte/22' } }"> </o-sound>
+        <o-sound :options="{ sound: { name: '22' } }"> </o-sound>
       </o-scroller>
     </div>
   </main>
