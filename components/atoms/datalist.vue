@@ -1,10 +1,9 @@
 <template>
   <div class="select-wrapper">
     <select name="languages" id="language-choice" class="langue">
-      <option value="English">English</option>
       <option value="Français">Français</option>
+      <option value="English">English</option>
       <option value="Español">Español</option>
-      <option value="عرب">عرب</option>
     </select>
   </div>
 </template>

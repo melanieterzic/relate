@@ -1,0 +1,307 @@
+{
+    "fr":[
+        [
+            {
+                "start":0,
+                "end":3,
+                "text": "Le Cambodge est situé en Asie du Sud-Est."
+            },
+            {
+                "start":3,
+                "end":6,
+                "text": "Il partage des frontières avec trois pays avec lesquels"
+            },
+            {
+                "start":6,
+                "end":9,
+                "text": "ses relations sont historiquement complexes :"
+            },
+            {
+                "start":9,
+                "end":13,
+                "text": "on a la Thaïlande, le Laos, et le Vietnam."
+            }
+        ],
+        [
+            {
+                "start":0,
+                "end":6,
+                "text": "De 1887 à 1954, ces pays font parti de l'Indochine française,"
+            },
+            {
+                "start":6,
+                "end":9,
+                "text": "un ancien empire coloniale français dont le Cambodge"
+            },
+            {
+                "start":9,
+                "end":11,
+                "text": "était la possession la plus riche et la plus peuplée."
+            }
+        ],
+        [
+            {
+                "start":0,
+                "end":3,
+                "text": "La période qui a suivi, s'inscrivait davantage dans un contexte "
+            },
+            {
+                "start":3,
+                "end":6.5,
+                "text": "de décolonisation et de Guerre Froide."
+            }
+        ],
+        [
+            {
+                "start":0,
+                "end":4,
+                "text": "On distingue deux notions qui s’opposent. 'Khmer' qui signifie :"
+            },
+            {
+                "start":4,
+                "end":6,
+                "text": "l'ethnie majoritaire du Cambodge."
+            },
+            {
+                "start":6,
+                "end":10,
+                "text": "Et 'Khmers Rouges', qui est apparu en 1955,"
+            },            
+            {
+                "start":10,
+                "end":12,
+                "text": "pour désigner le parti politique."
+            }
+        ],
+        [
+            {
+                "start":0,
+                "end":5,
+                "text": "De 1966 à 1969, les troupes communistes"
+            },
+            {
+                "start":5,
+                "end":7,
+                "text": "se renforcent de plus en plus."
+            }
+        ],
+        [
+            {
+                "start":0,
+                "end":3,
+                "text": "…pour différentes raisons : il y eu la crise économique"
+            },
+            {
+                "start":3,
+                "end":5,
+                "text": "mais aussi l'implication du Cambodge"
+            },
+            {
+                "start":5,
+                "end":6,
+                "text": "dans la Guerre du Vietnam."
+            }
+        ],
+        [
+            {
+                "start":0,
+                "end":3,
+                "text": "Jusqu’à sombrer dans la Guerre Civile, de 1970 à 75."
+            }
+        ],
+        [
+            {
+                "start":0,
+                "end":3,
+                "text": "Le 17 avril 1975, les Khmers Rouge"
+            },
+            {
+                "start":3,
+                "end":6,
+                "text": "entrent dans la capitale de Phnom Penh."
+            },
+            {
+                "start":6,
+                "end":7,
+                "text": "Et avec cette prise de pouvoir, "
+            },
+            {
+                "start":7,
+                "end":11,
+                "text": "le pays est renommé Kampuchéa démocratique en 76."
+            }
+        ],
+        [
+            {
+                "start":0,
+                "end":3,
+                "text": "Et avec Pol Pot à la tête du pouvoir, c’était en en réalité"
+            },
+            {
+                "start":3,
+                "end":5,
+                "text": "de l’un des régimes les plus violents"
+            },
+            {
+                "start":5,
+                "end":7,
+                "text": "de la seconde partie du 20ème siècle."
+            }
+        ],
+        [
+            {
+                "start":0,
+                "end":1,
+                "text": "Le nouveau régime était brutal."
+            },
+            {
+                "start":2,
+                "end":6,
+                "text": "Il réunissait les aspects les plus extrémistes du communisme."
+            }
+        ],
+        [
+            {
+                "start":0,
+                "end":3,
+                "text": "C'était un système de déshumanisation absolu."
+            }
+        ],
+        [
+            {
+                "start":0,
+                "end":3,
+                "text": "Un régime qui repose sur la terreur."
+            }
+        ],
+        [
+            {
+                "start":0,
+                "end":2,
+                "text": "Il y a eu 2 millions de morts en 4 ans,"
+            },
+            {
+                "start":2,
+                "end":4,
+                "text": "soit un cinquième de la population."
+            },
+            {
+                "start":4,
+                "end":8,
+                "text": "Et c’est un génocide que certains qualifient même d’auto-génocide."
+            }
+        ],
+        [
+            {
+                "start":0,
+                "end":3,
+                "text": "…puisque c’est aussi des millions de cambodgiens"
+            },
+            {
+                "start":3,
+                "end":5,
+                "text": "tués par des cambodgiens eux-même."
+            }
+        ],
+        [
+            {
+                "start":0,
+                "end":3,
+                "text": "En 1979, il y eut la fin de la dictature de Pol Pot,"
+            },
+            {
+                "start":3,
+                "end":5,
+                "text": "après l'invasion vietnamienne."
+            },
+            {
+                "start":5,
+                "end":8,
+                "text": "Mais les Khmers rouges sont restés au pouvoir encore 20 ans."
+            }
+        ],
+        [
+            {
+                "start":0,
+                "end":3,
+                "text": "Avant la chute définitive du régime en 1997."
+            }
+        ],
+        [
+            {
+                "start":0,
+                "end":3,
+                "text": "Il y a eu un procès au Vietnam tout de suite après les faits"
+            },
+            {
+                "start":3,
+                "end":7,
+                "text": "mais la plupart des responsables n'ont pas été jugés."
+            }
+        ],
+        [
+            {
+                "start":0,
+                "end":3,
+                "text": "Et même… Pol Pot lui-même avait échappé à la justice."
+            },
+            {
+                "start":3,
+                "end":7,
+                "text": "Il a seulement été jugé en 1997, un an avant sa mort."
+            }
+        ],
+        [
+            {
+                "start":0,
+                "end":4,
+                "text": "En 2005, il y a eu un procès parrainé par l'ONU qui avait été annoncé,"
+            },
+            {
+                "start":4,
+                "end":9,
+                "text": "au cœur duquel se trouvait Douch, le directeur de la prison S-21 ;"
+            },
+            {
+                "start":9,
+                "end":13,
+                "text": "où 15000 personnes ont été torturées et exécutées."
+            }
+        ],
+        [
+            {
+                "start":0,
+                "end":3,
+                "text": "Et en 2012, il est condamné à perpétuité."
+            }
+        ],
+        [
+            {
+                "start":0,
+                "end":3,
+                "text": "En 2018, les deux derniers grands dirigeants Khmers"
+            },
+            {
+                "start":3,
+                "end":7,
+                "text": "ont été déclarés coupables de génocide."
+            }
+        ],
+        [
+            {
+                "start":0,
+                "end":4,
+                "text": "C'est la première fois, 40 ans après les faits, que ce terme -Génocide-"
+            },
+            {
+                "start":4,
+                "end":7,
+                "text": "est utilisé et reconnu par la communauté internationale."
+            }
+        ]
+
+    ],
+    "en":[
+        
+    ]
+}

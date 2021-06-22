@@ -21,46 +21,63 @@
             {
                 "start":2,
                 "end":8,
-                "text": "Ils ont émigré il y a un peu plus de 30 ans / 40 ans, en banlieue parisienne."
+                "text": "Ils ont immigré il y a un peu plus de 30 ans / 40 ans, en banlieue parisienne."
             }
         ],
         [
             {
                 "start":0,
                 "end":3,
-                "text": "À l'époque, ils avaient fui la guerre du Cambodge."
+                "text": "À l’époque, ils avaient fui les conséquences de la guerre du Cambodge."
             },
             {
                 "start":3,
                 "end":6.5,
-                "text": "J'avoue que c'est assez obscur pour moi."
+                "text": "Surtout après le régime des Khmer rouges,"
             },
             {
                 "start":6.5,
                 "end":9,
-                "text": "Je connais pas tous les détails de leur histoire"
+                "text": "qui était un parti politique radical de gauche"
             },
             {
                 "start":9,
                 "end":12,
-                "text": "et je pense que j'arriverais jamais à tout connaître."
+                "text": "et qui avaient commis un énorme génocide durant 4 ans."
             }
         ],
         [
             {
                 "start":0,
                 "end":3,
-                "text": "Il y a des membres de ma famille qui ont émigré aux États-Unis"
+                "text": "Donc je pense qu’après ça, il ne restait plus rien."
             },
             {
                 "start":3,
                 "end":6.5,
-                "text": "et d’autres qui sont restés au Cambodge"
+                "text": "J’avoue que ça reste assez obscur pour moi,"
             },
             {
                 "start":6.5,
                 "end":9,
-                "text": "Mes parents sont les seuls à être venu en France"
+                "text": "je ne connais pas tous les détails de leur histoire."
+            }
+        ],
+        [
+            {
+                "start":0,
+                "end":3,
+                "text": "Il y a des membres de ma famille qui ont immigré aux États-Unis"
+            },
+            {
+                "start":3,
+                "end":6.5,
+                "text": "et d’autres qui sont restés au Cambodge."
+            },
+            {
+                "start":6.5,
+                "end":9,
+                "text": "Mes parents sont les seuls à être venu en France,"
             }
         ],
         [
@@ -99,7 +116,7 @@
             {
                 "start":6.5,
                 "end":9,
-                "text": "de ne pas avoir eu à payer mes études... "
+                "text": "de ne pas avoir eu à payer mes études..."
             }
         ],
         [
@@ -118,7 +135,7 @@
             {
                 "start":0,
                 "end":3,
-                "text": "même si j'arrive assez rarement finalement."
+                "text": "même si j'y arrive assez rarement finalement."
             },
             {
                 "start":0,

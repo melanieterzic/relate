@@ -38,6 +38,7 @@ export const state = () => ({
     },
     loading: true,
     isSoundEnabled: true,
+    isSubtitlesEnabled: true,
     isParamsOpen: false,
     recursive: {
         index: {
@@ -111,6 +112,10 @@ export const mutations = {
     toggleSound(state) {
         state.isSoundEnabled = !state.isSoundEnabled;
         localStorage.setItem('isSoundEnabled', state.isSoundEnabled);
+    },
+    toggleSubtitles(state) {
+        state.isSubtitlesEnabled = !state.isSubtitlesEnabled;
+        localStorage.setItem('isSubtitlesEnabled', state.isSubtitlesEnabled);
     },
     toggleParams(state) {
         state.isParamsOpen = !state.isParamsOpen;

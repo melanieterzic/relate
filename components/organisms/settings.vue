@@ -16,7 +16,10 @@
       <p>Sound</p>
       <a-switchButton :isActive="false" />
       <p>Subtitles</p>
-      <a-switchButton :isActive="false" />
+      <a-switchButton
+        :m="tata"
+        :isActive="this.$store.state.isSubtitlesEnabled"
+      />
     </div>
   </div>
 </template>
@@ -25,8 +28,11 @@
 export default {
   methods: {
     toto() {
-      console.log("test");
+      //console.log("test");
       this.$store.commit("toggleSound");
+    },
+    tata() {
+      this.$store.commit("toggleSubtitles");
     },
   },
 };

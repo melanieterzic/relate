@@ -254,7 +254,9 @@
   >
     <o-sound
       :data-sound-index="datas.name === 'sound-testimony' && soundIndex"
-      :options="{ sound: { name: soundName } }"
+      :options="{
+        sound: { name: soundName, index: soundIndex, type: 'sound-testimony' },
+      }"
     >
     </o-sound>
   </o-scroller>

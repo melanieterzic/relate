@@ -44,7 +44,6 @@
       </div>
       <nuxt-link to="/mt-context" class="link"><span></span></nuxt-link>
     </section>
-    <p class="subtitles"></p>
   </main>
 </template>
 

@@ -19,7 +19,7 @@ export default {
     };
   },
   mounted() {
-    console.log(this.$props.m);
+    //console.log(this.$props.m);
   },
 
   props: {
