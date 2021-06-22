@@ -27,7 +27,7 @@ export default {
       this.subtitle = "Présentation";
     } else if (this.name === "Chapter 3") {
       this.name = "Episode 3";
-      this.subtitle = "Héritage culturel";
+      this.subtitle = "Héritage culturel";  
     }
   }
 }
