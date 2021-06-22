@@ -30,6 +30,7 @@ export default {
     },
     scroll(progress) {
       this.$data.count = Math.floor(progress * (this.$props.options.number - 1) / 100);
+      // console.log(progress, this.$data.count)
     }
   },
   watch: {

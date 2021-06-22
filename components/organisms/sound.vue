@@ -32,6 +32,7 @@ export default {
     };
   },
   mounted() {
+    setTimeout(() => {
     this.$nuxt.$on("update", this.update);
     this.$data.sound.src = require(`~/assets/sounds/${
       this.$route.name === "index" ? "chapter-1" : this.$route.name
@@ -45,26 +46,35 @@ export default {
     this.$data.sound.index = this.$props.options.sound.index;
     window.addEventListener("click", this.onFirstInteractionUser);
     window.addEventListener("touchstart", this.onFirstInteractionUser);
+      
+    }, 1000);
   },
   methods: {
     play() {
-      if (this.isSoundEnabled) {
-        this.sound.audio.play();
-      }
-      if (this.isSubtitlesEnabled) {
-        this.$el.querySelector(".subtitles").style.display = "block";
+      if (this.$data.sound.audio) {
+        if (this.isSoundEnabled) {
+          this.sound.audio.play();
+        }
+        if (this.isSubtitlesEnabled) {
+          this.$el.querySelector(".subtitles").style.display = "block";
+        }
       }
     },
     pause() {
-      this.sound.audio.pause();
-      this.$el.querySelector(".subtitles").style.display = "none";
+      if (this.$data.sound.audio) {
+        this.sound.audio.pause();
+        this.$el.querySelector(".subtitles").style.display = "none";
+      }
     },
     stop() {
-      this.sound.audio.pause();
-      this.sound.audio.currentTime = 0;
-      this.$el.querySelector(".subtitles").style.display = "none";
+      if (this.$data.sound.audio) {
+        this.sound.audio.pause();
+        this.sound.audio.currentTime = 0;
+        this.$el.querySelector(".subtitles").style.display = "none";
+      }
     },
     setPlaying(value) {
+      // console.log(value)
       this.$data.sound.playing = value;
     },
     onFirstInteractionUser() {
@@ -83,13 +93,15 @@ export default {
           const sousTitre = this.$data.subtitles.fr[
             this.$props.options.sound.index - 1
           ];
-          for (let i = 0; i < sousTitre.length; i++) {
-            let phrase = sousTitre[i];
-            if (
-              phrase.start <= this.$data.currentSoundTime &&
-              phrase.end > this.$data.currentSoundTime
-            ) {
-              this.$el.querySelector(".subtitles").innerHTML = phrase.text;
+          if (sousTitre) {
+            for (let i = 0; i < sousTitre.length; i++) {
+              let phrase = sousTitre[i];
+              if (
+                phrase.start <= this.$data.currentSoundTime &&
+                phrase.end > this.$data.currentSoundTime
+              ) {
+                this.$el.querySelector(".subtitles").innerHTML = phrase.text;
+              }
             }
           }
         }

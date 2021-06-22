@@ -19,6 +19,7 @@ export default {
   mounted() {
   },
   beforeDestroy() {
+    console.log('dest')
     this.$store.commit('setLoader', true);
     this.$store.commit('resetIndexSoundTestimony');
     this.$store.commit('resetIndexSoundAmbient');

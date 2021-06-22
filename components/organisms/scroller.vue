@@ -65,7 +65,7 @@ export default {
                   pin: true,
                   pinSpacing: false,
                   start: `top ${ this.$el.offsetHeight > window.innerHeight ? '0' : '15%'}`,
-                  end: `bottom ${ this.$el.offsetHeight > window.innerHeight ? '0' : '15%'}`,
+                  end: `bottom ${ this.$el.offsetHeight > window.innerHeight ? '100%' : '15%'}`,
                   onUpdate: (self) => {
                     child.scroll(self.progress * 100);
                   }
@@ -78,6 +78,7 @@ export default {
       // ---
       switch(this.$props.options.effect) {
         case "parallax":
+          console.log('ok')
           this.$data.from = {
             ...this.$data.from, 
             ...{ y: 0 }
@@ -117,7 +118,6 @@ export default {
     "responseChild": function() {
       this.$nextTick(()=>{
         this.init();
-        // console.log('ok')
       })
     }
   }

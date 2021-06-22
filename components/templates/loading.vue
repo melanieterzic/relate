@@ -38,8 +38,10 @@ export default {
   watch: {
     "$store.state.loader.isLoading": function() {
       if (!this.$store.state.loader.isLoading) {
-        console.log('ok')
+        console.log('load')
+        console.log(this.$store.state.loader.isLoading)
         setTimeout(() => {
+          console.log('wait')
           this.$data.load = this.$store.state.loader.isLoading;
         }, 5000);
       }
