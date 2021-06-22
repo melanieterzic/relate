@@ -29,7 +29,13 @@ export const state = () => ({
         },
         scroll: {},
         mouse: {},
-        cookies: {}
+        cookies: {
+            accepted: undefined,
+            subtitles: false,
+            voices: false,
+            musics: false,
+            language: 'fr'
+        }
     },
     pages: {},
     components: {
@@ -51,18 +57,48 @@ export const state = () => ({
     }
 })
 
+export const getters = {
+    getImage(state, url) {
+        return url;
+    },
+}
+
 export const mutations = {
-        // RECURSIVE
-        addIndexSoundTestimony(state) {
-            state.recursive.index.sound.testimony += 1;
-        },
-        addIndexSoundAmbient(state) {
-            state.recursive.index.sound.ambient += 1;
-        },
-        addIndexSoundNoise(state) {
-            state.recursive.index.sound.noise += 1;
-        },
-        // LOADER
+    // RECURSIVE
+    addIndexSoundTestimony(state) {
+        state.recursive.index.sound.testimony += 1;
+    },
+    addIndexSoundAmbient(state) {
+        state.recursive.index.sound.ambient += 1;
+    },
+    addIndexSoundNoise(state) {
+        state.recursive.index.sound.noise += 1;
+    },
+    resetIndexSoundTestimony(state) {
+        state.recursive.index.sound.testimony = 0;
+    },
+    resetIndexSoundAmbient(state) {
+        state.recursive.index.sound.ambient = 0;
+    },
+    resetIndexSoundNoise(state) {
+        state.recursive.index.sound.noise = 0;
+    },
+    // LOADER
+    setLoader(state, value) {
+        state.loader.isLoading = value;
+    },
+    addRessource(state, value) {
+        state.loader.ressources.push(value);
+        if (state.loader.ressources.length > 0) {
+            state.loader.isLoading = true;
+        }
+    },
+    removeRessource(state) {
+        state.loader.ressources.shift();
+        if (state.loader.ressources.length === 0) {
+            state.loader.isLoading = false;
+        }
+    },
     setRessourcesNumber(state, { value }) {
         state.loader.ressourcesNumber = value;
     },
@@ -106,9 +142,6 @@ export const mutations = {
         document.cookie = `${name}=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
     },
     // SETTER
-    setLoading(state, param) {
-        state.loading = param;
-    },
     toggleSound(state) {
         state.isSoundEnabled = !state.isSoundEnabled;
         localStorage.setItem('isSoundEnabled', state.isSoundEnabled);
