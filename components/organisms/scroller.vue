@@ -106,7 +106,7 @@ export default {
     this.$children.forEach(child => {
       if (child.$options._componentTag !== "o-animation") {
         this.init()
-        console.log('oki')
+        // console.log('oki')
       }
     });
   },
@@ -114,7 +114,7 @@ export default {
     "responseChild": function() {
       this.$nextTick(()=>{
         this.init();
-        console.log('ok')
+        // console.log('ok')
       })
     }
   }

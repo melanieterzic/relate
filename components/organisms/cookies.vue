@@ -41,11 +41,11 @@ export default {
         } else {
           this.$data.showBanner = false;
         }
-        console.log(document.cookie)
+        // console.log(document.cookie)
       },
       '$store.state.isSoundEnabled': function () {
         this.$store.commit('setCookie', {name: 'voices', value: this.$store.state.isSoundEnabled});
-        console.log(document.cookie)
+        // console.log(document.cookie)
       }
   }
 }

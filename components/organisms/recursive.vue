@@ -381,7 +381,7 @@ export default {
     },  
     mounted() {
         if (this.$props.datas.tag === 'link') {
-            console.log(this.$props.datas)
+            // console.log(this.$props.datas)
         }
         this.setBounding();
         // if (this.$props.datas.tag === 'img' || this.$props.datas.tag === 'svg') {

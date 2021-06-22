@@ -57,13 +57,16 @@ export default {
   },
   mounted() {    
     this.$nextTick(()=>{
-      console.log(this.$props.options.sound.name);
+      // console.log(this.s$props.options.sound.name);
       this.$data.sound.src = require(`~/assets/sounds/${this.$route.name === "index" ? "chapter-1" : this.$route.name}/${this.$props.options.sound.name}.mp3`).default;
-      
-      // this.$data.sound.audio = new Audio(this.$data.sound.src); 
+      this.$data.sound.audio = new Audio(this.$data.sound.src); 
       // this.$store.commit('addRessource', 'ok');
       // this.$data.sound.audio.addEventListener('canplaythrough', () => {
       //   this.$store.commit('removeRessource', this.$el);
+      // });
+      // console.log('test')
+      // this.$data.sound.audio.addEventListener('canplaythrough', () => {
+      //   console.log('sound ok')
       // });
 
       if (this.$props.options.sound.loop) {
