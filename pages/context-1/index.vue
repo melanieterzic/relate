@@ -5,7 +5,9 @@
         <img :src="[modal ? close : burger]" />
       </button>
       <o-settings v-if="modal"></o-settings>
-      <img class="img-cross" src="~/assets/images/cross.svg" alt="cross" />
+      <nuxt-link to="/">
+        <img class="img-cross" src="~/assets/images/cross.svg" alt="cross" />
+      </nuxt-link>
       <img
         class="img-arrow"
         src="~/assets/images/white_arrow.svg"
@@ -206,6 +208,13 @@
         >
         </o-sound>
       </o-scroller>
+      <nuxt-link to="/">
+        <img
+          class="img-leftarrow"
+          src="~/assets/images/leftarrow.svg"
+          alt="leftarrow"
+        />
+      </nuxt-link>
     </div>
   </main>
 </template>
@@ -224,7 +233,7 @@ export default {
     };
   },
   mounted() {
-    this.$store.commit('setLoader', false);
+    this.$store.commit("setLoader", false);
     this.$nuxt.$on("update", this.update);
   },
   methods: {
@@ -265,6 +274,12 @@ html {
   color: #faf2ed;
   font-family: "Source Sans Pro";
   height: 13000px;
+  .img-leftarrow {
+    position: absolute;
+    top: 12883px;
+    right: 60px;
+    max-width: 80%;
+  }
   .sound1 {
     position: absolute;
     top: 600px;
