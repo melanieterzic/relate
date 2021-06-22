@@ -57,7 +57,7 @@ export default {
     }, 1000);
   },
   beforeDestroy() {
-    this.$data.sound.playing = false;
+    this.stop();
   },
   methods: {
     play() {
@@ -171,7 +171,7 @@ export default {
   width: 100%;
   height: 100%;
   background: #909090;
-  opacity: 25%;
+  // opacity: 25%;
 }
 .subtitles {
   background: rgba(15, 14, 33, 85%);
