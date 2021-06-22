@@ -88,9 +88,7 @@ export default {
           }
           this.$data.scrollTrigger = {
             ...this.$data.scrollTrigger, 
-            ...{
-              markers: true,
-            }
+            ...{}
           }
           break;
       }
