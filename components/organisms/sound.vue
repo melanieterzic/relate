@@ -2,7 +2,7 @@
   <div :class="$options._componentTag" class="component organism">
     <slot />
     <div class="line"></div>
-    <p class="subtitles"></p>
+    <p v-if="$props.options.sound.type == 'sound-context' || $props.options.sound.type == 'sound-testimony'" class="subtitles"></p>
   </div>
 </template>
 
@@ -63,25 +63,39 @@ export default {
           this.sound.audio.play();
         }
         if (this.isSubtitlesEnabled) {
-          this.$el.querySelector(".subtitles").style.display = "flex";
+          if (
+            this.$props.options.sound.type == "sound-context" ||
+            this.$props.options.sound.type == "sound-testimony"
+          ) {
+            this.$el.querySelector(".subtitles").style.display = "flex";
+          }
         }
       }
     },
     pause() {
       if (this.$data.sound.audio) {
         this.sound.audio.pause();
-        this.$el.querySelector(".subtitles").style.display = "none";
+          if (
+            this.$props.options.sound.type == "sound-context" ||
+            this.$props.options.sound.type == "sound-testimony"
+          ) {
+            this.$el.querySelector(".subtitles").style.display = "none";
+          }
       }
     },
     stop() {
       if (this.$data.sound.audio) {
         this.sound.audio.pause();
         this.sound.audio.currentTime = 0;
-        this.$el.querySelector(".subtitles").style.display = "none";
+          if (
+            this.$props.options.sound.type == "sound-context" ||
+            this.$props.options.sound.type == "sound-testimony"
+          ) {
+            this.$el.querySelector(".subtitles").style.display = "none";
+          }
       }
     },
     setPlaying(value) {
-      // console.log(value==false?value:'')
       this.$data.sound.playing = value;
     },
     onFirstInteractionUser() {
@@ -91,13 +105,13 @@ export default {
       window.removeEventListener("touchstart", this.onFirstInteractionUser);
     },
     update() {
-      if (this.$data.sound.playing === false) {
-        this.$el.querySelector(".subtitles").style.display = "none";
-      }
       if (
         this.$props.options.sound.type == "sound-context" ||
         this.$props.options.sound.type == "sound-testimony"
       ) {
+        if (this.$data.sound.playing === false) {
+          this.$el.querySelector(".subtitles").style.display = "none";
+        }
         if (this.$data.sound.audio) {
           this.$data.currentSoundTime = this.$data.sound.audio.currentTime;
           const sousTitre = this.$data.subtitles.fr[

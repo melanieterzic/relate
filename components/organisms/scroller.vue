@@ -43,16 +43,16 @@ export default {
                 start: 'top 85%',
                 end: `bottom 85%`,
                 onEnter: () => {
-                child.setPlaying(true);
+                  child.setPlaying(true);
                 },
                 onLeave: () => { 
-                child.setPlaying(false);
+                  child.setPlaying(false);
                 },
                 onLeaveBack: () => { 
-                child.setPlaying(false);
+                  child.setPlaying(false);
                 },
                 onEnterBack: () => {
-                child.setPlaying(true);
+                  child.setPlaying(true);
                 }
               }
             }
