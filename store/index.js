@@ -101,6 +101,7 @@ export const mutations = {
     removeRessource(state) {
         state.loader.ressources.shift();
         if (state.loader.ressources.length === 0) {
+            console.log("lol")
             state.loader.isLoading = false;
         }
     },

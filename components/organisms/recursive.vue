@@ -190,14 +190,16 @@
             left: ${bounding.x.percent}vw;
             width: ${bounding.width.percent}vw;
             height: ${bounding.height.percent}vw;
-            ${(datas.backgroundColor && datas.name === 'sound-testimony') && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
-            ${datas.opacity && `opacity: ${datas.opacity};`}
         `"
   >
     <o-sound
+        :style="`
+            width: ${bounding.width.percent}vw !important;
+            height: ${bounding.height.percent}vw !important;
+        `"
       :data-sound-index="datas.name === 'sound-testimony' && soundIndex"
       :options="{
-        sound: { name: soundName, index: soundIndex, type: 'sound-testimony' },
+        sound: { name: soundName, index: soundIndex, type: datas.name },
       }"
     >
     </o-sound>

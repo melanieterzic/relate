@@ -1,6 +1,7 @@
 <template>
   <div :class="$options._componentTag" class="component organism">
     <slot />
+    <div class="line"></div>
     <p class="subtitles"></p>
   </div>
 </template>
@@ -32,21 +33,27 @@ export default {
     };
   },
   mounted() {
+      if (
+        this.$props.options.sound.type == "sound-context" ||
+        this.$props.options.sound.type == "sound-testimony"
+      ) {
+        this.$el.querySelector('.line').classList.add('active');
+      }
     setTimeout(() => {
-    this.$nuxt.$on("update", this.update);
-    this.$data.sound.src = require(`~/assets/sounds/${
-      this.$route.name === "index" ? "chapter-1" : this.$route.name
-    }/${this.$props.options.sound.name}.mp3`).default;
-    // this.$data.sound.src = require(`~/assets/sounds/${this.$props.options.sound.name}.mp3`).default;
-    if (this.$route.name == "context-1") {
-      this.$data.subtitles.fr = context.fr;
-    } else {
-      this.$data.subtitles.fr = testimony.fr;
-    }
-    this.$data.sound.index = this.$props.options.sound.index;
-    window.addEventListener("click", this.onFirstInteractionUser);
-    window.addEventListener("touchstart", this.onFirstInteractionUser);
-      
+      this.$nuxt.$on("update", this.update);
+      this.$data.sound.src = require(`~/assets/sounds/${
+        this.$route.name === "index" ? "chapter-1" : this.$route.name
+      }/${this.$props.options.sound.name}.mp3`).default;
+      // this.$data.sound.src = require(`~/assets/sounds/${this.$props.options.sound.name}.mp3`).default;
+      if (this.$route.name == "context-1") {
+        this.$data.subtitles.fr = context.fr;
+      } else {
+        this.$data.subtitles.fr = testimony.fr;
+      }
+      this.$data.sound.index = this.$props.options.sound.index;
+      window.addEventListener("click", this.onFirstInteractionUser);
+      window.addEventListener("touchstart", this.onFirstInteractionUser);
+      this.$parent.$data.responseChild = true;
     }, 1000);
   },
   methods: {
@@ -56,7 +63,7 @@ export default {
           this.sound.audio.play();
         }
         if (this.isSubtitlesEnabled) {
-          this.$el.querySelector(".subtitles").style.display = "block";
+          this.$el.querySelector(".subtitles").style.display = "flex";
         }
       }
     },
@@ -84,6 +91,9 @@ export default {
       window.removeEventListener("touchstart", this.onFirstInteractionUser);
     },
     update() {
+      if (this.$data.sound.playing === false) {
+        this.$el.querySelector(".subtitles").style.display = "none";
+      }
       if (
         this.$props.options.sound.type == "sound-context" ||
         this.$props.options.sound.type == "sound-testimony"
@@ -100,7 +110,7 @@ export default {
                 phrase.start <= this.$data.currentSoundTime &&
                 phrase.end > this.$data.currentSoundTime
               ) {
-                this.$el.querySelector(".subtitles").innerHTML = phrase.text;
+                this.$el.querySelector(".subtitles").innerHTML = "<span>" + phrase.text + "</span>";
               }
             }
           }
@@ -139,20 +149,30 @@ export default {
 .o-sound {
   display: table-cell;
 }
+.line.active {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #909090;
+  opacity: 25%;
+}
 .subtitles {
-  background: #0f0e21;
+  background: rgba(15, 14, 33, 85%);
+  box-shadow: 0px 12.5px 15px rgb(0 0 0 / 25%);
   display: none;
-  height: 70px;
+  min-height: 80px;
   width: 100%;
   color: #faf2ed;
   font-family: "Source Sans Pro";
   text-align: center;
   line-height: 20px;
   font-size: 16px;
-  padding: 10px 70px;
+  padding: 10px 65px;
   font-weight: 400;
   position: fixed;
   top: 0;
   left: 0;
+  align-items: center;
+  span {}
 }
 </style>

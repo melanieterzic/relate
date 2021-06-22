@@ -22,7 +22,6 @@ export default {
         };
     },
     mounted() {
-        this.$store.commit('setLoader', false);
         this.$nuxt.$on("update", this.update);
     },
     methods: {

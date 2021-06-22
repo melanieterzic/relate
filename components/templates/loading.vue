@@ -33,17 +33,39 @@ export default {
       this.name = "Episode 3";
       this.subtitle = "Héritage culturel";  
     }
-    this.$data.load = this.$store.state.loader.isLoading;
+    this.$data.load = true;
+  },
+  mounted() {
+    // console.log('ok')
+    // this.$el.classList.add('appear');
   },
   watch: {
     "$store.state.loader.isLoading": function() {
       if (!this.$store.state.loader.isLoading) {
-        console.log('load')
-        console.log(this.$store.state.loader.isLoading)
         setTimeout(() => {
-          console.log('wait')
+          this.$el.classList.add('remove');
+        }, 3500);
+        setTimeout(() => {
           this.$data.load = this.$store.state.loader.isLoading;
         }, 5000);
+      } else {
+        if (this.$route.name === "index") {
+          this.name = "Episode 1";
+        } else {
+          this.name = this.$route.name.charAt(0).toUpperCase() + this.$route.name.slice(1);
+          this.name = this.name.replace('-', ' ');
+        }
+
+        if (this.name === "Episode 1") {
+          this.subtitle = "Présentation";
+        } else if (this.name === "Context 1") {
+          this.name = "Contexte 1";
+          this.subtitle = "";  
+        } else if (this.name === "Chapter 3") {
+          this.name = "Episode 3";
+          this.subtitle = "Héritage culturel";  
+        }
+        this.$data.load = this.$store.state.loader.isLoading;
       }
     }
   }
@@ -63,11 +85,20 @@ export default {
   background: #0F0E21;
   color: #FFF;
   z-index: 999999;
+  &.appear {
+    opacity: 1;
+    transition: opacity 1s linear;
+    .cont, img {
+      opacity: 1;
+      transition: opacity .5s linear;
+    }
+  }
   &.remove {
     opacity: 0;
-    transition: opacity 1s linear;
-    p {
-      display: none;
+    transition: opacity 1s linear .5s;
+    .cont, img {
+      opacity: 0;
+      transition: opacity .5s linear;
     }
   }
   .cont {

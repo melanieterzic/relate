@@ -78,7 +78,7 @@ export default {
       // ---
       switch(this.$props.options.effect) {
         case "parallax":
-          console.log('ok')
+          // console.log('ok')
           this.$data.from = {
             ...this.$data.from, 
             ...{ y: 0 }
@@ -107,12 +107,14 @@ export default {
     }
   },
   mounted() {
-    this.$children.forEach(child => {
-      if (child.$options._componentTag !== "o-animation") {
-        this.init()
-        // console.log('oki')
-      }
-    });
+    this.$nextTick(()=>{
+      this.$children.forEach(child => {
+        if (child.$options._componentTag !== "o-animation" || child.$options._componentTag !== "o-sound") {
+          this.init()
+          // console.log('oki')
+        }
+      });
+    })
   },
   watch: {
     "responseChild": function() {
