@@ -1,5 +1,5 @@
 <template lang="html">
-  <div v-if="$store.state.loader.isLoading" class="loading-page">
+  <div v-if="load" class="loading-page">
     <div class="cont">
       <p>{{ name }}</p>
       <p class="subtitle">{{ subtitle }}</p>
@@ -12,7 +12,8 @@
 export default {
   data() {
     return {
-      name: undefined
+      name: undefined,
+      load: false,
     }
   },
   created() {
@@ -25,9 +26,23 @@ export default {
 
     if (this.name === "Episode 1") {
       this.subtitle = "Présentation";
+    } else if (this.name === "Context 1") {
+      this.name = "Contexte 1";
+      this.subtitle = "";  
     } else if (this.name === "Chapter 3") {
       this.name = "Episode 3";
       this.subtitle = "Héritage culturel";  
+    }
+    this.$data.load = this.$store.state.loader.isLoading;
+  },
+  watch: {
+    "$store.state.loader.isLoading": function() {
+      if (!this.$store.state.loader.isLoading) {
+        console.log('ok')
+        setTimeout(() => {
+          this.$data.load = this.$store.state.loader.isLoading;
+        }, 5000);
+      }
     }
   }
 }

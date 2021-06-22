@@ -33,8 +33,11 @@ export default {
   },
   mounted() {
     this.$nuxt.$on("update", this.update);
-    this.$data.sound.src = require(`~/assets/sounds/${this.$props.options.sound.name}.mp3`).default;
-    if (this.$route.name == "mt-context") {
+    this.$data.sound.src = require(`~/assets/sounds/${
+      this.$route.name === "index" ? "chapter-1" : this.$route.name
+    }/${this.$props.options.sound.name}.mp3`).default;
+    // this.$data.sound.src = require(`~/assets/sounds/${this.$props.options.sound.name}.mp3`).default;
+    if (this.$route.name == "context-1") {
       this.$data.subtitles.fr = context.fr;
     } else {
       this.$data.subtitles.fr = testimony.fr;
@@ -116,37 +119,7 @@ export default {
     isSubtitlesEnabled() {
       return this.$store.state.isSubtitlesEnabled;
     },
-  },
-  mounted() {
-    this.$nextTick(() => {
-      // console.log(this.s$props.options.sound.name);
-      this.$data.sound.src = require(`~/assets/sounds/${
-        this.$route.name === "index" ? "chapter-1" : this.$route.name
-      }/${this.$props.options.sound.name}.mp3`).default;
-      this.$data.sound.audio = new Audio(this.$data.sound.src);
-      // this.$store.commit('addRessource', 'ok');
-      // this.$data.sound.audio.addEventListener('canplaythrough', () => {
-      //   this.$store.commit('removeRessource', this.$el);
-      // });
-      // console.log('test')
-      // this.$data.sound.audio.addEventListener('canplaythrough', () => {
-      //   console.log('sound ok')
-      // });
-
-      if (this.$props.options.sound.loop) {
-        this.$data.sound.audio.addEventListener(
-          "ended",
-          function () {
-            this.$data.sound.audio.currentTime = 0;
-            this.$data.sound.audio.play();
-          },
-          false
-        );
-      }
-      window.addEventListener("click", this.onFirstInteractionUser);
-      window.addEventListener("touchstart", this.onFirstInteractionUser);
-    });
-  },
+  }
 };
 </script>
 

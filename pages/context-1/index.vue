@@ -31,89 +31,201 @@
       />
       <a-contextesvg></a-contextesvg>
       <o-scroller class="sound1">
-        <o-sound :options="{ sound: { name: '1' } }"> </o-sound>
+        <o-sound
+          :options="{
+            sound: { name: '1', index: '1', type: 'sound-context' },
+          }"
+        >
+        </o-sound>
       </o-scroller>
       <o-scroller class="sound2">
-        <o-sound :options="{ sound: { name: '2' } }"> </o-sound>
+        <o-sound
+          :options="{
+            sound: { name: '2', index: '2', type: 'sound-context' },
+          }"
+        >
+        </o-sound>
       </o-scroller>
       <o-scroller class="sound3">
-        <o-sound :options="{ sound: { name: '3' } }"> </o-sound>
+        <o-sound
+          :options="{
+            sound: { name: '3', index: '3', type: 'sound-context' },
+          }"
+        >
+        </o-sound>
       </o-scroller>
       <o-scroller class="sound4">
-        <o-sound :options="{ sound: { name: '4' } }"> </o-sound>
+        <o-sound
+          :options="{
+            sound: { name: '4', index: '4', type: 'sound-context' },
+          }"
+        >
+        </o-sound>
       </o-scroller>
       <o-scroller class="sound5">
-        <o-sound :options="{ sound: { name: '5' } }"> </o-sound>
+        <o-sound
+          :options="{
+            sound: { name: '5', index: '5', type: 'sound-context' },
+          }"
+        >
+        </o-sound>
       </o-scroller>
       <o-scroller class="sound6">
-        <o-sound :options="{ sound: { name: '6' } }"> </o-sound>
+        <o-sound
+          :options="{
+            sound: { name: '6', index: '6', type: 'sound-context' },
+          }"
+        >
+        </o-sound>
       </o-scroller>
       <o-scroller class="sound7">
-        <o-sound :options="{ sound: { name: '7' } }"> </o-sound>
+        <o-sound
+          :options="{
+            sound: { name: '7', index: '7', type: 'sound-context' },
+          }"
+        >
+        </o-sound>
       </o-scroller>
       <o-scroller class="sound8">
-        <o-sound :options="{ sound: { name: '8' } }"> </o-sound>
+        <o-sound
+          :options="{
+            sound: { name: '8', index: '8', type: 'sound-context' },
+          }"
+        >
+        </o-sound>
       </o-scroller>
       <o-scroller class="sound9">
-        <o-sound :options="{ sound: { name: '9' } }"> </o-sound>
+        <o-sound
+          :options="{
+            sound: { name: '9', index: '9', type: 'sound-context' },
+          }"
+        >
+        </o-sound>
       </o-scroller>
       <o-scroller class="sound10">
-        <o-sound :options="{ sound: { name: '10' } }"> </o-sound>
+        <o-sound
+          :options="{
+            sound: { name: '10', index: '10', type: 'sound-context' },
+          }"
+        >
+        </o-sound>
       </o-scroller>
       <o-scroller class="sound11">
-        <o-sound :options="{ sound: { name: '11' } }"> </o-sound>
+        <o-sound
+          :options="{
+            sound: { name: '11', index: '11', type: 'sound-context' },
+          }"
+        >
+        </o-sound>
       </o-scroller>
       <o-scroller class="sound12">
-        <o-sound :options="{ sound: { name: '12' } }"> </o-sound>
+        <o-sound
+          :options="{
+            sound: { name: '12', index: '12', type: 'sound-context' },
+          }"
+        >
+        </o-sound>
       </o-scroller>
       <o-scroller class="sound13">
-        <o-sound :options="{ sound: { name: '13' } }"> </o-sound>
+        <o-sound
+          :options="{
+            sound: { name: '13', index: '13', type: 'sound-context' },
+          }"
+        >
+        </o-sound>
       </o-scroller>
       <o-scroller class="sound14">
-        <o-sound :options="{ sound: { name: '14' } }"> </o-sound>
+        <o-sound
+          :options="{
+            sound: { name: '14', index: '14', type: 'sound-context' },
+          }"
+        >
+        </o-sound>
       </o-scroller>
       <o-scroller class="sound15">
-        <o-sound :options="{ sound: { name: '15' } }"> </o-sound>
+        <o-sound
+          :options="{
+            sound: { name: '15', index: '15', type: 'sound-context' },
+          }"
+        >
+        </o-sound>
       </o-scroller>
       <o-scroller class="sound16">
-        <o-sound :options="{ sound: { name: '16' } }"> </o-sound>
+        <o-sound
+          :options="{
+            sound: { name: '16', index: '16', type: 'sound-context' },
+          }"
+        >
+        </o-sound>
       </o-scroller>
       <o-scroller class="sound17">
-        <o-sound :options="{ sound: { name: '17' } }"> </o-sound>
+        <o-sound
+          :options="{
+            sound: { name: '17', index: '17', type: 'sound-context' },
+          }"
+        >
+        </o-sound>
       </o-scroller>
       <o-scroller class="sound18">
-        <o-sound :options="{ sound: { name: '18' } }"> </o-sound>
+        <o-sound
+          :options="{
+            sound: { name: '18', index: '18', type: 'sound-context' },
+          }"
+        >
+        </o-sound>
       </o-scroller>
       <o-scroller class="sound19">
-        <o-sound :options="{ sound: { name: '19' } }"> </o-sound>
+        <o-sound
+          :options="{
+            sound: { name: '19', index: '19', type: 'sound-context' },
+          }"
+        >
+        </o-sound>
       </o-scroller>
       <o-scroller class="sound20">
-        <o-sound :options="{ sound: { name: '20' } }"> </o-sound>
+        <o-sound
+          :options="{
+            sound: { name: '20', index: '20', type: 'sound-context' },
+          }"
+        >
+        </o-sound>
       </o-scroller>
       <o-scroller class="sound21">
-        <o-sound :options="{ sound: { name: '21' } }"> </o-sound>
+        <o-sound
+          :options="{
+            sound: { name: '21', index: '21', type: 'sound-context' },
+          }"
+        >
+        </o-sound>
       </o-scroller>
       <o-scroller class="sound22">
-        <o-sound :options="{ sound: { name: '22' } }"> </o-sound>
+        <o-sound
+          :options="{
+            sound: { name: '22', index: '22', type: 'sound-context' },
+          }"
+        >
+        </o-sound>
       </o-scroller>
     </div>
   </main>
 </template>
 
 <script>
+import subtitles from "~/assets/datas/contexte-sub.json";
 export default {
   data() {
     return {
+      fr: subtitles.fr,
+      currentSoundTime: 0,
+      currentIndexSound: 0,
       modal: false,
       burger: require("~/assets/images/settings.svg"),
       close: require("~/assets/images/white_close.svg"),
     };
   },
   mounted() {
+    this.$store.commit('setLoader', false);
     this.$nuxt.$on("update", this.update);
-    if (this.$store.state.loader.ressources.length === 0) {  
-      this.$store.commit('setLoader', false);
-    }
   },
   methods: {
     changeStyle() {

@@ -42,7 +42,12 @@ export const state = () => ({
         header: {},
         footer: {}
     },
-    loading: true,
+    loader: {
+        isLoading: true,
+        ressources: []
+        // ressourcesNumber: 0,
+        // ressourcesURL: []
+    },
     isSoundEnabled: true,
     isSubtitlesEnabled: true,
     isParamsOpen: false,

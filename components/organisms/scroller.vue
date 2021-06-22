@@ -88,7 +88,10 @@ export default {
           }
           this.$data.scrollTrigger = {
             ...this.$data.scrollTrigger, 
-            ...{}
+            ...{
+              start: 'top 100%',
+              end: `${ (this.$el.offsetHeight - this.$props.options.gap) <= 0 ? 0 : this.$el.offsetHeight + this.$data.gap }px 0%`
+            }
           }
           break;
       }

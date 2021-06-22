@@ -1,5 +1,5 @@
 <template>
-  <t-story :story="getStory(1)"/>
+  <t-story :story="getStory(0)"/>
 </template>
 
 <script>

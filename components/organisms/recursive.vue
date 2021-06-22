@@ -190,11 +190,8 @@
             left: ${bounding.x.percent}vw;
             width: ${bounding.width.percent}vw;
             height: ${bounding.height.percent}vw;
-<<<<<<< HEAD
-            ${
-              datas.backgroundColor &&
-              `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`
-            }
+            ${(datas.backgroundColor && datas.name === 'sound-testimony') && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
+            ${datas.opacity && `opacity: ${datas.opacity};`}
         `"
   >
     <o-sound
@@ -210,21 +207,6 @@
     v-else-if="datas.tag === 'scroller'"
     :class="datas.name"
     class="container"
-=======
-            ${(datas.backgroundColor && datas.name === 'sound-testimony') && `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`}
-            ${datas.opacity && `opacity: ${datas.opacity};`}
-        `">
-        <o-sound 
-            :data-sound-index="datas.name === 'sound-testimony' && soundIndex"
-            :options="{ sound: { name: soundName } }"
-        >
-        </o-sound>
-    </o-scroller>
-    <!-- PARALLAX -->
-    <o-scroller
-    v-else-if="datas.tag === 'scroller'" 
-    :class="datas.name" class="container"
->>>>>>> 7f84373b0722ab7931f656c0f30e620661d59ebb
     :style="`
         position: absolute;
         top: ${bounding.y.percent}vw;

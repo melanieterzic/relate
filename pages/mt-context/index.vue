@@ -33,7 +33,7 @@
       <o-scroller class="sound1">
         <o-sound
           :options="{
-            sound: { name: 'contexte/1', index: '1', type: 'sound-context' },
+            sound: { name: '1', index: '1', type: 'sound-context' },
           }"
         >
         </o-sound>
@@ -41,7 +41,7 @@
       <o-scroller class="sound2">
         <o-sound
           :options="{
-            sound: { name: 'contexte/2', index: '2', type: 'sound-context' },
+            sound: { name: '2', index: '2', type: 'sound-context' },
           }"
         >
         </o-sound>
@@ -49,7 +49,7 @@
       <o-scroller class="sound3">
         <o-sound
           :options="{
-            sound: { name: 'contexte/3', index: '3', type: 'sound-context' },
+            sound: { name: '3', index: '3', type: 'sound-context' },
           }"
         >
         </o-sound>
@@ -57,7 +57,7 @@
       <o-scroller class="sound4">
         <o-sound
           :options="{
-            sound: { name: 'contexte/4', index: '4', type: 'sound-context' },
+            sound: { name: '4', index: '4', type: 'sound-context' },
           }"
         >
         </o-sound>
@@ -65,7 +65,7 @@
       <o-scroller class="sound5">
         <o-sound
           :options="{
-            sound: { name: 'contexte/5', index: '5', type: 'sound-context' },
+            sound: { name: '5', index: '5', type: 'sound-context' },
           }"
         >
         </o-sound>
@@ -73,7 +73,7 @@
       <o-scroller class="sound6">
         <o-sound
           :options="{
-            sound: { name: 'contexte/6', index: '6', type: 'sound-context' },
+            sound: { name: '6', index: '6', type: 'sound-context' },
           }"
         >
         </o-sound>
@@ -81,7 +81,7 @@
       <o-scroller class="sound7">
         <o-sound
           :options="{
-            sound: { name: 'contexte/7', index: '7', type: 'sound-context' },
+            sound: { name: '7', index: '7', type: 'sound-context' },
           }"
         >
         </o-sound>
@@ -89,7 +89,7 @@
       <o-scroller class="sound8">
         <o-sound
           :options="{
-            sound: { name: 'contexte/8', index: '8', type: 'sound-context' },
+            sound: { name: '8', index: '8', type: 'sound-context' },
           }"
         >
         </o-sound>
@@ -97,7 +97,7 @@
       <o-scroller class="sound9">
         <o-sound
           :options="{
-            sound: { name: 'contexte/9', index: '9', type: 'sound-context' },
+            sound: { name: '9', index: '9', type: 'sound-context' },
           }"
         >
         </o-sound>
@@ -105,7 +105,7 @@
       <o-scroller class="sound10">
         <o-sound
           :options="{
-            sound: { name: 'contexte/10', index: '10', type: 'sound-context' },
+            sound: { name: '10', index: '10', type: 'sound-context' },
           }"
         >
         </o-sound>
@@ -113,7 +113,7 @@
       <o-scroller class="sound11">
         <o-sound
           :options="{
-            sound: { name: 'contexte/11', index: '11', type: 'sound-context' },
+            sound: { name: '11', index: '11', type: 'sound-context' },
           }"
         >
         </o-sound>
@@ -121,7 +121,7 @@
       <o-scroller class="sound12">
         <o-sound
           :options="{
-            sound: { name: 'contexte/12', index: '12', type: 'sound-context' },
+            sound: { name: '12', index: '12', type: 'sound-context' },
           }"
         >
         </o-sound>
@@ -129,7 +129,7 @@
       <o-scroller class="sound13">
         <o-sound
           :options="{
-            sound: { name: 'contexte/13', index: '13', type: 'sound-context' },
+            sound: { name: '13', index: '13', type: 'sound-context' },
           }"
         >
         </o-sound>
@@ -137,7 +137,7 @@
       <o-scroller class="sound14">
         <o-sound
           :options="{
-            sound: { name: 'contexte/14', index: '14', type: 'sound-context' },
+            sound: { name: '14', index: '14', type: 'sound-context' },
           }"
         >
         </o-sound>
@@ -145,7 +145,7 @@
       <o-scroller class="sound15">
         <o-sound
           :options="{
-            sound: { name: 'contexte/15', index: '15', type: 'sound-context' },
+            sound: { name: '15', index: '15', type: 'sound-context' },
           }"
         >
         </o-sound>
@@ -153,7 +153,7 @@
       <o-scroller class="sound16">
         <o-sound
           :options="{
-            sound: { name: 'contexte/16', index: '16', type: 'sound-context' },
+            sound: { name: '16', index: '16', type: 'sound-context' },
           }"
         >
         </o-sound>
@@ -161,7 +161,7 @@
       <o-scroller class="sound17">
         <o-sound
           :options="{
-            sound: { name: 'contexte/17', index: '17', type: 'sound-context' },
+            sound: { name: '17', index: '17', type: 'sound-context' },
           }"
         >
         </o-sound>
@@ -169,7 +169,7 @@
       <o-scroller class="sound18">
         <o-sound
           :options="{
-            sound: { name: 'contexte/18', index: '18', type: 'sound-context' },
+            sound: { name: '18', index: '18', type: 'sound-context' },
           }"
         >
         </o-sound>
@@ -177,7 +177,7 @@
       <o-scroller class="sound19">
         <o-sound
           :options="{
-            sound: { name: 'contexte/19', index: '19', type: 'sound-context' },
+            sound: { name: '19', index: '19', type: 'sound-context' },
           }"
         >
         </o-sound>
@@ -185,7 +185,7 @@
       <o-scroller class="sound20">
         <o-sound
           :options="{
-            sound: { name: 'contexte/20', index: '20', type: 'sound-context' },
+            sound: { name: '20', index: '20', type: 'sound-context' },
           }"
         >
         </o-sound>
@@ -193,7 +193,7 @@
       <o-scroller class="sound21">
         <o-sound
           :options="{
-            sound: { name: 'contexte/21', index: '21', type: 'sound-context' },
+            sound: { name: '21', index: '21', type: 'sound-context' },
           }"
         >
         </o-sound>
@@ -201,7 +201,7 @@
       <o-scroller class="sound22">
         <o-sound
           :options="{
-            sound: { name: 'contexte/22', index: '22', type: 'sound-context' },
+            sound: { name: '22', index: '22', type: 'sound-context' },
           }"
         >
         </o-sound>
