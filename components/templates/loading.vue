@@ -1,10 +1,36 @@
 <template lang="html">
   <div v-if="$store.state.loader.isLoading" class="loading-page">
-    <p>Loading ...</p>
+    <div class="cont">
+      <p>{{ name }}</p>
+      <p class="subtitle">{{ subtitle }}</p>
+    </div>
+    <img src="~/assets/images/icon-loading.svg" alt="Icon boucle d'une ficelle qui entoure le titre de l'épisode." />
   </div>
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      name: undefined
+    }
+  },
+  created() {
+    if (this.$route.name === "index") {
+      this.name = "Episode 1";
+    } else {
+      this.name = this.$route.name.charAt(0).toUpperCase() + this.$route.name.slice(1);
+      this.name = this.name.replace('-', ' ');
+    }
+
+    if (this.name === "Episode 1") {
+      this.subtitle = "Présentation";
+    } else if (this.name === "Chapter 3") {
+      this.name = "Episode 3";
+      this.subtitle = "Héritage culturel";
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -26,6 +52,34 @@
     p {
       display: none;
     }
+  }
+  .cont {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  p {
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 28px;
+    text-align: center;
+    color: #FAF2ED;
+  }
+  .subtitle {
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    color: #FAF2ED;
+  }
+  img {
+    width: 65vw;
+    height: 65vw;
   }
 }
 </style>
