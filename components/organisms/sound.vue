@@ -81,7 +81,7 @@ export default {
       }
     },
     setPlaying(value) {
-      // console.log(value)
+      // console.log(value==false?value:'')
       this.$data.sound.playing = value;
     },
     onFirstInteractionUser() {
