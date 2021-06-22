@@ -33,13 +33,13 @@ export default {
     };
   },
   mounted() {
+    setTimeout(() => {
       if (
         this.$props.options.sound.type == "sound-context" ||
         this.$props.options.sound.type == "sound-testimony"
       ) {
         this.$el.querySelector('.line').classList.add('active');
       }
-    setTimeout(() => {
       this.$nuxt.$on("update", this.update);
       this.$data.sound.src = require(`~/assets/sounds/${
         this.$route.name === "index" ? "chapter-1" : this.$route.name
@@ -55,6 +55,9 @@ export default {
       window.addEventListener("touchstart", this.onFirstInteractionUser);
       this.$parent.$data.responseChild = true;
     }, 1000);
+  },
+  beforeDestroy() {
+    this.$data.sound.playing = false;
   },
   methods: {
     play() {
