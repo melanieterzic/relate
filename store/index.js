@@ -48,8 +48,8 @@ export const state = () => ({
         // ressourcesNumber: 0,
         // ressourcesURL: []
     },
-    isSoundEnabled: true,
-    isSubtitlesEnabled: true,
+    isSoundEnabled: false,
+    isSubtitlesEnabled: false,
     isParamsOpen: false,
     recursive: {
         index: {
@@ -120,7 +120,7 @@ export const mutations = {
             let days = 365;
             if (days) {
                 const date = new Date();
-                date.setTime(date.getTime() + (days*24*60*60*1000));
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
                 expires = "; expires=" + date.toUTCString();
             }
             document.cookie = `${name}=${value.toString() || ""}${expires}; path=/`;
@@ -129,20 +129,20 @@ export const mutations = {
     getCookie(state, { name }) {
         const nameEQ = `${name}=`;
         const ca = document.cookie.split(';');
-        for(let i = 0; i < ca.length; i++) {
+        for (let i = 0; i < ca.length; i++) {
             let c = ca[i];
             while (c.charAt(0) == ' ') {
-                c = c.substring(1,c.length);
+                c = c.substring(1, c.length);
             }
             if (c.indexOf(nameEQ) == 0) {
-                state.window.cookies[name] = c.substring(nameEQ.length,c.length);
+                state.window.cookies[name] = c.substring(nameEQ.length, c.length);
                 // state.window.cookies[name] = undefined;
                 // return c.substring(nameEQ.length,c.length);
             }
         }
         return null;
     },
-    eraseCookie(state, { name }) {  
+    eraseCookie(state, { name }) {
         state.window.cookies[name] = undefined;
         // ---
         document.cookie = `${name}=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
@@ -163,17 +163,17 @@ export const mutations = {
     initializeSound(state) {
         // const isSoundEnabled = JSON.parse(localStorage.getItem('isSoundEnabled'));
         const isSoundEnabled = true;
-        if(!isSoundEnabled) {
-          state.isSoundEnabled = false;
-          localStorage.setItem("isSoundEnabled", false);
-        } else if(isSoundEnabled) {
-          state.isSoundEnabled = true;
-          localStorage.setItem("isSoundEnabled", true);
+        if (!isSoundEnabled) {
+            state.isSoundEnabled = false;
+            localStorage.setItem("isSoundEnabled", false);
+        } else if (isSoundEnabled) {
+            state.isSoundEnabled = true;
+            localStorage.setItem("isSoundEnabled", true);
         } else {
-          state.isSoundEnabled = true;
-          localStorage.setItem("isSoundEnabled", true);
+            state.isSoundEnabled = true;
+            localStorage.setItem("isSoundEnabled", true);
         }
-      },
+    },
     // CONTROL
     controlDevice(state) {
         const ua = navigator.userAgent.toLowerCase();
