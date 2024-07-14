@@ -15,16 +15,17 @@
     "gsap": "./gsap-bonus.tgz",
     "i18n": "^0.13.3",
     "locomotive-scroll": "^4.1.1",
-    "node-sass": "^6.0.1",
     "nuxt": "^2.15.3",
-    "sass": "^1.29.0",
+    "sass": "^1.77.8",
     "sass-loader": "^10.1.1",
     "vue-plyr": "^7.0.0"
   },
   "devDependencies": {
-    "prettier": "2.2.1",
+    "nan": "2.18.0",
     "node-gyp": "10.0.1",
-    "nan": "2.18.0"
+    "prettier": "2.2.1"
   },
-  "resolutions": { "nan": "2.18.0" }
+  "resolutions": {
+    "nan": "2.18.0"
+  }
 }
