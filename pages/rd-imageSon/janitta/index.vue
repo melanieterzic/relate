@@ -1,23 +1,23 @@
 <template>
   <main class="imageSon">
     <p>click avant de scroller :)</p>
-    <o-scroller 
-      v-for="index in images.length" :key="`image-${index}`" 
+    <o-scroller
+      v-for="index in images.length" :key="`image-${index}`"
       class="scroller"
       :style="getContainerStyleImage(index)"
       :options="{ scroll: { end: 'bottom 15%' } }"
     >
-      <img 
+      <img
         :src="getImageSrc(index)" alt=""
       >
     </o-scroller>
-    <o-scroller 
-      v-for="index in sounds.length" :key="`sound-${index}`" 
+    <o-scroller
+      v-for="index in sounds.length" :key="`sound-${index}`"
       class="scroller"
       :style="getContainerStyleSound(index)"
       :options="{ scroll: { end: 'bottom 15%' } }"
     >
-      <o-sound 
+      <o-sound
         :options="{ sound: { name: index } }"
       ></o-sound>
     </o-scroller>
@@ -139,17 +139,15 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.imageSon {
-  img {
-    width: 100%;
-    height: auto;
-  }
-  .o-sound {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border: solid blue 1px;
-  }
+<style lang="css">
+.imageSon img {
+  width: 100%;
+  height: auto;
+}
+.imageSon .o-sound {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: solid blue 1px;
 }
 </style>

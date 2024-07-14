@@ -83,7 +83,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="css">
 .loading-page {
   position: fixed;
   top: 0;
@@ -96,50 +96,60 @@ export default {
   background: #0F0E21;
   color: #FFF;
   z-index: 999999;
-  &.appear {
-    opacity: 1;
-    transition: opacity 1s linear;
-    .cont, img {
-      opacity: 1;
-      transition: opacity .5s linear;
-    }
-  }
-  &.remove {
-    opacity: 0;
-    transition: opacity 1s linear .5s;
-    .cont, img {
-      opacity: 0;
-      transition: opacity .5s linear;
-    }
-  }
-  .cont {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate3d(-50%, -50%, 0);
-  }
-  p {
-    font-family: Source Sans Pro;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 22px;
-    line-height: 28px;
-    text-align: center;
-    color: #FAF2ED;
-  }
-  .subtitle {
-    font-family: Source Sans Pro;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 18px;
-    text-align: center;
-    color: #FAF2ED;
-  }
-  img {
-    width: 65vw;
-    height: 65vw;
-  }
+}
+
+.loading-page.appear {
+  opacity: 1;
+  transition: opacity 1s linear;
+}
+
+.loading-page.appear .cont,
+.loading-page.appear img {
+  opacity: 1;
+  transition: opacity .5s linear;
+}
+
+.loading-page.remove {
+  opacity: 0;
+  transition: opacity 1s linear .5s;
+}
+
+.loading-page.remove .cont,
+.loading-page.remove img {
+  opacity: 0;
+  transition: opacity .5s linear;
+}
+
+.loading-page .cont {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.loading-page p {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 28px;
+  text-align: center;
+  color: #FAF2ED;
+}
+
+.loading-page .subtitle {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  color: #FAF2ED;
+}
+
+.loading-page img {
+  width: 65vw;
+  height: 65vw;
 }
 </style>
 

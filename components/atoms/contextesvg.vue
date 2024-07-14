@@ -323,139 +323,157 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="css">
 @import url("https://fonts.googleapis.com/css2?family=Bayon&family=Source+Sans+Pro:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Volkhov:wght@700&display=swap");
 
 .frise {
   margin: 0;
+}
 
-  svg {
-    position: relative;
-    max-width: 750px;
-    overflow: visible;
-    margin-top: 20vh;
-  }
+.frise svg {
+  position: relative;
+  max-width: 750px;
+  overflow: visible;
+  margin-top: 20vh;
+}
 
-  .ball {
-    fill: #faf2ed;
-    visibility: hidden;
-  }
+.frise .ball {
+  fill: #faf2ed;
+  visibility: hidden;
+}
 
-  .line {
-    fill: none;
-    stroke: #faf2ed;
-    stroke-width: 2px;
-  }
-  text {
-    fill: #faf2ed;
-    font-size: 22px;
-    visibility: hidden;
-  }
-  .text01 {
-    font-family: "Poppins", sans-serif;
-    font-weight: bold;
-  }
+.frise .line {
+  fill: none;
+  stroke: #faf2ed;
+  stroke-width: 2px;
+}
 
-  .text02 {
-    font-family: "Source Sans Pro";
-    font-weight: 400;
-  }
-  .text03 {
-    font-family: "Volkhov", serif;
-  }
-  .text05 {
-    font-family: "Poppins";
-    font-weight: 600;
-    fill: #0f0e21;
-    transform: rotate(-5.33deg);
-  }
-  .text06 {
-    font-family: "Poppins";
-    font-weight: 700;
-    fill: #faf2ed;
-    font-size: 45px;
-    transform: rotate(-5.33deg);
-  }
-  .text07 {
-    font-family: "Poppins";
-    font-weight: 700;
-    font-size: 22px;
-  }
-  .text08 {
-    font-family: "Source Sans Pro";
-    font-weight: 400;
-    font-size: 16px;
-  }
-  .text09 {
-    font-family: "Source Sans Pro";
-    font-weight: 700;
-    font-size: 34px;
-    fill: #f8957e;
-  }
-  .text10 {
-    font-weight: bold;
-  }
-  .text11 {
-    z-index: 9;
-    position: absolute;
-    margin-top: 0;
-    top: 5950px;
-    text-align: center;
-    font-size: 34px;
-    // text-decoration: none;
-    width: 100%;
-    padding: 5px 40px;
-    color: #faf2ed;
-    // background: none;
-  }
-  .text12 {
-    font-family: "Source Sans Pro";
-    font-weight: 700;
-    font-size: 32px;
-    fill: #f8957e;
-  }
-  .text13 {
-    font-family: "Source Sans Pro";
-    font-weight: 700;
-    font-size: 32px;
-  }
-  .text14 {
-    font-family: "Volkhov", serif;
-    font-size: 17px;
-    fill: #0e0d22;
-  }
-  .text15 {
-    font-family: "Volkhov", serif;
-    font-size: 40px;
-    fill: #0e0d22;
-  }
-  .text16 {
-    font-family: "Poppins";
-    font-weight: 400;
-    font-size: 22px;
-  }
-  .text17 {
-    font-family: "Poppins";
-    font-weight: 600;
-    fill: #0f0e21;
-    transform: rotate(-8.65deg);
-  }
-  .text18 {
-    font-family: "Source Sans Pro";
-    font-size: 16px;
-    font-weight: 400;
-    transform: rotate(-2.29deg);
-  }
-  .rectangle {
-    transform: rotate(-5.33deg);
-  }
-  .rectangle2 {
-    transform: rotate(-8.65deg);
-  }
-  .rotate-image {
-    transform: rotate(-4.8deg);
-  }
+.frise text {
+  fill: #faf2ed;
+  font-size: 22px;
+  visibility: hidden;
+}
+
+.frise .text01 {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+
+.frise .text02 {
+  font-family: "Source Sans Pro";
+  font-weight: 400;
+}
+
+.frise .text03 {
+  font-family: "Volkhov", serif;
+}
+
+.frise .text05 {
+  font-family: "Poppins";
+  font-weight: 600;
+  fill: #0f0e21;
+  transform: rotate(-5.33deg);
+}
+
+.frise .text06 {
+  font-family: "Poppins";
+  font-weight: 700;
+  fill: #faf2ed;
+  font-size: 45px;
+  transform: rotate(-5.33deg);
+}
+
+.frise .text07 {
+  font-family: "Poppins";
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.frise .text08 {
+  font-family: "Source Sans Pro";
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.frise .text09 {
+  font-family: "Source Sans Pro";
+  font-weight: 700;
+  font-size: 34px;
+  fill: #f8957e;
+}
+
+.frise .text10 {
+  font-weight: bold;
+}
+
+.frise .text11 {
+  z-index: 9;
+  position: absolute;
+  margin-top: 0;
+  top: 5950px;
+  text-align: center;
+  font-size: 34px;
+  width: 100%;
+  padding: 5px 40px;
+  color: #faf2ed;
+}
+
+.frise .text12 {
+  font-family: "Source Sans Pro";
+  font-weight: 700;
+  font-size: 32px;
+  fill: #f8957e;
+}
+
+.frise .text13 {
+  font-family: "Source Sans Pro";
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.frise .text14 {
+  font-family: "Volkhov", serif;
+  font-size: 17px;
+  fill: #0e0d22;
+}
+
+.frise .text15 {
+  font-family: "Volkhov", serif;
+  font-size: 40px;
+  fill: #0e0d22;
+}
+
+.frise .text16 {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 22px;
+}
+
+.frise .text17 {
+  font-family: "Poppins";
+  font-weight: 600;
+  fill: #0f0e21;
+  transform: rotate(-8.65deg);
+}
+
+.frise .text18 {
+  font-family: "Source Sans Pro";
+  font-size: 16px;
+  font-weight: 400;
+  transform: rotate(-2.29deg);
+}
+
+.frise .rectangle {
+  transform: rotate(-5.33deg);
+}
+
+.frise .rectangle2 {
+  transform: rotate(-8.65deg);
+}
+
+.frise .rotate-image {
+  transform: rotate(-4.8deg);
 }
 </style>

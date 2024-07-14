@@ -186,248 +186,284 @@
 export default {};
 </script>
 
-<style lang="scss">
+<style lang="css">
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
-.context {
-  .header,
-  .footer {
-    display: flex;
-    justify-content: flex-end;
-    padding: 8vw;
-  }
-  .footer {
-    margin-top: -22vw;
-    background-color: #292a2e;
-    img {
-      mix-blend-mode: difference;
-    }
-  }
-  .content {
-    .s-break {
-      display: block;
-      height: 3.73vw;
-    }
-    .s-01 {
-      display: block;
-      font-family: "Source Sans Pro";
-      font-style: normal;
-      font-weight: bold;
-      font-size: 7.46vw;
-      line-height: 130%;
-    }
-    .s-02 {
-      font-family: "Source Sans Pro";
-      font-style: normal;
-      font-weight: 600;
-      font-size: 3.73vw;
-      line-height: 130%;
-    }
-    .s-03 {
-      font-family: "Source Sans Pro";
-      font-style: normal;
-      font-weight: normal;
-      font-size: 3.73vw;
-      line-height: 130%;
-    }
-    .s-04 {
-      font-family: "Source Sans Pro";
-      font-style: normal;
-      font-weight: bold;
-      font-size: 4.8vw;
-      line-height: 130%;
-    }
-    .s-05 {
-      font-family: "Source Sans Pro";
-      font-style: normal;
-      font-weight: normal;
-      font-size: 4.8vw;
-      line-height: 130%;
-    }
-    .s-06 {
-      font-family: "Source Sans Pro";
-      font-style: normal;
-      font-weight: normal;
-      font-size: 2.6vw;
-      line-height: 3.4vw;
-      text-align: right;
-      text-transform: uppercase;
-    }
-    .s-07 {
-      font-family: "Source Sans Pro";
-      font-style: normal;
-      font-weight: bold;
-      font-size: 12.8vw;
-      line-height: 130%;
-    }
-    .introduction {
-      margin: 10.66vw;
-    }
-    .map {
-      margin-bottom: 37.33vw;
-      .label {
-        margin: 0 1.33vw 2.4vw 0;
-      }
-      img {
-        width: 100%;
-        height: auto;
-      }
-      .desc {
-        margin: -12vw 12vw 12vw;
-      }
-      .s-03,
-      .s-04,
-      .s-05 {
-        display: block;
-      }
-    }
-    .definition {
-      padding: 38.66vw 12vw;
-      background-color: #292a2e;
-      color: #fff;
-      text-align: center;
-    }
-    .container-01 {
-      padding: 38.66vw 12vw;
-      .label {
-        margin: 0 1.33vw 2.4vw 0;
-      }
-      .s-04 {
-        display: block;
-      }
-    }
-    .queue {
-      padding-bottom: 38.66vw;
-      .label {
-        margin: 0 1.33vw 2.4vw 0;
-      }
-      img {
-        width: 100%;
-        height: auto;
-      }
-      .desc {
-        margin: 21.86vw 12vw 12vw;
-      }
-      .s-03,
-      .s-04,
-      .s-05 {
-        display: block;
-      }
-    }
-    .smile {
-      padding-bottom: 38.66vw;
-      .label {
-        position: absolute;
-        transform: translate3d(60.2vw, 0, 0);
-      }
-      img {
-        width: 72.53vw;
-        height: auto;
-        transform: rotate(-5.6deg) translate3d(-13.96vw, 0, 0);
-      }
-      .desc {
-        margin: 21.86vw 12vw 12vw;
-      }
-      .s-03,
-      .s-04,
-      .s-05 {
-        display: block;
-      }
-    }
-    .pelmel {
-      position: relative;
-      img {
-        width: 44.53vw;
-        height: auto;
-      }
-      .desc {
-        position: absolute;
-        top: 50%;
-        left: 60%;
-        width: 55%;
-        transform: translate3d(-50%, -50%, 0);
-      }
-    }
-    .numbers {
-      padding: 38.66vw 12vw;
-      background-color: #292a2e;
-      color: #fff;
-      text-align: center;
-      .s-03,
-      .s-04,
-      .s-07 {
-        display: block;
-      }
-    }
-    .tribunal {
-      position: relative;
-      padding: 38.66vw 0;
-      .label {
-        position: absolute;
-        transform: translate3d(62.2vw, -18vw, 0) rotate(5.6deg);
-      }
-      img {
-        position: relative;
-        &:nth-child(2) {
-          position: absolute;
-          top: 30%;
-          left: 50%;
-          width: 74.53vw;
-          height: auto;
-          transform: translate3d(-50%, -50%, 0);
-        }
-        &:nth-child(3) {
-          width: 80.53vw;
-          height: auto;
-          transform: rotate(5.6deg) translate3d(23.96vw, 0, 0);
-        }
-      }
-      p {
-        padding: 17.06vw 12vw;
-      }
-      .s-04 {
-        display: block;
-      }
-    }
-    .trial {
-      position: relative;
-      padding: 38.66vw 12vw;
-      background-color: #292a2e;
-      color: #fff;
-      .label {
-        position: absolute;
-        top: 0;
-        color: #000;
-        transform: rotate(-5.6deg) translate3d(-5.5vw, -28vw, 0);
-      }
-      img {
-        position: absolute;
-        top: 0;
-        width: 72.53vw;
-        height: auto;
-        transform: rotate(-5.6deg) translate3d(-20.2vw, -50%, 0);
-      }
-      .s-04 {
-        display: block;
-      }
-    }
-    .container-02 {
-      padding: 17.06vw 12vw;
-      .label {
-        margin: 0 1.33vw 2.4vw 0;
-      }
-      .s-04 {
-        display: block;
-      }
-    }
-    .container-03 {
-      padding: 17.06vw 12vw 0;
-      .label {
-        margin: 0 1.33vw 2.4vw 0;
-      }
-      .s-04 {
-        display: block;
-      }
-    }
-  }
+
+.context .header, .context .footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8vw;
+}
+
+.context .footer {
+  margin-top: -22vw;
+  background-color: #292a2e;
+}
+
+.context .footer img {
+  mix-blend-mode: difference;
+}
+
+.content .s-break {
+  display: block;
+  height: 3.73vw;
+}
+
+.content .s-01 {
+  display: block;
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 7.46vw;
+  line-height: 130%;
+}
+
+.content .s-02 {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 3.73vw;
+  line-height: 130%;
+}
+
+.content .s-03 {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3.73vw;
+  line-height: 130%;
+}
+
+.content .s-04 {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 4.8vw;
+  line-height: 130%;
+}
+
+.content .s-05 {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 4.8vw;
+  line-height: 130%;
+}
+
+.content .s-06 {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2.6vw;
+  line-height: 3.4vw;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.content .s-07 {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12.8vw;
+  line-height: 130%;
+}
+
+.content .introduction {
+  margin: 10.66vw;
+}
+
+.content .map {
+  margin-bottom: 37.33vw;
+}
+
+.content .map .label {
+  margin: 0 1.33vw 2.4vw 0;
+}
+
+.content .map img {
+  width: 100%;
+  height: auto;
+}
+
+.content .map .desc {
+  margin: -12vw 12vw 12vw;
+}
+
+.content .map .s-03, .content .map .s-04, .content .map .s-05 {
+  display: block;
+}
+
+.content .definition {
+  padding: 38.66vw 12vw;
+  background-color: #292a2e;
+  color: #fff;
+  text-align: center;
+}
+
+.content .container-01 {
+  padding: 38.66vw 12vw;
+}
+
+.content .container-01 .label {
+  margin: 0 1.33vw 2.4vw 0;
+}
+
+.content .container-01 .s-04 {
+  display: block;
+}
+
+.content .queue {
+  padding-bottom: 38.66vw;
+}
+
+.content .queue .label {
+  margin: 0 1.33vw 2.4vw 0;
+}
+
+.content .queue img {
+  width: 100%;
+  height: auto;
+}
+
+.content .queue .desc {
+  margin: 21.86vw 12vw 12vw;
+}
+
+.content .queue .s-03, .content .queue .s-04, .content .queue .s-05 {
+  display: block;
+}
+
+.content .smile {
+  padding-bottom: 38.66vw;
+}
+
+.content .smile .label {
+  position: absolute;
+  transform: translate3d(60.2vw, 0, 0);
+}
+
+.content .smile img {
+  width: 72.53vw;
+  height: auto;
+  transform: rotate(-5.6deg) translate3d(-13.96vw, 0, 0);
+}
+
+.content .smile .desc {
+  margin: 21.86vw 12vw 12vw;
+}
+
+.content .smile .s-03, .content .smile .s-04, .content .smile .s-05 {
+  display: block;
+}
+
+.content .pelmel {
+  position: relative;
+}
+
+.content .pelmel img {
+  width: 44.53vw;
+  height: auto;
+}
+
+.content .pelmel .desc {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  width: 55%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.content .numbers {
+  padding: 38.66vw 12vw;
+  background-color: #292a2e;
+  color: #fff;
+  text-align: center;
+}
+
+.content .numbers .s-03, .content .numbers .s-04, .content .numbers .s-07 {
+  display: block;
+}
+
+.content .tribunal {
+  position: relative;
+  padding: 38.66vw 0;
+}
+
+.content .tribunal .label {
+  position: absolute;
+  transform: translate3d(62.2vw, -18vw, 0) rotate(5.6deg);
+}
+
+.content .tribunal img:nth-child(2) {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 74.53vw;
+  height: auto;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.content .tribunal img:nth-child(3) {
+  width: 80.53vw;
+  height: auto;
+  transform: rotate(5.6deg) translate3d(23.96vw, 0, 0);
+}
+
+.content .tribunal p {
+  padding: 17.06vw 12vw;
+}
+
+.content .tribunal .s-04 {
+  display: block;
+}
+
+.content .trial {
+  position: relative;
+  padding: 38.66vw 12vw;
+  background-color: #292a2e;
+  color: #fff;
+}
+
+.content .trial .label {
+  position: absolute;
+  top: 0;
+  color: #000;
+  transform: rotate(-5.6deg) translate3d(-5.5vw, -28vw, 0);
+}
+
+.content .trial img {
+  position: absolute;
+  top: 0;
+  width: 72.53vw;
+  height: auto;
+  transform: rotate(-5.6deg) translate3d(-20.2vw, -50%, 0);
+}
+
+.content .trial .s-04 {
+  display: block;
+}
+
+.content .container-02 {
+  padding: 17.06vw 12vw;
+}
+
+.content .container-02 .label {
+  margin: 0 1.33vw 2.4vw 0;
+}
+
+.content .container-02 .s-04 {
+  display: block;
+}
+
+.content .container-03 {
+  padding: 17.06vw 12vw 0;
+}
+
+.content .container-03 .label {
+  margin: 0 1.33vw 2.4vw 0;
+}
+
+.content .container-03 .s-04 {
+  display: block;
 }
 </style>

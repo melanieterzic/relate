@@ -36,27 +36,34 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="css">
 .imageSon {
   height: 300vh;
-  .scroller1 {
-    position: absolute;
-    top: 100vh; left: 0;
-    .container {
-      background: blue;
-    }
-  }
-  .scroller2 {
-    position: absolute;
-    top: 250vh; left: 0;
-    .container {
-      background: orange;
-    }
-  }
-  .container {
-    display: block;
-    width: 100vw;
-    height: 70vh;
-  }
+}
+
+.imageSon .scroller1 {
+  position: absolute;
+  top: 100vh;
+  left: 0;
+}
+
+.imageSon .scroller1 .container {
+  background: blue;
+}
+
+.imageSon .scroller2 {
+  position: absolute;
+  top: 250vh;
+  left: 0;
+}
+
+.imageSon .scroller2 .container {
+  background: orange;
+}
+
+.imageSon .container {
+  display: block;
+  width: 100vw;
+  height: 70vh;
 }
 </style>

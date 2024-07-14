@@ -162,7 +162,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="css">
 .o-sound {
   display: table-cell;
 }
@@ -171,7 +171,6 @@ export default {
   width: 100%;
   height: 100%;
   background: #909090;
-  // opacity: 25%;
 }
 .subtitles {
   background: rgba(15, 14, 33, 85%);
@@ -190,6 +189,5 @@ export default {
   top: 0;
   left: 0;
   align-items: center;
-  span {}
 }
 </style>

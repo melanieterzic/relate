@@ -21,7 +21,7 @@ export default {
   data() {
     return {}
   },
-  mounted() {      
+  mounted() {
     this.$el.src = require(`~/assets/datas/images/${ this.$props.options.name }`);
     this.$store.commit('addRessource', 'ok');
     this.$el.onload = () => {
@@ -31,7 +31,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="css">
 .o-image {
   width: 100%;
   height: auto;

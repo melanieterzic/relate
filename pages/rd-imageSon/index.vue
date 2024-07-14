@@ -71,25 +71,23 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.imageSon {
-  h3 {
-    margin-bottom: 5px;
-    font-size: 20px;
-    font-weight: 700;
-  }
-  p {
-    margin-bottom: 10px;
-  }
-  li {
-    margin-bottom: 5px;
-  }
-  a {
-    text-decoration: underline;
-  }
-  .list {
-    display: block;
-    margin-bottom: 20px;
-  }
+<style lang="css">
+.imageSon h3 {
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.imageSon p {
+  margin-bottom: 10px;
+}
+.imageSon li {
+  margin-bottom: 5px;
+}
+.imageSon a {
+  text-decoration: underline;
+}
+.imageSon .list {
+  display: block;
+  margin-bottom: 20px;
 }
 </style>

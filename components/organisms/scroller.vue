@@ -38,17 +38,17 @@ export default {
         switch(child.$options._componentTag) {
           case "o-sound":
             this.$data.scrollTrigger = {
-              ...this.$data.scrollTrigger, 
+              ...this.$data.scrollTrigger,
               ...{
                 start: 'top 85%',
                 end: `bottom 85%`,
                 onEnter: () => {
                   child.setPlaying(true);
                 },
-                onLeave: () => { 
+                onLeave: () => {
                   child.setPlaying(false);
                 },
-                onLeaveBack: () => { 
+                onLeaveBack: () => {
                   child.setPlaying(false);
                 },
                 onEnterBack: () => {
@@ -60,7 +60,7 @@ export default {
           case "o-animation":
             if (typeof child.$options.propsData.options.scroll !== "undefined") {
               this.$data.scrollTrigger = {
-                ...this.$data.scrollTrigger, 
+                ...this.$data.scrollTrigger,
                 ...{
                   pin: true,
                   pinSpacing: false,
@@ -80,15 +80,15 @@ export default {
         case "parallax":
           // console.log('ok')
           this.$data.from = {
-            ...this.$data.from, 
+            ...this.$data.from,
             ...{ y: 0 }
           }
           this.$data.to = {
-            ...this.$data.to, 
+            ...this.$data.to,
             ...{ y: this.$data.gap }
           }
           this.$data.scrollTrigger = {
-            ...this.$data.scrollTrigger, 
+            ...this.$data.scrollTrigger,
             ...{
               start: 'top 100%',
               end: `${ (this.$el.offsetHeight - this.$props.options.gap) <= 0 ? 0 : this.$el.offsetHeight + this.$data.gap }px 0%`
@@ -126,8 +126,6 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.o-scroller {
-  // display: table-cell;
-}
+<style lang="css">
+.o-scroller {}
 </style>

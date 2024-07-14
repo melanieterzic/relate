@@ -1,6 +1,6 @@
 <template>
     <!-- Story -->
-    <main 
+    <main
         v-if="datas.tag === 'main'"
         :style="`
             position: relative;
@@ -13,11 +13,11 @@
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
     </main>
     <!-- Chapter -->
-    <section 
+    <section
         v-else-if="datas.tag === 'section'"
         :style="`
             width: ${bounding.width.percent}vw;
-            height: ${bounding.height.percent}vw;            
+            height: ${bounding.height.percent}vw;
             ${
               datas.backgroundColor &&
               `background-color: rgb(${datas.backgroundColor.r}, ${datas.backgroundColor.g}, ${datas.backgroundColor.b});`
@@ -27,8 +27,8 @@
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
     </section>
     <!-- RECTANGLE -->
-    <div 
-        v-else-if="datas.tag === 'div'" 
+    <div
+        v-else-if="datas.tag === 'div'"
         :class="datas.name" class="container"
         :style="`
             position: absolute;
@@ -45,8 +45,8 @@
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
     </div>
     <!-- ACTION OVERLAY -->
-    <div 
-        v-else-if="datas.tag === 'overlay'" 
+    <div
+        v-else-if="datas.tag === 'overlay'"
         :class="datas.name" class="container"
         v-on:click="okok"
         :style="`
@@ -61,8 +61,8 @@
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
     </div>
     <!-- ACTION MODAL -->
-    <div 
-        v-else-if="datas.tag === 'modal'" 
+    <div
+        v-else-if="datas.tag === 'modal'"
         :class="datas.name" class="container"
         :style="`
             position: absolute;
@@ -76,14 +76,14 @@
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
     </div>
     <!-- ACTION LINK -->
-    <nuxt-link 
-        v-else-if="datas.tag === 'link'" 
+    <nuxt-link
+        v-else-if="datas.tag === 'link'"
         :to="datas.to"
     >
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
     </nuxt-link>
     <!-- HEADLINE -->
-    <h2 
+    <h2
         v-else-if="datas.tag === 'h2'"
         :style="`
             position: absolute;
@@ -104,7 +104,7 @@
         `"
     >{{ datas.characters }}</h2>
     <!-- PARAGRAPH -->
-    <p 
+    <p
         v-else-if="datas.tag === 'p'"
         :style="`
             position: absolute;
@@ -125,7 +125,7 @@
         `"
     >{{ datas.characters }}</p>
     <!-- IMAGE -->
-    <o-image 
+    <o-image
     v-else-if="datas.tag === 'img' || datas.tag === 'svg'"
     :options="{
         name: datas.fileName
@@ -142,7 +142,7 @@
     />
     <!-- ANIMATION -->
     <o-animation
-    v-else-if="datas.tag === 'animation' && datas.type === 'fix'" 
+    v-else-if="datas.tag === 'animation' && datas.type === 'fix'"
     :class="datas.name" class="container"
     :style="`
         position: absolute;
@@ -156,10 +156,10 @@
         speed: 1000 / (datas.children.length - 1),
         width: getPercentResizeValue(datas.children[0].width),
         height: getPercentResizeValue(datas.children[0].height)
-    }">        
+    }">
     </o-animation>
     <o-scroller
-    v-else-if="datas.tag === 'animation' && datas.type === 'scroll'" 
+    v-else-if="datas.tag === 'animation' && datas.type === 'scroll'"
     :class="datas.name" class=""
     :style="`
         position: absolute;
@@ -176,13 +176,13 @@
             scroll: true,
             width: getPercentResizeValue(datas.children[0].width),
             height: getPercentResizeValue(datas.children[0].height)
-        }">        
+        }">
             <!-- <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" /> -->
         </o-animation>
     </o-scroller>
     <!-- SOUND -->
     <o-scroller
-        v-else-if="datas.tag === 'sound'" 
+        v-else-if="datas.tag === 'sound'"
         :class="datas.name" class="container"
         :style="`
             position: absolute;
@@ -275,7 +275,7 @@ export default {
                     pixel: undefined,
                     percent: undefined
                 }
-            } 
+            }
         }
     },
     methods: {
@@ -310,18 +310,18 @@ export default {
             return require(`~/assets/datas/images/${fileName}`);
         },
         setUrlImg() {
-            let bytes = this.$props.datas.bytes; 
+            let bytes = this.$props.datas.bytes;
             const format = this.$props.datas.format;
 
             bytes = Uint8Array.from(Object.values(bytes));
             if (format === "svg") {
                 this.$data.url = URL.createObjectURL(
                     new Blob([bytes.buffer], { type: `image/svg+xml` })
-                ); 
+                );
             } else {
                 this.$data.url = URL.createObjectURL(
                     new Blob([bytes.buffer], { type: `image/${format}` })
-                ); 
+                );
             }
         },
         setFontSize() {
@@ -335,7 +335,7 @@ export default {
             } else if (value.includes('px')) {
                 let rebalancing = parseInt(value.split('px')[0]);
                 this.$data.letterSpacing = this.getPercentResizeValue(rebalancing);
-            }  
+            }
         },
         setLineHeight() {
             const value = this.$props.datas.lineHeight;
@@ -347,7 +347,7 @@ export default {
             } else if (value.includes('px')) {
                 let rebalancing = parseInt(value.split('px')[0]);
                 this.$data.lineHeight = this.getPercentResizeValue(rebalancing);
-            }  
+            }
         },
         getPixelResizeValue(value) {
           let low1 = 0;
@@ -384,7 +384,7 @@ export default {
             this.bounding.y.ratio = this.getRatioResizeValue(y, this.bounding.y.pixel);
             this.bounding.y.percent = this.getPercentResizeValue(y);
         }
-    },  
+    },
     mounted() {
         if (this.$props.datas.tag === 'link') {
             // console.log(this.$props.datas)
@@ -405,7 +405,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="css">
 .container {
   & > * {
     top: 0 !important;

@@ -1,5 +1,5 @@
 <template>
-  <o-scroller> 
+  <o-scroller>
     <o-animation></o-animation>
   </o-scroller>
 </template>
@@ -17,12 +17,12 @@ export default {
 </script>
 
 
-<style lang="scss">
+<style lang="css">
 .p-rd-animation {
   height: 200vh;
-  .o-scroller {
-    position: absolute;
-    top: 100vh;
-  }
+}
+.p-rd-animation .o-scroller {
+  position: absolute;
+  top: 100vh;
 }
 </style>

@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="css">
 .langue {
   background: #0f0e21 !important;
   border: 2px solid #faf2ed;
@@ -23,7 +23,8 @@
   position: relative;
   display: inline-block;
 }
-.select-wrapper:after {
+
+.select-wrapper::after {
   content: "\2228";
   color: white;
   right: 14px;

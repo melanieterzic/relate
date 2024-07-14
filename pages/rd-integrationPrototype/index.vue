@@ -293,180 +293,200 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="css">/* Import Source Sans Pro font */
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
+
+/* Import Bayon and Source Sans Pro fonts */
 @import url("https://fonts.googleapis.com/css2?family=Bayon&family=Source+Sans+Pro:wght@400;700&display=swap");
+
+/* Import Poppins and Volkhov fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Volkhov:wght@700&display=swap");
+
 .story {
   position: relative;
   width: 100vw;
   height: auto;
-  .introduction {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: calc(100vw - 16vw);
-    // height: calc(100vh - 16vw - 90px);
-    min-height: calc(667px - 16vw - 120px);
-    margin: 8vw;
-    .header {
-      display: flex;
-      p {
-        margin-right: 4vw;
-        font-family: "Source Sans Pro";
-        font-style: normal;
-        font-weight: normal;
-        font-size: 4vw;
-        letter-spacing: 0.1em;
-        line-height: 5vw;
-        text-align: right;
-      }
-    }
-    .cover {
-      display: flex;
-      flex-direction: column;
-      margin: 8vw;
-      img {
-        position: relative;
-        left: 50%;
-        width: 105vw;
-        height: 42vw;
-        transform: translate3d(-50%, 0, 0);
-      }
-      .resume {
-        display: flex;
-        justify-content: center;
-        p {
-          width: 77vw;
-          font-family: Source Sans Pro;
-          font-style: normal;
-          font-weight: normal;
-          font-size: 4.66vw;
-          line-height: 130%;
-          text-align: center;
-          span {
-            display: block;
-            font-weight: 600;
-            text-transform: uppercase;
-          }
-        }
-      }
-    }
-    .interaction {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      p {
-        width: 34.66vw;
-        margin-bottom: 8vw;
-        font-family: "Source Sans Pro";
-        font-style: normal;
-        font-weight: normal;
-        font-size: 4vw;
-        letter-spacing: 0.1em;
-        line-height: 5vw;
-        text-align: center;
-        text-transform: uppercase;
-      }
-      img {
-        width: 4.66vw;
-        height: 4.66vw;
-      }
-    }
-  }
-  .beginning {
-    display: flex;
-    justify-content: center;
-    margin: 290px 0;
-    p {
-      width: 77vw;
-      font-family: "Source Sans Pro";
-      font-style: normal;
-      font-weight: normal;
-      font-size: 4vw;
-      line-height: 5vw;
-      text-align: center;
-      text-transform: uppercase;
-      span {
-        font-weight: bold;
-        &:first-child {
-          display: block;
-          font-size: 6.66vw;
-          line-height: 8.33vw;
-        }
-      }
-    }
-  }
-  .chapter {
-    // display: none;
-    width: 100vw;
-    height: auto;
-  }
-  .container {
-    position: absolute;
-    img {
-      width: 100%;
-      height: auto;
-    }
-  }
-  .link {
-    position: absolute;
-    top: 830vw;
-    left: 70.66vw;
-    display: block;
-    width: 18vw;
-    height: 18vw;
-    background-color: #fff;
-    border-radius: 100%;
-    span {
-      position: relative;
-      top: 50%;
-      left: 50%;
-      display: block;
-      width: 20vw;
-      height: 20vw;
-      border: 2px solid #fff;
-      border-radius: 100%;
-      transform: translate3d(-50%, -50%, 0);
-    }
-    &:before,
-    &:after {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      content: " ";
-      height: 9vw;
-      width: 1vw;
-      background-color: #474747;
-      transform: translate3d(-50%, -50%, 0);
-    }
-    &:after {
-      transform: translate3d(-50%, -50%, 0) rotate(90deg);
-    }
-  }
-  .subtitles {
-    //background: #262626;
-    background-image: url("~/assets/images/bksubtitles.png");
-    height: 218px;
-    width: 100%;
-    color: #faf2ed;
-    font-family: "Source Sans Pro";
-    text-align: center;
-    line-height: 20px;
-    font-size: 16px;
-    padding: 10px 70px;
-    font-weight: 400;
-    position: fixed;
-    top: 0;
-    //box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.6);
-  }
+}
 
-  .btn-setting {
-    text-decoration: none;
-    border: none;
-    background: none;
-    z-index: 3;
-  }
+.story .introduction {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: calc(100vw - 16vw);
+  min-height: calc(667px - 16vw - 120px);
+  margin: 8vw;
+}
+
+.story .introduction .header {
+  display: flex;
+}
+
+.story .introduction .header p {
+  margin-right: 4vw;
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 4vw;
+  letter-spacing: 0.1em;
+  line-height: 5vw;
+  text-align: right;
+}
+
+.story .introduction .cover {
+  display: flex;
+  flex-direction: column;
+  margin: 8vw;
+}
+
+.story .introduction .cover img {
+  position: relative;
+  left: 50%;
+  width: 105vw;
+  height: 42vw;
+  transform: translate3d(-50%, 0, 0);
+}
+
+.story .introduction .cover .resume {
+  display: flex;
+  justify-content: center;
+}
+
+.story .introduction .cover .resume p {
+  width: 77vw;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 4.66vw;
+  line-height: 130%;
+  text-align: center;
+}
+
+.story .introduction .cover .resume p span {
+  display: block;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.story .introduction .interaction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.story .introduction .interaction p {
+  width: 34.66vw;
+  margin-bottom: 8vw;
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 4vw;
+  letter-spacing: 0.1em;
+  line-height: 5vw;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.story .introduction .interaction img {
+  width: 4.66vw;
+  height: 4.66vw;
+}
+
+.story .beginning {
+  display: flex;
+  justify-content: center;
+  margin: 290px 0;
+}
+
+.story .beginning p {
+  width: 77vw;
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 4vw;
+  line-height: 5vw;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.story .beginning p span {
+  font-weight: bold;
+}
+
+.story .beginning p span:first-child {
+  display: block;
+  font-size: 6.66vw;
+  line-height: 8.33vw;
+}
+
+.story .chapter {
+  width: 100vw;
+  height: auto;
+}
+
+.story .container img {
+  width: 100%;
+  height: auto;
+}
+
+.story .link {
+  position: absolute;
+  top: 830vw;
+  left: 70.66vw;
+  display: block;
+  width: 18vw;
+  height: 18vw;
+  background-color: #fff;
+  border-radius: 100%;
+}
+
+.story .link span {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 20vw;
+  height: 20vw;
+  border: 2px solid #fff;
+  border-radius: 100%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.story .link:before,
+.story .link:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: " ";
+  height: 9vw;
+  width: 1vw;
+  background-color: #474747;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.story .link:after {
+  transform: translate3d(-50%, -50%, 0) rotate(90deg);
+}
+
+.story .subtitles {
+  background-image: url("~/assets/images/bksubtitles.png");
+  height: 218px;
+  width: 100%;
+  color: #faf2ed;
+  font-family: "Source Sans Pro";
+  text-align: center;
+  line-height: 20px;
+  font-size: 16px;
+  padding: 10px 70px;
+  font-weight: 400;
+  position: fixed;
+  top: 0;
+}
+
+.story .btn-setting {
+  text-decoration: none;
+  border: none;
+  background: none;
+  z-index: 3;
 }
 </style>

@@ -17,7 +17,7 @@ export default {
     return {
       showBanner: true,
     }
-  }, 
+  },
   methods: {
     showBannerCookies() {
       for (const name in this.$store.state.window.cookies) {
@@ -51,10 +51,10 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="css">
 .o-cookies {
   position: fixed;
-  left: 0; bottom: 0; 
+  left: 0; bottom: 0;
   width: 100vw;
   padding: 5vw;
   background-color: red;

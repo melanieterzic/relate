@@ -81,7 +81,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="css">
 html {
   font-family: sans-serif;
   font-size: 16px;

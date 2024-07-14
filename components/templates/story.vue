@@ -45,54 +45,60 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="css">
 .sound-marker {
     position: fixed;
-    top: 85%; left: 0;
+    top: 85%;
+    left: 0;
     transform: translate3d(0, -50%, 0);
-    z-index: 99; 
+    z-index: 99;
 }
+
 .t-story {
     overflow: hidden;
-    .img-settings {
-      position: fixed;
-      right: -8px;
-      z-index: 10;
-      margin-top: 34px;
-      text-decoration: none;
-      border: none;
-      background: none;
-      //z-index: 3;
-    }
-    .img-settings-close {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 13;
-      text-decoration: none;
-      border: none;
-      background: none;
-    }
-    .img-cross {
-      position: absolute;
-      right: 0;
-      margin-right: 50px;
-      margin-top: 30px;
-    }
-    .img-arrow {
-      position: absolute;
-      right: 0;
-      margin-top: 30%;
-      margin-right: 10%;
-    }
-    .contexte-info {
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 17.6px;
-      height: 200px;
-    }
+}
+
+.t-story .img-settings {
+    position: fixed;
+    right: -8px;
+    z-index: 10;
+    margin-top: 34px;
+    text-decoration: none;
+    border: none;
+    background: none;
+}
+
+.t-story .img-settings-close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 13;
+    text-decoration: none;
+    border: none;
+    background: none;
+}
+
+.t-story .img-cross {
+    position: absolute;
+    right: 0;
+    margin-right: 50px;
+    margin-top: 30px;
+}
+
+.t-story .img-arrow {
+    position: absolute;
+    right: 0;
+    margin-top: 30%;
+    margin-right: 10%;
+}
+
+.t-story .contexte-info {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17.6px;
+    height: 200px;
 }
 </style>

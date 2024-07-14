@@ -1,6 +1,6 @@
 <template>
   <div>
-    <o-image 
+    <o-image
       v-for="image, index in 154" :key="index"
       :options="{
       name: '0Jhldpn1H0-' + (index + 1),
@@ -151,7 +151,7 @@ export default {
     // Créer un tableau
     // Ordonner le tableau
     // Lancer load avec promesse recursive
-    // 
+    //
 
     // this.$store.commit('setRessourcesNumber', { value: this.$data.images.length })
     // this.$data.images.forEach(image => {
@@ -164,5 +164,5 @@ export default {
 </script>
 
 
-<style lang="scss">
+<style lang="css">
 </style>

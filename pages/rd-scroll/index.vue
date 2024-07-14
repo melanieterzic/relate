@@ -44,14 +44,15 @@ export default {
 </script>
 
 
-<style lang="scss">
+<style lang="css">
 
 footer{
   padding: 12.5vw 6.25vw;
-  p{
-    font-size: 5vw;
-    color: #000000;
-  }
+}
+
+footer p {
+  font-size: 5vw;
+  color: #000000;
 }
 
 .image {

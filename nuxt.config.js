@@ -14,7 +14,7 @@ export default {
     meta: [
       // BASE
       { charset: 'utf-8' },
-      { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge, chrome=1' },  
+      { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge, chrome=1' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no' },
       // SEO
       { hid: 'description', name: 'description', content: Project.head.description },
@@ -51,7 +51,7 @@ export default {
   // COMPONENTS
   components: {
     dirs: [
-      '~/components', 
+      '~/components',
       {
         path: '~/components/atoms',
         prefix: 'a',
@@ -79,11 +79,12 @@ export default {
     '@nuxtjs/style-resources'
   ],
   // STYLES
-  styleResources: {
-      scss: [
-        '@/assets/styles/index.scss'
-      ]
-  },
+  css: ['~/assets/styles/index.css'],
+  // styleResources: {
+  //     scss: [
+  //       '@/assets/styles/index.scss'
+  //     ]
+  // },
   // BUILD MODULES
   buildModules: [],
   // ENVIRONNMENT
@@ -92,14 +93,14 @@ export default {
     apiURL: Project.env[env].apiURL
   },
   // SERVER
-  server: {     
+  server: {
     host: '0.0.0.0',
     port: Project.env[env].portURL
-  }, 
+  },
   // ROUTER
-  router: {     
+  router: {
     base: Project.env[env].baseURL
-  }, 
+  },
   // GENERATE
   generate: {
     routes: [],

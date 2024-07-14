@@ -1,5 +1,5 @@
 <template>
-<main 
+<main
         v-if="datas.tag === 'main'"
         :style="`
             position: relative;
@@ -9,7 +9,7 @@
     >
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
     </main>
-    <section 
+    <section
         v-else-if="datas.tag === 'section'"
         :style="`
             position: absolute;
@@ -19,8 +19,8 @@
     >
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
     </section>
-    <div 
-        v-else-if="datas.tag === 'div'" 
+    <div
+        v-else-if="datas.tag === 'div'"
         :class="datas.name"
         :style="`
             position: absolute;
@@ -30,7 +30,7 @@
     >
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
     </div>
-    <h2 
+    <h2
         v-else-if="datas.tag === 'h2'"
         :style="`
             position: absolute;
@@ -40,7 +40,7 @@
             height: ${datas.height}px;
         `"
     >{{ datas.characters }}</h2>
-    <p 
+    <p
         v-else-if="datas.tag === 'p'"
         :style="`
             position: absolute;
@@ -50,7 +50,7 @@
             height: ${datas.height}px;
         `"
     >{{ datas.characters }}</p>
-    <img 
+    <img
         v-else-if="datas.tag === 'img'" :src="url"
         :style="`
             position: absolute;
@@ -62,7 +62,7 @@
             transform-origin: top left;
         `"
     />
-    <!-- <main 
+    <!-- <main
         v-if="datas.tag === 'main'"
         :style="`
             position: relative;
@@ -72,7 +72,7 @@
     >
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
     </main>
-    <section 
+    <section
         v-else-if="datas.tag === 'section'"
         :style="`
             position: absolute;
@@ -82,8 +82,8 @@
     >
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
     </section>
-    <div 
-        v-else-if="datas.tag === 'div'" 
+    <div
+        v-else-if="datas.tag === 'div'"
         :class="datas.name"
         :style="`
             position: absolute;
@@ -93,7 +93,7 @@
     >
         <o-recursive :datas="data" v-for="(data, index) in datas.children" :key="index" />
     </div>
-    <h2 
+    <h2
         v-else-if="datas.tag === 'h2'"
         :style="`
             position: absolute;
@@ -103,7 +103,7 @@
             height: ${height}px;
         `"
     >{{ datas.characters }}</h2>
-    <p 
+    <p
         v-else-if="datas.tag === 'p'"
         :style="`
             position: absolute;
@@ -113,7 +113,7 @@
             height: ${height}px;
         `"
     >{{ datas.characters }}</p>
-    <img 
+    <img
         v-else-if="datas.tag === 'img'" :src="url"
         :style="`
             position: absolute;
@@ -123,8 +123,8 @@
             height: ${height}px;
         `"
     /> -->
-    <!-- <svg 
-        v-else-if="datas.tag === 'svg'" 
+    <!-- <svg
+        v-else-if="datas.tag === 'svg'"
         v-html="datas.content"
         :width="datas.width"
         :height="datas.height"
@@ -168,7 +168,7 @@ export default {
                     pixel: undefined,
                     pourcent: undefined
                 }
-            } 
+            }
         }
     },
     methods: {
@@ -176,7 +176,7 @@ export default {
             bytes = Uint8Array.from(Object.values(bytes));
             return URL.createObjectURL(
                 new Blob([bytes.buffer], { type: `image/${format}` })
-            ); 
+            );
         },
         // getResizeValue(value) {
         //     let low1 = 0;
@@ -243,7 +243,7 @@ export default {
         // getHeightPourcent(height, width) {
         //     return height * this.$data.width / width
         // }
-    },  
+    },
     mounted() {
         if (this.$props.datas.tag === 'img') {
             this.$data.url = this.getUrlImg(this.$props.datas.bytes, this.$props.datas.format);
@@ -273,6 +273,6 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="css">
 .o-header {}
 </style>

@@ -38,7 +38,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="css">
 .panel-body {
   display: inline-flex;
   align-items: center;

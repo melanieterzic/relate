@@ -20,7 +20,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="css">
 .play {
   position: absolute;
   top: 50%;
