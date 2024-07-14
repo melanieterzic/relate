@@ -22,6 +22,9 @@
     "vue-plyr": "^7.0.0"
   },
   "devDependencies": {
-    "prettier": "2.2.1"
-  }
+    "prettier": "2.2.1",
+    "node-gyp": "10.0.1",
+    "nan": "2.18.0"
+  },
+  "resolutions": { "nan": "2.18.0" }
 }
