@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "NODE_ENV=dev nuxt",
-    "preproduction": "NODE_ENV=preprod nuxt generate",
-    "production": "NODE_ENV=prod nuxt generate"
+    "preproduction": "NODE_OPTIONS=--openssl-legacy-provider NODE_ENV=preprod nuxt generate",
+    "production": "NODE_OPTIONS=--openssl-legacy-provider NODE_ENV=prod nuxt generate"
   },
   "dependencies": {
     "@nuxtjs/style-resources": "^1.0.0",

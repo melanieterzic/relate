@@ -1,7 +1,10 @@
 <template>
   <div :class="namePage()" class="page">
     <!-- <o-header/> -->
-    <nuxt/>
+    <div v-if="isDesktop"></div>
+    <div v-else>
+      <nuxt/>
+    </div>
     <!-- <o-footer/> -->
     <!-- <o-cookies/> -->
   </div>
@@ -11,6 +14,11 @@
 import { mapMutations } from "vuex";
 
 export default {
+  data() {
+      return {
+          isDesktop: false
+      };
+  },
   methods: {
     ...mapMutations(["controlDevice", "controlNavigator", "controlAspect"]),
     _initControls() {
@@ -44,7 +52,7 @@ export default {
       this.$nuxt.$emit("update");
     },
     namePage() {
-      let page = this.$route.name == "index" ? "home" : this.$route.name;   
+      let page = this.$route.name == "index" ? "home" : this.$route.name;
       return `p-${page}`;
     }
   },
@@ -59,6 +67,9 @@ export default {
     //   const to = asset;
     //   console.log(await to.callback(to.params))
     // });
+    if (window.innerWidth > 800) {
+      this.$data.isDesktop = true;
+    }
     this._initControls();
     this._initEvents();
     this._initUpdate();

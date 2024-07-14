@@ -2,8 +2,8 @@
   <div class="select-wrapper">
     <select name="languages" id="language-choice" class="langue">
       <option value="Français">Français</option>
-      <option value="English">English</option>
-      <option value="Español">Español</option>
+      <!-- <option value="English">English</option>
+      <option value="Español">Español</option> -->
     </select>
   </div>
 </template>

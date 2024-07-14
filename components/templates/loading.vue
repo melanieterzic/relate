@@ -1,8 +1,15 @@
 <template lang="html">
-  <div v-if="load" class="loading-page">
+  <div v-if="load && !isDesktop" class="loading-page">
     <div class="cont">
       <p>{{ name }}</p>
       <p class="subtitle">{{ subtitle }}</p>
+    </div>
+    <img src="~/assets/images/icon-loading.svg" alt="Icon boucle d'une ficelle qui entoure le titre de l'épisode." />
+  </div>
+  <div v-else-if="load && isDesktop" class="loading-page">
+    <div class="cont">
+      <p>Oops</p>
+      <p class="subtitle">This project is only available on mobile, please change your device.</p>
     </div>
     <img src="~/assets/images/icon-loading.svg" alt="Icon boucle d'une ficelle qui entoure le titre de l'épisode." />
   </div>
@@ -12,6 +19,7 @@
 export default {
   data() {
     return {
+      isDesktop: false,
       name: undefined,
       load: false,
     }
@@ -28,16 +36,19 @@ export default {
       this.subtitle = "Présentation";
     } else if (this.name === "Context 1") {
       this.name = "Contexte 1";
-      this.subtitle = "";  
+      this.subtitle = "";
     } else if (this.name === "Chapter 3") {
       this.name = "Episode 3";
-      this.subtitle = "Héritage culturel";  
+      this.subtitle = "Héritage culturel";
     }
     this.$data.load = true;
   },
   mounted() {
     // console.log('ok')
     // this.$el.classList.add('appear');
+    if (window.innerWidth > 800) {
+      this.$data.isDesktop = true;
+    }
   },
   watch: {
     "$store.state.loader.isLoading": function() {
@@ -60,10 +71,10 @@ export default {
           this.subtitle = "Présentation";
         } else if (this.name === "Context 1") {
           this.name = "Contexte 1";
-          this.subtitle = "";  
+          this.subtitle = "";
         } else if (this.name === "Chapter 3") {
           this.name = "Episode 3";
-          this.subtitle = "Héritage culturel";  
+          this.subtitle = "Héritage culturel";
         }
         this.$data.load = this.$store.state.loader.isLoading;
       }
@@ -139,7 +150,7 @@ export default {
   </div>
 </template>
 
-<script>  
+<script>
 export default {
   data() {
     return {
@@ -221,7 +232,7 @@ export default {
   </div>
 </template>
 
-<script>  
+<script>
 export default {
   data() {
     return {
@@ -391,7 +402,7 @@ export default {
     <p>Loading ...</p>
   </div>
 </template>
-<script>  
+<script>
 export default {
   data() {
     return {
@@ -469,7 +480,7 @@ export default {
     <p>Loading...</p>
   </div>
 </template>
-<script>  
+<script>
 import { mapMutations } from 'vuex'
 export default {
   mounted() {

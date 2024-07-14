@@ -48,8 +48,8 @@ export const state = () => ({
         // ressourcesNumber: 0,
         // ressourcesURL: []
     },
-    isSoundEnabled: false,
-    isSubtitlesEnabled: false,
+    isSoundEnabled: true,
+    isSubtitlesEnabled: true,
     isParamsOpen: false,
     recursive: {
         index: {
